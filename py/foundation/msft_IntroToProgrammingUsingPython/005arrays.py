@@ -26,7 +26,6 @@ for row in faangm:
     for col in row:
         {
             # print(col, end = "\t")
-            
             print('${:,.0f}'.format(col), end = "\t")
             
             # where:
