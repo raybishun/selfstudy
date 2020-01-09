@@ -31,7 +31,7 @@ for row in faangm:
             
             # where:
             # :,    = adds the ,
-            # .0f   = number of decimal places
+            # .0f   = number of decimal places (none in this case)
         }
     # CRLF after each row is printed
     print()
