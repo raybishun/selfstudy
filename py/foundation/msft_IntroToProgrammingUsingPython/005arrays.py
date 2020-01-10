@@ -4,10 +4,8 @@
 nums = { 'a', 'b', 'c', 'd', 'e' }
 
 for num in nums:
-    {
-        print(num)
-    }
-
+    print(num)
+    
 # =============================================================================
 # Two Dimensional Array
 # =============================================================================
@@ -24,13 +22,12 @@ print("Open\t", "High\t", "Low\t", "Close")
 
 for row in faangm:
     for col in row:
-        {
-            # print(col, end = "\t")
-            print('${:,.0f}'.format(col), end = "\t")
+        # print(col, end = "\t")
+        print('${:,.0f}'.format(col), end = "\t")
             
-            # where:
-            # :,    = adds the ,
-            # .0f   = number of decimal places (none in this case)
-        }
+        # where:
+        # :,    = adds the ,
+        # .0f   = number of decimal places (none in this case)
+
     # CRLF after each row is printed
     print()
