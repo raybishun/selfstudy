@@ -6,7 +6,7 @@ import xml.dom.minidom
 # Create input xml file
 # =============================================================================
 try:
-    f = open('009data.xml', 'w')
+    f = open('009_data.xml', 'w')
     f.write('<?xml version="1.0" encoding="UTF-8"?>\r')
     f.write('<stocks>\r')
     
@@ -61,7 +61,7 @@ except:
 # Parse xml
 # =============================================================================
 try:
-    domtree = xml.dom.minidom.parse("009data.xml")
+    domtree = xml.dom.minidom.parse("009_data.xml")
 
     collection = domtree.documentElement
 
