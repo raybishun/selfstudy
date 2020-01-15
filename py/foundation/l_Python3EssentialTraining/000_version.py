@@ -1,10 +1,6 @@
 # =============================================================================
-# Hello World!
+# Version
 # =============================================================================
-def main():
-    greeting()
-
-def greeting():
-    print('Hello, World!')
-
-if __name__ == '__main__': main()
+import platform
+version = platform.python_version()
+print('Python version: {}'.format(version))
