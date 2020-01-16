@@ -55,9 +55,94 @@ print(f'{x}')
 print(type(x))
 
 # =============================================================================
-# 
+# Bool
 # =============================================================================
+x = True
+print(f'{x}')
+print(type(x))
 
 # =============================================================================
-# 
+# None type
+# =============================================================================
+x = None
+print(f'{x}')
+print(type(x))
+
+# =============================================================================
+# What returns false?
+# =============================================================================
+
+# None returns false
+x = None
+print(f'{x}')
+print(type(x))
+
+if x: 
+    print("True")
+else:
+    print("False")
+
+# 0 returns false
+x = 0
+print(f'{x}')
+print(type(x))
+
+if x: 
+    print("True")
+else:
+    print("False")
+
+# Empty string returns false
+x = ""
+print(f'{x}')
+print(type(x))
+
+if x: 
+    print("True")
+else:
+    print("False")
+
+# =============================================================================
+# Sequence types
+# =============================================================================
+# lists
+x = [1, 2, 3, 4, 5]
+x[1] = 22 # lists are mutable
+for i in x:
+    print(f'i = {i}')
+
+# Tuple
+# Are immutable
+x = (1, 2, 3, 4, 5)
+#x[1] = 22 # lists are mutable
+for i in x:
+    print(f'i = {i}')
+print()
+
+# Ranges
+# Are immutable
+x = range(5) # where 5 is end
+for i in x:
+    print(f'i = {i}')
+print()
+
+x = range(5, 10) # where 5 is start, and 10 is end
+for i in x:
+    print(f'i = {i}')
+print()
+
+x = range(0, 10, 2) # where 5 is start, 10 is end, and 2 is step
+for i in x:
+    print(f'i = {i}')
+print()
+
+# Range can be mutable - if you enclose in a list
+x = list(range(5))
+x[1] = 11
+for i in x:
+    print(f'i = {i}')
+print()
+
+# =============================================================================
+# Dictionary
 # =============================================================================
