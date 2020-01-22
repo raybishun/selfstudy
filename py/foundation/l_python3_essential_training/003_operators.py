@@ -101,11 +101,67 @@ print()
 # -----------------------------------------------------------------------------
 # Comparison Operators
 # -----------------------------------------------------------------------------
+"""
+    <
+    >
+    <=
+    >=
+    ==  Checks if values are the same
+    !=
+"""
+
+# Check if values are the same
+x = 1
+y = 2
+if x == y:
+    print('Same')
+else:
+    print('Different')
 
 # -----------------------------------------------------------------------------
 # Boolean Operators
 # -----------------------------------------------------------------------------
+"""
+    and     Both operands must be True
+    or      At least one operand must be True
+    not     'Unary Not'
+    in      Value in collection
+    not in  Value not in collection
+    is      Same object ID
+    is not  Different object ID
+"""
+
+# 'and' - both operands must be true
+t = True
+f = False
+if t and f:
+    print('True')
+else:
+    print('False')
+
+# 'in' - check if value exists in collection
+listNums = [1, 2, 3, 4, 5]
+if 33 in listNums:
+    print('True')
+else:
+    print('False')
+
 
 # -----------------------------------------------------------------------------
-# per Precedence
+# Operator Precedence
 # -----------------------------------------------------------------------------
+"""
+    **              Exponent
+    +x, -x          Positive, Negative
+    *, /, //, %     Multiplication, Division, Remainder
+    +, -            Addition, Subtraction
+    <<, >>          Bitwise Shifts
+    &               Bitwise AND
+    ^               Bitwise XOR
+    |               Bitwise OR
+    in, not in, is, is not, <, <=, >, >=, !=, ==
+                    Comparison, including membership tests and ID tests
+    not x           Boolean NOT
+    and             Boolean AND
+    or              Boolean OR
+"""
