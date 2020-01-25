@@ -2,6 +2,9 @@
 # Bitwise Operators
 # =============================================================================
 """
+    The Bitwise operators are used to work with numbers, specifically 
+    the underlying ints and uints bits at the binary level.
+
     &   And
     |   Or
     ^   Xor
@@ -18,7 +21,7 @@ z = x & y
 #   Note, the format specifiers are set to return
 #   a 2 character string, 
 #   with a leading zero,
-#   and 'x' denoting hex
+#   and 'x' denotes hex
 print(f'x is {x:02x}')
 print(f'y is {y:02x}')
 print(f'z is {z:02x}')
@@ -28,13 +31,12 @@ print()
 #   Note, the format specifiers are set to return
 #   an 8 character string, 
 #   with a leading zero,
-#   and 'b' denoting binary
+#   and 'b' denotes binary
 print(f'x is {x:08b}')
 print(f'y is {y:08b}')
 print(f'z is {z:08b}')
 print()
 
 # Note about the binary results when using the '&' operator:
-#   '&' will only set bits if both operands have bits set 
-#   in the same position.
+#   '&' will only set bits if both operands have bits set in the same position.
 #   This is why 00001010 & 00000010 = 00000010
