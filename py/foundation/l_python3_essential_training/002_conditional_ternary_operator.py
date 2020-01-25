@@ -1,7 +1,7 @@
 # =============================================================================
 # Ternary Operator
 # =============================================================================
-ExitPosition = False
+ExitPosition = True
 
 x = 'Flatten position.' if ExitPosition else 'Let it ride...'
 
