@@ -1,19 +1,19 @@
 # =============================================================================
 # Objects
 # =============================================================================
-class Duck:
-    sound = 'Quaack!'
-    walking = 'Walks like a duck.'
+class Car:
+    make = 'BMW'
+    model = '540i xDrive'
 
-    def quack(self):
-        print(self.sound)
+    def get_make(self):
+        print(self.make)
     
-    def walk(self):
-        print(self.walking)
+    def get_model(self):
+        print(self.model)
 
 def main():
-    donald = Duck()
-    donald.quack()
-    donald.walk()
+    car = Car()
+    car.get_make()
+    car.get_model()
 
 if __name__ == '__main__': main()
