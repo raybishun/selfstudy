@@ -2,12 +2,14 @@
 # Bitwise Operators
 # =============================================================================
 """
-    The Bitwise operators are used to work with numbers, specifically 
-    the underlying ints and uints bits at the binary level.
+    Bitwise operators are used to work with numbers,
+    specifically, the underlying ints and uints bits.
 
+    Bitwise operators include:
+    
     &   And
     |   Or
-    ^   Xor
+    ^   Xor (exclusive Or)
     <<  Shift left
     >>  Shift right
 """
@@ -37,6 +39,72 @@ print(f'y is {y:08b}')
 print(f'z is {z:08b}')
 print()
 
-# Note about the binary results when using the '&' operator:
-#   '&' will only set bits if both operands have bits set in the same position.
-#   This is why 00001010 & 00000010 = 00000010
+# -----------------------------------------------------------------------------
+# And
+# -----------------------------------------------------------------------------
+print('\x1b[2J')
+
+x = 0x0a
+y = 0x02
+
+def display_x_and_y():
+    print(f'{x:02x}\t{x:08b}\t{x:02d}')
+    print(f'{y:02x}\t{y:08b}\t{y:02d}')
+
+z = x & y
+display_x_and_y()
+print('& (And) ------------------------')
+print(f'{z:02x}\t{z:08b}\t{z:02d}') # set only when both bits are set
+print()
+print()
+
+# -----------------------------------------------------------------------------
+# Or 
+# -----------------------------------------------------------------------------
+z = x | y
+display_x_and_y()
+print('| (Or) -------------------------')
+print(f'{z:02x}\t{z:08b}\t{z:02d}') # set if one of the bits are set
+print()
+print()
+
+# -----------------------------------------------------------------------------
+# Xor (exclusive Or) 
+# -----------------------------------------------------------------------------
+z = x ^ y
+display_x_and_y()
+print('^ (Xor) ------------------------')
+print(f'{z:02x}\t{z:08b}\t{z:02d}') # set when only one bit is set
+print()
+print()
+
+# -----------------------------------------------------------------------------
+# <<  Shift left
+# -----------------------------------------------------------------------------
+y = 0x03
+z = x << y
+display_x_and_y()
+print('<< (Shift Left) ----------------')
+print(f'{z:02x}\t{z:08b}\t{z:02d}') # shift x 3 to the left
+print()
+print()
+
+# -----------------------------------------------------------------------------
+# <<  Shift left (example 2)
+# -----------------------------------------------------------------------------
+y = 0x05
+z = x << y
+display_x_and_y()
+print('<< (Shift Left) ----------------')
+print(f'{z:02x}\t{z:08b}\t{z:02d}') # shift x 5 to the left
+print()
+print()
+
+# -----------------------------------------------------------------------------
+# <<  Shift Right
+# -----------------------------------------------------------------------------
+y = 0x02
+z = x >> y
+display_x_and_y()
+print('>> (Shift Right) ---------------')
+print(f'{z:02x}\t{z:08b}\t{z:02d}') # shift x 2 to the right
