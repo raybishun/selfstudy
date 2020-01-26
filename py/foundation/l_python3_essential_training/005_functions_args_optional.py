@@ -1,12 +1,12 @@
 # =============================================================================
-# Functions Arguments
+# Functions: Optional Arguments
 # =============================================================================
 
-def main():
-    kitten(5, 6)
+def add(op1, op2 = 1):
+    print(op1 + op2)
 
-def kitten(a, b, c = 0):
-    print('meow')
-    print(a, b, c)
+def main():
+    add(2, 3)
+    add(2)
 
 if __name__ == '__main__': main()
