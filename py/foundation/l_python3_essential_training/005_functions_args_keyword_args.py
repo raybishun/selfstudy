@@ -1,16 +1,23 @@
 # =============================================================================
-# Functions: KeyWord Arguments (aka Named Arguments)
+# Functions: KeyWord Arguments
 # =============================================================================
 print('\x1b[2J')
 
 def nums(**kwargs):
    if len(kwargs):
       for k in kwargs:
-         print('Num {} is {}'.format(k, kwargs[k])) 
+         print('Value of {} is {}'.format(k, kwargs[k])) 
    else:
       print('done.')
 
 def main():
-   nums(One = 1, Two = 2, Three = 3)
+   nums(one = 1, two = 2, three = 3)
+   print()
+
+   nums(bmw = '540ix', mb = 'sl 500', honda = 'accord')
+   print()
+
+   x = dict(bmw = '540ix', mb = 'sl 500', honda = 'accord')
+   nums(**x)
 
 if __name__ == '__main__': main()
