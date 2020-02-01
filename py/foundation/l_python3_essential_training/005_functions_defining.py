@@ -6,11 +6,11 @@
 """
 import os
 
-def greeting(str):
-    print(f'{str}, {os.getlogin()}')
-
 def main():
     greeting('Hello')
+	
+def greeting(str):
+    print(f'{str}, {os.getlogin()}')
 
 # the special variable __name__ will return the name of the current imported 
 # module, however, since in this case this script is not an imported module, 
