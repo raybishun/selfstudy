@@ -4,6 +4,12 @@
 print('\x1b[2J')
 
 def main():
+   nums(one = 1)
+   print()
+   
+   nums(one = 1, two = 2)
+   print()
+
    nums(one = 1, two = 2, three = 3)
    print()
 
