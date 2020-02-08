@@ -12,16 +12,20 @@ namespace ref48
         static void Greeting()
         {
             // Summary:
-            //  C# source code is compiled to Common
-            //      Intermediate Language
-            //      (CIL, aka IL, MSIL).
-            //  Just-in-time compilation compiles
-            //      the code to Native Machine Code
+            //  Compilation 1 of 2
+            //      C# source code is compiled 
+            //      to Common Intermediate Language
+            //      (CIL, aka IL, aka MSIL).
+            //  Compilation 2 of 2
+            //      The Just-in-time (JIT) compiler 
+            //      compiles CIL to Native Machine Code
             //      (based on the computer's architecture).
-            //  The Common Language Runtime (CLR) executes
-            //      this Native Machine Code.
-            //  The CLR provides security and memory
-            //      management for the code it executes.
+            //  Execution
+            //      The Common Language Runtime (CLR)
+            //      executes Native Machine Code.
+            //  Security & Management
+            //      The CLR provides security and memory
+            //      management for code it executes.
             
             Console.WriteLine("Hello, World!");
         }
