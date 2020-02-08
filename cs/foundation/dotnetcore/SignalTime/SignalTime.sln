@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalTime", "SignalTime\SignalTime.csproj", "{0888933E-8CCB-4FF4-B8D4-724F74BA151F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0888933E-8CCB-4FF4-B8D4-724F74BA151F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0888933E-8CCB-4FF4-B8D4-724F74BA151F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0888933E-8CCB-4FF4-B8D4-724F74BA151F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0888933E-8CCB-4FF4-B8D4-724F74BA151F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1CEC0833-A5CD-4FF1-BFBE-7D2004BCC95F}
+	EndGlobalSection
+EndGlobal
