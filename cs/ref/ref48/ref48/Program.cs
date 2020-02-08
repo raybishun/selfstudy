@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Principal;
 
 namespace ref48
 {
@@ -6,10 +7,10 @@ namespace ref48
     {
         static void Main(string[] args)
         {
-            Greeting();
+            Console.WriteLine(GetGreeting("Hello World!"));
         }
 
-        static void Greeting()
+        static string GetGreeting(string greeting)
         {
             // Summary:
             //  Compilation 1 of 2
@@ -26,8 +27,15 @@ namespace ref48
             //  Security & Management
             //      The CLR provides security and memory
             //      management for code it executes.
-            
-            Console.WriteLine("Hello, World!");
+
+            try
+            {
+                return $"{WindowsIdentity.GetCurrent().Name} says {greeting}.";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }
