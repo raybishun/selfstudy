@@ -23,3 +23,16 @@ print()
 
 # Search by key
 print('close' in price)
+print()
+
+# Get keys
+print(price.keys())
+print(list(price.keys())) # cast to a list
+
+# Get values
+print(price.values())
+print(list(price.values())) # cast to a list
+
+# Get as tuples (returs both the keys and values)
+print(price.items())
+print(list(price.items()))
