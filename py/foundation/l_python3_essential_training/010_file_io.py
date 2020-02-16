@@ -1,7 +1,6 @@
 # =============================================================================
 # File: I/O
 # =============================================================================
-
 def main():
     # open file for reading (the default if not specified)
     # modes include: r=reading, w=writing, a=append
@@ -17,6 +16,5 @@ def main():
     f = open('010_file_io.txt', 'r')
     for line in f:
         print(line.rstrip())
-
 
 if __name__ == '__main__': main()
