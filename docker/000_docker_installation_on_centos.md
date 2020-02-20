@@ -34,5 +34,6 @@ exit (best practice to logout out, i.e. verify env variables work as expected)
 docker run hello-world (should now run w/o sudo)
 
 # Automated Installation of Docker on CentOS
+
 ## Review script by opening https://get.docker.com in your browser
 wget -qO- https://get.docker.com |sh
