@@ -28,5 +28,5 @@
 5. cat onboarding/dockerfile
  
 # Retrieve image from DockerHub
-1. docker pull raybishun/onboarding:v1
-2. docker image ls
+`docker pull raybishun/onboarding:v1`
+`docker image ls`
