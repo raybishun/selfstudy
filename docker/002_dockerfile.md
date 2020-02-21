@@ -1,18 +1,18 @@
-# Creating a dockerfile
-mkdir onboarding
-cd onboarding
-vim dockerfile
-	FROM ubuntu:16.04
-	LABEL maintainer="ray.bishun@bitsbytes.com"
-	RUN apt-get update
-	RUN apt-get install-y python
-	:wq
+### Creating a dockerfile
+1. mkdir onboarding
+2. cd onboarding
+3. vim dockerfile
+- FROM ubuntu:16.04
+- LABEL maintainer="ray.bishun@bitsbytes.com"
+- RUN apt-get update
+- RUN apt-get install-y python
+- :wq
 	
-# Build docker file
-docker build . (to use the local file) || <docker_file_name>
+### Build docker file
+1. docker build . (to use the local file) || <docker_file_name>
 
-# What just happended
-Step 1/4: Pull ubuntu
-Step 2/4: Adds label
-Step 3/4: RUN apt-get update
-Step 4/4: RUN apt-get install-y python
+### What just happended
+1. Step 1/4: Pull ubuntu
+2. tep 2/4: Adds label
+3. Step 3/4: RUN apt-get update
+4. Step 4/4: RUN apt-get install-y python

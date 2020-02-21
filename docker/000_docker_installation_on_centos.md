@@ -1,39 +1,39 @@
 # Manually Install Docker on CentOS
 
-## Prerequisites
+### Prerequisites
 1. (1) Linux (centos 7.7.1908) Azure VM was used
-1a. Specs: Standard B1s (1 vcpus, 1 GiB memory)
+- Specs: Standard B1s (1 vcpus, 1 GiB memory)
 
-## check Linux version
-cat /etc/redhat-release
+### check Linux version
+1. cat /etc/redhat-release
 
-## check/install dependencies
-sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+### check/install dependencies
+1. sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 
-## add URL to where you will download docker repo (docker-ce = community ed, docker-ee = entp ed)
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+### add URL to where you will download docker repo (docker-ce = community ed, docker-ee = entp ed)
+1. sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-## install docker (docker-ce = community ed, docker-ee = entp ed)
-sudo yum install docker-ce
+### install docker (docker-ce = community ed, docker-ee = entp ed)
+1. sudo yum install docker-ce
 
-## NOTE: If not found, docker's GPG keys will be automatically imported
+- NOTE: If not found, docker's GPG keys will be automatically imported
 
-## POST Install - enable and start docker
-sudo systemctl enable docker
-sudo systemctl start docker
+### POST Install - enable and start docker
+1. sudo systemctl enable docker
+1. sudo systemctl start docker
 
-## Checkouts (installation validation)
-docker --version
-docker version
-sudo docker run hello-world
+### Checkouts (installation validation)
+1. docker --version
+1. docker version
+1. sudo docker run hello-world
 
-## Now let's add a regular to the docker user group (so you're not running via sudo)
-sudo usermod -a -G docker ray_so
-(sudo usermod -aG docker ray_so)
-exit (best practice to logout out, i.e. verify env variables work as expected)
-docker run hello-world (should now run w/o sudo)
+### Now let's add a regular to the docker user group (so you're not running via sudo)
+1. sudo usermod -a -G docker ray_so
+- sudo usermod -aG docker ray_so
+2. exit (best practice to logout out, i.e. verify env variables work as expected)
+3. docker run hello-world (should now run w/o sudo)
 
 # Automated Installation of Docker on CentOS
 
-## Review script by opening https://get.docker.com in your browser
-wget -qO- https://get.docker.com |sh
+### Review script by opening https://get.docker.com in your browser
+1. wget -qO- https://get.docker.com |sh

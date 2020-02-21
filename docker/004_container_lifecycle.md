@@ -1,32 +1,32 @@
 # Lifecycle = Start --> Running --> Stop
 
-# List Conainers in a stopped state
-docker container ls -a
+### List Conainers in a stopped state
+1. docker container ls -a
 
-# Run container (and 'attach' to it - get inside)
-docker container run -it ubuntu:16.04
+### Run container (and 'attach' to it - get inside)
+1. docker container run -it ubuntu:16.04
 
-# List running containers from another terminal session
-docker container ls
+### List running containers from another terminal session
+1. docker container ls
 	- note the 'friendly_wiles' name
 	- provided since you didn't provide a name for the container
 	- find name generator here: https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go (https://mobyproject.org/)
 
-# exit container and check if still running
-exit
-docker container ps -a
+### exit container and check if still running
+1. exit
+2. docker container ps -a
 
-# Run the same container again
-docker container ls -a
-	note the name (or image id)
-docker container start friendly_wiles
+### Run the same container again
+1. docker container ls -a
+- note the name (or image id)
+2. docker container start friendly_wiles
 
-# Check if running
-docker container ls
+### Check if running
+1. docker container ls
 
-# Show status
-docker container ls -a
+### Show status
+1. docker container ls -a
 
-# Attach to a running container
-docker attach friendly_wiles
-exit
+### Attach to a running container
+1. docker attach friendly_wiles
+2. exit
