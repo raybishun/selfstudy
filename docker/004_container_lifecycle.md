@@ -8,18 +8,17 @@
 
 ### List running containers from another terminal session
 1. docker container ls
-	- note the 'friendly_wiles' name
-	- provided since you didn't provide a name for the container
-	- find name generator here: https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go (https://mobyproject.org/)
+	- Note the 'friendly_wiles' name
+	- Provided since you didn't provide a name for the container
+	- Find name generator here: https://github.com/moby/moby/blob/master/pkg/namesgenerator/names-generator.go (https://mobyproject.org/)
 
 ### exit container and check if still running
 1. exit
-2. docker container ps -a
+1. docker container ps -a
 
 ### Run the same container again
-1. docker container ls -a
-- note the name (or image id)
-2. docker container start friendly_wiles
+1. docker container ls -a (note the name and image id)
+1. docker container start friendly_wiles
 
 ### Check if running
 1. docker container ls
@@ -29,4 +28,4 @@
 
 ### Attach to a running container
 1. docker attach friendly_wiles
-2. exit
+1. exit

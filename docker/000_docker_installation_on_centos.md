@@ -1,7 +1,7 @@
 # Manually Install Docker on CentOS
 
 ### Prerequisites
-1. (1) Linux (centos 7.7.1908) Azure VM was used
+- A Linux (centos 7.7.1908) Azure VM was used during this walkthrough
 - Specs: Standard B1s (1 vcpus, 1 GiB memory)
 
 ### Check Linux version
@@ -15,8 +15,7 @@
 
 ### Install docker (docker-ce = community ed, docker-ee = entp ed)
 1. sudo yum install docker-ce
-
-- NOTE: If not found, docker's GPG keys will be automatically imported
+1. NOTE If not found, docker's GPG keys will be automatically imported
 
 ### Post install - enable and start docker
 1. sudo systemctl enable docker
@@ -29,9 +28,9 @@
 
 ### Now let's add a regular to the docker user group (so you're not running via sudo)
 1. sudo usermod -a -G docker ray_so
-- sudo usermod -aG docker ray_so
-2. exit (best practice to logout out, i.e. verify env variables work as expected)
-3. docker run hello-world (should now run w/o sudo)
+1. OR sudo usermod -aG docker ray_so
+1. exit (best practice to logout out, i.e. verify env variables work as expected)
+1. docker run hello-world (should now run w/o sudo)
 
 # Automated Installation of Docker on CentOS
 
