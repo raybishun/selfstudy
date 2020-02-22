@@ -4,21 +4,21 @@
 1. (1) Linux (centos 7.7.1908) Azure VM was used
 - Specs: Standard B1s (1 vcpus, 1 GiB memory)
 
-### check Linux version
+### Check Linux version
 1. cat /etc/redhat-release
 
-### check/install dependencies
+### Check/install dependencies
 1. sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 
-### add URL to where you will download docker repo (docker-ce = community ed, docker-ee = entp ed)
+### Add URL to where you will download docker repo (docker-ce = community ed, docker-ee = entp ed)
 1. sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-### install docker (docker-ce = community ed, docker-ee = entp ed)
+### Install docker (docker-ce = community ed, docker-ee = entp ed)
 1. sudo yum install docker-ce
 
 - NOTE: If not found, docker's GPG keys will be automatically imported
 
-### POST Install - enable and start docker
+### Post install - enable and start docker
 1. sudo systemctl enable docker
 1. sudo systemctl start docker
 

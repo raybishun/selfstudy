@@ -1,6 +1,6 @@
 # Lifecycle = Start --> Running --> Stop
 
-### List Conainers in a stopped state
+### List containers in a stopped state
 1. docker container ls -a
 
 ### Run container (and 'attach' to it - get inside)

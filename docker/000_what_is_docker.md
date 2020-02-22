@@ -1,4 +1,4 @@
-# What is Docker
+# What is Docker?
 - Docker is used to ensure software will always run regardless of the server hardware and OS
 - A Docker image includes all dependencies
 - Server --> Host OS --> Running the Docker Engine --> hosting containers that run Docker Apps

@@ -10,11 +10,11 @@
 9. exit
 10. docker ps -a (verify container still running)
 
-### use the container to create a new image
+### Use the container to create a new image
 1. docker commit heuristic_hugle
 2. raybishun/my-ubuntu-image-feb19:sometag
 3. docker images
 
-### push to dockerhub account
+### Push to DockerHub account
 1. docker login
 2. docker push raybishun/my-ubuntu-image-feb19:sometag

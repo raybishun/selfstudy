@@ -1,21 +1,21 @@
 # Image & Container Management
 
-### List Running Docker Containers
+### List running docker containers
 1. docker container ls
 
-### List Running Docker Containers -All
+### List running docker containers -all
 1. docker container ls -a
 
-### Remove a Docker Container <Container ID>
+### Remove a docker container <container id>
 1. docker container rm a10c40fde697
 
-### Remove a Docker Container <names>
+### Remove a docker container <names>
 1. docker container rm heuristic_hugle
 
-### List Images
+### List images
 1. docker images
 
-### Remove Images <image id>
+### Remove images <image id>
 1. docker rmi cd47d6573802
  
 ### Push to DockerHub
