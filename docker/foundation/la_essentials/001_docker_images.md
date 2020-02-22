@@ -12,7 +12,8 @@
 
 ### Run an image
 1. docker images
-2. docker run <repository> || <image id>
+1. docker run repository
+1. OR docker run image id
 
 ### Purge all dangling images, containers, volumes and networks
 1. docker system prune
