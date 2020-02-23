@@ -72,3 +72,4 @@
 1. Image layers are cached by the Docker build and push system
 1. The bottom layers are read-only, except for the (thin) top layer (which improves performance)
 1. The (thin) top layer is the container layer for your code (app)
+1. Be cautions of the size, security and source when using the FROM statement in a Dockerfile

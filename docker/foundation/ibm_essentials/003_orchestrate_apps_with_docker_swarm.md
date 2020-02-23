@@ -1,6 +1,8 @@
 # Orchestrate apps with Docker Swarm
 
+- The Docker Swarm uses a declarative model
 - A Swarm is comprised of one or more nodes creating a cluster that forms a routing mesh that acts as a load balancer for containers
+- A request over a service's published port gets routed to a node running a container for that service
 - Note however, a routing mesh is limited to publishing only one service over port 80; if multiple services need to be exposed over port 80, you'll need to use a 3rd party load-balancer solution
 - Docker Swarm has an inspect-and-adapt model, i.e. if a node becomes unavailable, the swarm automatically senses this, and will reschedule containers on available nodes
 - We will create a 3-node swarm with 1 master and 2 worker nodes, note however, in a production environment you would also cluster the master (aka manager node)
@@ -9,6 +11,7 @@
 	- 3 manager nodes protects against a single manager node failure
 	- 5 manager nodes protects against 2 manager node failures
 	- 7 manager nodes protects against 3 manager node failures (note it's advised to not exceed 7 manager nodes)
+- During the creation of a swarm, a Join Token gets generated - this is to prevent malicious nodes from joining the swarm
 - Workers nodes utilize the gossip protocol (which is optimized for large network)
 - Worker nodes only run containers (although manager nodes can as well)
 - Built in templates can be used to quickly deploy multiple manage node configurations, i.e. find and select the Template (wrench) icon in the free Play-with-Docker lab portal (mentioned below)
