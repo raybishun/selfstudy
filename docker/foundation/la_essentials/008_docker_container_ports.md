@@ -16,5 +16,5 @@
 7. docker container run -d -P nginx (where -P maps a random ephemeral port to a local port on our container)
 8. docker container ls (show status of RUNNING containers)
 9. docker container run -d -p 80:80 httpd
-10. curl -4 icanhazip.com (get the public IP address of your host server)
+10. TIP curl -4 icanhazip.com (get the public IP address of your host server)
 11. elinks <public IP address> (confirm you are able to view the default nginx web page)

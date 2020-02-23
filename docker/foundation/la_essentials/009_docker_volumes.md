@@ -7,7 +7,7 @@
 ### Start with a clean slate
 1. docker container ls (show status of RUNNING containers)
 2. docker container ls -a
-3. docker stop <container id> (if necessary)
+3. docker stop container_id (if necessary)
 4. docker image ls
 
 ### Create a new volume
