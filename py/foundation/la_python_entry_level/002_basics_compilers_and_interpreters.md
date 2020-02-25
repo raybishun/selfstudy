@@ -7,7 +7,7 @@
 ### 
 - Python actually uses a compiler behind the scenes
 - And code is compiled to intermediate code (aka bytecode) which is what gets executed
-- Seems Python also uses an Interpreter as well *** Need to research this ***
+- *** Seems Python also uses an Interpreter as well
 
 ### Compilation
 1. Lexical (lexing) analysis (each word, aka token in a statement is classified)
