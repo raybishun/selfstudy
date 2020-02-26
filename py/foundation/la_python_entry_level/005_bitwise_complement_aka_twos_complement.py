@@ -1,0 +1,17 @@
+# =============================================================================
+# Bitwise Complement (aka Two's complement)
+# =============================================================================
+a = 2
+print(f'binary: {bin( a )}')
+
+ # Bitwise Complement (aka Two's complement)
+print(f'{ ~a }')
+
+# ~a simply takes a negative of your number, minus 1
+print(f'{ -a - 1 }')
+
+# or said differently
+# ~a simply takes minus 1, times your number, minus 1
+print(f'{ -1 * a - 1 }')
+
+print(f'binary: {bin( ~a )}')
