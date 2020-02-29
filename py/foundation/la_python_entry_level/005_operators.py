@@ -16,5 +16,5 @@ print(5 // 3)
 # Modulo (returns only the remainder)
 print(5 % 3)
 
-# Exponents
-print(2 ** 3) # 2 x 2 x 2 = 8
+# Power
+print(2 ** 3) # 2 x 2 x 2 = 8 (in math it's 2 ^ 3)
