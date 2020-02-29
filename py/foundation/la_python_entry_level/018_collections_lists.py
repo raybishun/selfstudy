@@ -40,3 +40,7 @@ print( list(reversed(my_list)) )
 
 # Sorting: sort, reverse, then return as list
 print(list(reversed(sorted(my_list))))
+
+# Unpacking lists into variables
+v, w, x, y, z = my_list
+print(x) # returns 3
