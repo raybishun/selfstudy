@@ -26,5 +26,5 @@ print()
 # Return index (note, first item is 0)
 print("hello world".find('e'))
 print("hello world".find('ll'))
-print("hello world".find('hi')) # retuns -1 if not found
+print("hello world".find('hi')) # returns -1 if not found
 print('Hello World'.lower())
