@@ -157,3 +157,17 @@ faang_dict = {'FB': 192.47, 'AAPL': 273.36, 'AMZN':1883.75, 'NFLX':369.03, 'GOOG
 # def calc(n1, n2=100):
 #     return n1 + n2
 # print(calc(1, 2))
+
+# def fib(n):
+#     a, b = 0, 1
+#     for _ in range(1, n):
+#         a, b = b, a + b
+#         yield a
+# get_fibs = fib(6)
+# print(get_fibs)       #  --> return <generator object fib at 0x0000026BE0F65580>>
+# # calling next(get_fibs) returns fib values
+# print(next(get_fibs)) # --> return 1
+# print(next(get_fibs)) # --> return 1
+# print(next(get_fibs)) # --> return 2
+# print(next(get_fibs)) # --> return 3
+# print(next(get_fibs)) # --> return 5
