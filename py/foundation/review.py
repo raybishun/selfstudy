@@ -58,4 +58,65 @@ faang_dict = {'FB': 192.47, 'AAPL': 273.36, 'AMZN':1883.75, 'NFLX':369.03, 'GOOG
 # print(val) # --> returns 1 (the initial value is used)
 # val *= 3
 # print(val) # --> returns 3 (1 * 3 = 3)
+
+# -----------------------------------------------------------------------------
+# # Space is the default separator for print()
+# a = 'Hello'
+# b = 'World'
+# print(a,b)
+# # --> returns 3 Hello World
+
+# a = 2
+# b = 1
+# c = a // 2 # --> returns 1
+# print(c) # --> returns 1
+# print(a == b)  # --> returns False
+
+# num = 1
+# if num < 2:
+#     print('< 2')
+# if num > 2:
+#     print('> 2')
+# else:
+#     print('< 2')
+
+# num = 1
+# if num < 2:
+#     print('< 2')
+# elif num > 2:
+#     print('> 2')
+# else:
+#     print('< 2')
+
+# i = 1
+# if i > 2 or 1 > 1:
+#     print('ok')
+# elif i < 1:
+#     print('ok')
+# else:
+#     print("nok")
+
+# print(ord('a'))
+# print(ord('b'))
+# print(ord('c'))
+
+# print(ord('a'))
+# print(ord('b'))
+# print(ord('c'))
+
+# r1 = ('a', 'b' 'c')
+# r2 = ('d', 'e' 'f')
+# i = 0
+# while i < len(r1):
+#     for item in r2:
+#         print(r1[i], item)
+#     i += 1
+
+# print(faang_list[:3])
+# print(faang_list)
+
+# print(faang_dict)
+# print(faang_dict.keys())
+# print(faang_dict.values())
+
 # -----------------------------------------------------------------------------
