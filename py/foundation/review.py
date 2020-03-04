@@ -120,3 +120,40 @@ faang_dict = {'FB': 192.47, 'AAPL': 273.36, 'AMZN':1883.75, 'NFLX':369.03, 'GOOG
 # print(faang_dict.values())
 
 # -----------------------------------------------------------------------------
+# print(faang_dict)
+# del faang_dict['AAPL']
+# print(faang_dict)
+
+# print(faang_dict)
+# print(faang_dict.values())
+# return_as_string = [str(price) for price in faang_dict.values()]
+# print(return_as_string)
+
+# *** the below lists point to the same location in memory
+# print(faang_list)
+# faang_list2 = faang_list
+# faang_list.append('MSFT')
+# sorted(faang_list2)
+# print(faang_list)
+# print(faang_list2)
+# print(id(faang_list))
+# print(id(faang_list2))
+
+# print(faang_list)
+# faang_list.insert(2, 'MSFT')
+# print(faang_list)
+# faang_list[2] = 'MS'
+# print(faang_list)
+
+# def greeting(name, message):
+#     print(message, name, sep=", ")
+# greeting("Ray", message="hi")
+# greeting(name="Ray", message="hi")
+
+# def calc(n1, n2=100):
+#     n1 + n2
+# print(calc(1, 2)) # --> returns None (because return statement not specified)
+
+# def calc(n1, n2=100):
+#     return n1 + n2
+# print(calc(1, 2))
