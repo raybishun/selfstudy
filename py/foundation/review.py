@@ -158,6 +158,7 @@ faang_dict = {'FB': 192.47, 'AAPL': 273.36, 'AMZN':1883.75, 'NFLX':369.03, 'GOOG
 #     return n1 + n2
 # print(calc(1, 2))
 
+# The yield statement is essentially used to create a generator
 # def fib(n):
 #     a, b = 0, 1
 #     for _ in range(1, n):
@@ -171,3 +172,12 @@ faang_dict = {'FB': 192.47, 'AAPL': 273.36, 'AMZN':1883.75, 'NFLX':369.03, 'GOOG
 # print(next(get_fibs)) # --> return 2
 # print(next(get_fibs)) # --> return 3
 # print(next(get_fibs)) # --> return 5
+
+# def test(n):
+#     if n == 1:
+#         return "one"
+#     if n == 2:
+#         return "two"
+#     else:
+#         return "wtf"
+# print(test(2))
