@@ -12,10 +12,12 @@
 # Range with a tuple
 my_range = range(10)
 print(my_range)
+# returns --> range(0, 10)
 
 # Convert to a list
 print(list(my_range))
+# returns --> [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # Note the '_' means don't need/care about the variable
 for _ in range(10):
-    print('do something 10 X ...')
+    print('just do something 10 times ...')

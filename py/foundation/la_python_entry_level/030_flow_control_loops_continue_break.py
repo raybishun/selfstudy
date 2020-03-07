@@ -2,11 +2,11 @@
 # Flow Control: Loops: Continue & Break
 # =============================================================================
 
-# Continue
+# Continue (does not exit loop)
 ctr = 1
 while ctr <= 10:
     if ctr % 2 == 0:
-        # Skip the even numbers
+        # Skip if even
         ctr += 1
         continue
     print(f'Odd number is: {ctr}')

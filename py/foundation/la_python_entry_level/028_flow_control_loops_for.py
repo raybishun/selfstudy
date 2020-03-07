@@ -6,23 +6,23 @@
 faang = ['FB', 'AAPL', 'AMZN', 'NFLX', 'GOOG']
 
 for stock in faang:
-    print(stock)
+    print(stock) # returns --> prints each item on it's own line
 print()
 
 # Tuple
 faang = ('FB', 'AAPL', 'AMZN', 'NFLX', 'GOOG')
 
 for stock in faang:
-    print(stock)
+    print(stock) # returns --> prints each item on it's own line
 print()
 
 # Dictionary
 faang = {'FB': 192.47, 'AAPL': 273.36, 'AMZN':1883.75, 'NFLX':369.03, 'GOOG':1339.33}
 
 for k, v in faang.items():
-    print(f'{k}\t{v}')
+    print(f'{k}\t{v}') # returns --> prints each key \t value on it's own line
 print()
 
 # String
-for c in 'faang':
-    print(f'{c.upper()}', end="")
+for each_char in 'faang':
+    print(f'{each_char.upper()}', end="") # returns --> FAANG
