@@ -12,15 +12,15 @@
 # UTF-8
 # -----------------------------------------------------------------------------
 # Get the Unicode code point for the letter 'a'
-print(ord('a'))
+print(ord('a')) # returns --> 97
 
 # Get the TradeMark (TM) symbol
-print('\u2122')
+print('\u2122')  # returns --> TM
 
 # Get the integer value of the TM symbol
-print(ord('\u2122'))
+print(ord('\u2122'))  # returns -->  8482
 
 # -----------------------------------------------------------------------------
 # chr()
 # -----------------------------------------------------------------------------
-print(chr(8482))
+print(chr(8482))  # returns --> TM

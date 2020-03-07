@@ -15,8 +15,8 @@
 """
 my_matrix = [[1, 2, 3],
             [4, 5, 6]]
-print(f'Rows: {len(my_matrix)}')
-print(f'Cols: {len(my_matrix[0])}')
+print(f'Rows: {len(my_matrix)}')    # returns --> 2
+print(f'Cols: {len(my_matrix[0])}') # returns --> 3
 
 # R & C
-print(my_matrix[1][1]) # returns 5
+print(my_matrix[1][1]) # returns --> 5
