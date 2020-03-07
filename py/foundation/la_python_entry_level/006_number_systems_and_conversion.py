@@ -5,19 +5,25 @@
 # Decimal: Base 10 (0 - 9)
 a = 15
 print(f'{a}')
+# returns --> 15
 
 # Binary: Base 2 (0 - 1)
 # Prefix: 0b
 print(f'{bin(a)}')
+# returns --> 0b1111
+
 print(f'{0b1111}')
+# returns --> 15
 
 # Octal: Base 8 (0 - 7)
 # Prefix: 0o
 print(f'{0o7242}')
+# returns --> 3746
 
 # Hexadecimal: Base 16 (0 - 9, A - F)
 # Prefix: 0x
 print(f'{0xFF012}')
+# returns --> 1044498
 
 # -----------------------------------------------------------------------------
 # Converting Decimal to Binary 

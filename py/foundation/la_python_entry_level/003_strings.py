@@ -24,7 +24,7 @@ print(g)
 print()
 
 # Return index (note, first item is 0)
-print("hello world".find('e'))
-print("hello world".find('ll'))
+print("hello world".find('e'))  # return 1
+print("hello world".find('ll')) # returns 2
 print("hello world".find('hi')) # returns -1 if not found
-print('Hello World'.lower())
+print('Hello World'.lower())    # returns hello world

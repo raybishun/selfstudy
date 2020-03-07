@@ -1,12 +1,11 @@
 # =============================================================================
-# Bitwise Right Shift
+# Bitwise Right-Shift
 # =============================================================================
-a = 0b110
-print(f'{bin(a)}')
+a = 0b110 # 6
+print(f'{bin(a)}')  # returns --> 0b110
 
-# Push to the right by two
-# Said differently, move a (fake) decimal, 2 places to the left
-print(f'{bin(a >> 2 )}')
+# Right-Shit actually means MOVE LEFT
+print(f'{bin(a >> 2 )}')    # returns --> 0b1
 
 # And if you move too far and a 0 is returned
-print(f'{bin(a >> 5 )}')
+print(f'{bin(a >> 5 )}')    # returns --> 0b0
