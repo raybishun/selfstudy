@@ -13,12 +13,12 @@
 """
 
 # Ord function
-print(ord('a'), ord('A'))
-print(ord('b'), ord('B'))
-print(ord('c'), ord('C'))
+print(ord('a'), ord('A')) # 97 65
+print(ord('b'), ord('B')) # 98 66
+print(ord('c'), ord('C')) # 99 67
 print()
 
 # id
-print(1 is '1')
-print(id(1))
-print(id('1'))
+print(1 is '1') # False
+print(id(1))    # 140734911858336
+print(id('1'))  # 2191559894000

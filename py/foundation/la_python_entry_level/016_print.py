@@ -17,7 +17,9 @@ last_name = input("Enter Last Name: ")
 # Both on same line (using end=" ")
 print(first_name, end=" ")
 print(last_name)
+# results --> Peter Parker
 
 # If not specified in a print statement, sep=" " is used by default
 # Here I'm using a comma to separate the two string tokens
 print(last_name, first_name, sep=", ")
+# results --> Parker, Peter

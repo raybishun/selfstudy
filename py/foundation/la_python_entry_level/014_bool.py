@@ -2,7 +2,7 @@
 # Boolean Operators
 # =============================================================================
 
-# Only requires one Truth to be True :)
+# Only requires one to be True
 print(f'{True or True}')    # True
 print(f'{True or False}')   # True
 print(f'{False or True}')   # True

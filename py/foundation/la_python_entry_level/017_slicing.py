@@ -5,6 +5,7 @@
     start:stop:stride
 """
 py = "Python"
+
 print(py[1:3]) # returns 'yt'
 
 # Start at 2 (skip 0, 1), and return to the end
