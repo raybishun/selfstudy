@@ -23,4 +23,9 @@
 2. Your C# code is translated into IL (aka MSIL), similar to Java ByteCode
 3. The CLR (Common Language Runtime) converts IL code to native machine code (this makes C# platform independent, and is known as Just-In-Time (JIT) compilation)
 
+### CLR
+1. Facilitates JIT compilation
+2. Memory management for running processes
+2. Reserves space in memory - a managed heap
+3. The heap maintains a pointer to where the next object defined in a process will be allocated in memory
 
