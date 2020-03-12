@@ -10,6 +10,17 @@ namespace _002_classes_structures_interfaces
     {
         static void Main(string[] args)
         {
+            // Access modifiers
+                // Public
+                // Private
+                // Protected
+                // Internal
+                // Protected internal
+                // Private protected
+
+            // Data Types
+                // Value Type - stack
+                // Reference Type - heap
         }
     }
 }
