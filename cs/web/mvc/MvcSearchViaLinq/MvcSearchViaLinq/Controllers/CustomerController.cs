@@ -44,7 +44,7 @@ namespace MvcSearchViaLinq.Controllers
                 //               where c.Name == name
                 //               select c;
 
-                return View(db.Customers.Where(x => x.Name == "five").FirstOrDefault());
+                return View(db.Customers.Where(x => x.Name == "three").FirstOrDefault());
             }
         }
 
