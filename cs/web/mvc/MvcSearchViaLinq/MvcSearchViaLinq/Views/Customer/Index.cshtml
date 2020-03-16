@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MvcSearchViaLinq.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "Customer", FormMethod.Get))
+{
+    @Html.TextBox("name")
+    <input type="submit" value="submit">
+}
+    <table>
+        <tr>
+            <th>Name</th><th>Description</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem=>item.Name)</td>
+                <td>@Html.DisplayFor(modelItem=>item.Description)</td>
+            </tr>
+        }
+    </table>
