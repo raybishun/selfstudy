@@ -7,60 +7,31 @@ namespace MvcSearchViaLinq.Controllers
     public class CustomerController : Controller
     {
         // GET: Customer
-        public ActionResult Index()
+        public ActionResult List()
         {
-            // Uses a (default List) View to return all
-
             using (var db = new CustomerDbContext())
             {
                 var customers = from c in db.Customers
-                               select c;
+                                orderby c.LastCheckIn descending
+                                select c;
 
                 return View(customers.ToList());
             }
         }
 
-        public ActionResult List(string name)
-        {
-            // Uses a custom List View to return 1 record
-
-            using (var db = new CustomerDbContext())
-            {
-                var customer = from c in db.Customers
-                               where c.Name == name
-                               select c;
-
-                // var customer = db.Customers.Where(c => c.Name == name);
-
-                return View(customer.ToList());
-            }
-        }
-
+        // [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult Details(string name)
         {
             using (var db = new CustomerDbContext())
             {
-                //var customer = from c in db.Customers
-                //               where c.Name == name
-                //               select c;
-
-                return View(db.Customers.Where(x => x.Name == "three").FirstOrDefault());
-            }
-        }
-
-        public ActionResult Details2(string name)
-        {
-            // Uses a custom List View to return 1 record
-
-            using (var db = new CustomerDbContext())
-            {
-                var customer = from c in db.Customers
+                var customer = (from c in db.Customers
                                where c.Name == name
-                               select c;
+                               orderby c.LastCheckIn descending
+                               select c).FirstOrDefault();
 
-                // var customer = db.Customers.Where(c => c.Name == name);
+                // var customer = db.Customers.Where(c => c.Name == name).FirstOrDefault();
 
-                return View(customer.ToList());
+                return View(customer);
             }
         }
     }
