@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm("Details", "Customer", FormMethod.Get))
 {
+    @Html.Label("lblName", "Name")
     @Html.TextBox("name")
     <input type="submit" value="submit">
 }
