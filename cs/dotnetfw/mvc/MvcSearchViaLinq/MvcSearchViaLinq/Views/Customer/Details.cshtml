@@ -1,0 +1,54 @@
+﻿@model MvcSearchViaLinq.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm("Details", "Customer", FormMethod.Get))
+{
+    <div>
+        @Html.Label("lblName", "Name")
+    </div>
+    <div>
+        @Html.TextBox("name")
+        <input type="submit" value="submit">
+    </div>
+}
+
+    <div>
+        <h4>Customer</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @*@Html.DisplayNameFor(model => model.LastCheckIn)*@
+                @Html.Label("lastCheckIn", "Last Check In:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastCheckIn)
+            </dd>
+        </dl>
+
+    </div>
+    <p>
+        @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")*@
+    </p>

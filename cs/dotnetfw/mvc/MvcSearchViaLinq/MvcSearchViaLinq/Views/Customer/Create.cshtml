@@ -1,0 +1,30 @@
+﻿@model MvcSearchViaLinq.Models.Customer
+
+@{
+    ViewBag.Title = "Create a Customer";
+}
+
+<h2>Create a Customer</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name) <br/>
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+    <br />
+
+    <div>
+        @Html.LabelFor(m => m.Description) <br />
+        @Html.TextBoxFor(m => m.Description)
+    </div>
+    <br />
+
+    <div>
+        <div style="float: left;">@Html.LabelFor(m => m.LastCheckIn)</div>
+        @Html.TextBoxFor(m => m.LastCheckIn)
+    </div>
+    <br />
+
+    <input type="submit" value="Create Product" />
+}
