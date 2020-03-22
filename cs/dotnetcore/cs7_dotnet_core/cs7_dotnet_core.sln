@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReflectionConsoleApp", "Ref
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicsConsoleApp", "BasicsConsoleApp\BasicsConsoleApp.csproj", "{15D36957-FCEC-4F42-8EF9-BCC9BAC9E62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NumbersConsoleApp", "NumbersConsoleApp\NumbersConsoleApp.csproj", "{7B5F92AA-6EEA-4099-A6E4-E661F17D1FDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumbersConsoleApp", "NumbersConsoleApp\NumbersConsoleApp.csproj", "{7B5F92AA-6EEA-4099-A6E4-E661F17D1FDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

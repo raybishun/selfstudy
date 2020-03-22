@@ -1,25 +1,52 @@
 ﻿using System;
 
+// Introduced in C# 6, 'using static' can be used to further shorten statements, i.e.:
+// using static System.Console;
+
 namespace BasicsConsoleApp
 {
     class Program
     {
-        // Casting Objects (via boxing andu Unboxing) comes with a performance cost
+        // Casting Objects (via boxing and unboxing) comes with a performance cost
         // However, 'generics' (introduced in C# 2) is more efficient
         // Reference Types - point to where the value is stored in memory; can have a 'null' literal value
         // Value Types - must have a value (but can also be 'nullable')
 
         static void Main(string[] args)
         {
-            //NameOf_CS6();
-            //DigitalSeparators_CS7();
-            //DynamicTypes_CS4();
-            //Implicity_Typed_Variables();
-            //Type_Defaults();
-            //Nullable_Type();
-            Null_Coalescing_Operator();
+            // NameOf_CS6();
+            // DynamicTypes_CS4();
+            // Implicity_Typed_Variables();
+            // Type_Defaults();
+            // Nullable_Type();
+            // Null_Coalescing_Operator();
+            Unary_Binary_Ternary();
 
             Console.ReadKey();
+        }
+
+        private static void Unary_Binary_Ternary()
+        {
+            int a = 3;
+            int b = 2;
+            
+            // Binary (two operands)
+            int c = a + b;
+
+            // Unary (postfix example)
+            a = 3;
+            int x = a++;
+            Console.WriteLine($"a++ - execution occurs AFTER assignment, resulting in x = {x}");
+
+            // Unary (prefix example)
+            a = 3;
+            int y = ++a;
+            Console.WriteLine($"++a - assignment occurs BEFORE execution, resulting in y = {y}");
+
+            // Ternary
+            a = 3;
+            bool z = a > 5 ? true : false;
+            Console.WriteLine($"Is {a} > 5 = {z}");
         }
 
         private static void Null_Coalescing_Operator()
@@ -76,18 +103,7 @@ namespace BasicsConsoleApp
             Console.WriteLine(age);
         }
 
-        private static void DigitalSeparators_CS7()
-        {
-            // Base10
-            int decimalNotation = 1_000_000;
-
-            // Leading digital separator requires C# 7.2 
-            // Base2
-            // int binaryNotation = 0b_1111_0100_0010_0100_0000;
-
-            // Base16
-            int hexNotation = 0xF_4240;
-        }
+        
 
         private static void NameOf_CS6()
         {
