@@ -4,50 +4,15 @@ namespace NumbersConsoleApp
 {
     class Program
     {
-         // Casting Objects (via boxing anduUnboxing) comes with a performance cost
-         // However, 'generics' (introduced in C# 2) is more efficient
-
-
         static void Main(string[] args)
         {
-            // Size_Min_Max();
-            // Double_Vs_Demimal();
-            // CheckDecimal();
-            // DynamicTypes_CS4();
-            Implicity_Typed_Variables();
-
+            Size_Min_Max();
+            Double_Vs_Demimal();
+            CheckDecimal();
+              
             Console.ReadKey();
         }
-
-        private static void Implicity_Typed_Variables()
-        {
-            // Implicity-typed variables:
-                // must be initialized
-                // and can only be local
-
-            var a = 'a';
-            var b = "b";
-            var c = 1;
-            var d = 1L;
-            var e = 1.618;
-            var f = 1.618F;
-            var g = 1.618M;
-        }
-
-        private static void DynamicTypes_CS4()
-        {
-            // dynamic types are only checked at runtime (not build time)
-
-            dynamic x = "Ray";
-            Console.WriteLine(x);
-
-            // The below exception will occur at runtime
-                // Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: 
-                // 'Cannot implicitly convert type 'string' to 'int''
-            int age = x;
-            Console.WriteLine(age);
-        }
-
+        
         private static void CheckDecimal()
         {
             decimal a = 0.1M;
