@@ -12,6 +12,9 @@ namespace BasicsConsoleApp
         // Reference Types - point to where the value is stored in memory; can have a 'null' literal value
         // Value Types - must have a value (but can also be 'nullable')
 
+        // Disaster #1 caused by poor coding practice: use {} in if statements - https://gotofail.com/
+        // Disaster #2 caused by poor coding practice: rounding error: http://www-users.math.umn.edu/~arnold//disasters/
+
         static void Main(string[] args)
         {
             // NameOf_CS6();
@@ -20,9 +23,25 @@ namespace BasicsConsoleApp
             // Type_Defaults();
             // Nullable_Type();
             // Null_Coalescing_Operator();
-            Unary_Binary_Ternary();
+            // Unary_Binary_Ternary();
+            Patten_Matching_If_Statement_CS7();
 
             Console.ReadKey();
+        }
+
+        private static void Patten_Matching_If_Statement_CS7()
+        {
+            object obj = "3";
+            int j = 4;
+
+            if (obj is int i) // i appears to be a placeholder
+            {
+                Console.WriteLine($"{i} * {j} = {i * j}");
+            }
+            else
+            {
+                Console.WriteLine($"{obj} is not an int.");
+            }
         }
 
         private static void Unary_Binary_Ternary()
@@ -103,13 +122,10 @@ namespace BasicsConsoleApp
             Console.WriteLine(age);
         }
 
-        
-
         private static void NameOf_CS6()
         {
             double myDouble = 1.618;
             Console.WriteLine($"{nameof(myDouble)}");
         }
-
     }
 }
