@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 // Introduced in C# 6, 'using static' can be used to further shorten statements, i.e.:
 // using static System.Console;
@@ -24,9 +25,87 @@ namespace BasicsConsoleApp
             // Nullable_Type();
             // Null_Coalescing_Operator();
             // Unary_Binary_Ternary();
-            Patten_Matching_If_Statement_CS7();
+            // Patten_Matching_If_Statement_CS7();
+            // Switch_Case();
+            // Pattern_Matching_Switch_Case_CS7();
+            Iterating();
 
             Console.ReadKey();
+        }
+
+        private static void Iterating()
+        {
+            int i = 1;
+            while (i <= 3)
+            {
+                Console.WriteLine($"{i} ");
+                i++;
+            }
+
+
+            int rndNumber = new Random().Next(1, 3);
+            Console.WriteLine($"My random number is: {rndNumber}");
+            int guess = 0;
+            
+            do
+            {
+                Console.Write("Guess my number: ");
+                guess = Convert.ToInt32(Console.ReadLine());
+
+            } while (rndNumber != guess);
+
+            Console.WriteLine("You guessed it...");
+        }
+
+        private static void Pattern_Matching_Switch_Case_CS7()
+        {
+            string path = @".";
+            Stream s = File.Open(Path.Combine(path, "file.txt"), FileMode.OpenOrCreate);
+
+            // As of CS7, switch no longer limited to just literal values
+            switch (s)
+            {
+                // note 'when', BOTH must be true (a FS, and it must be 'CanWrite' in this test)
+                case FileStream w when s.CanWrite: 
+                    Console.WriteLine("writable...");
+                    break;
+                case FileStream r:
+                    Console.WriteLine("read-only...");
+                    break;
+                case MemoryStream ms:
+                    Console.WriteLine("streaming to memory...");
+                    break;
+                default:
+                    break;
+                case null:
+                    Console.WriteLine("null stream...");
+                    break;
+            }
+        }
+
+        private static void Switch_Case()
+        {
+            var rndNumber = (new Random()).Next(1,5);
+            Console.WriteLine($"{rndNumber}");
+            switch (rndNumber)
+            {
+                case 1:
+                    Console.WriteLine("One");
+                    break;
+                case 2:
+                    Console.WriteLine("Two");
+                    break;
+                case 3:
+                    Console.WriteLine("Three");
+                    break;
+                case 4:
+                case 5:
+                    Console.WriteLine("Four or Five");
+                    break;
+                default:
+                    Console.WriteLine("Default...");
+                    break;
+            }
         }
 
         private static void Patten_Matching_If_Statement_CS7()
