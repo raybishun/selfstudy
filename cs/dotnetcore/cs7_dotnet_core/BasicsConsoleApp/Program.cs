@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.IO;
 
 // Introduced in C# 6, 'using static' can be used to further shorten statements, i.e.:
@@ -28,12 +29,43 @@ namespace BasicsConsoleApp
             // Patten_Matching_If_Statement_CS7();
             // Switch_Case();
             // Pattern_Matching_Switch_Case_CS7();
-            Iterating();
+            // Iterating_With_While();
+            // Iterating_With_ForEach();
+            IEnumerator_In_Action();
 
             Console.ReadKey();
         }
 
-        private static void Iterating()
+        private static void IEnumerator_In_Action()
+        {
+            // The below is what foreach would actually implement
+
+            string[] days = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+            IEnumerator e = days.GetEnumerator();
+            while (e.MoveNext())
+            {
+                // Results in "Property or indexer IEnumerator.Current cannot be assigned to -- it is read-only"
+                // (this is due to the use of an iterator)
+                // e.Current = "something else"; 
+
+                string day = (string)e.Current; // The current item is read-only
+                Console.WriteLine($"{day}");
+            }
+        }
+
+        private static void Iterating_With_ForEach()
+        {
+            // foreach items are read-only
+            // foreach only works with types that implement IEnumerabl
+            // See IEnumerator_In_Action() method above to understand why...
+            string[] days = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+            foreach (var item in days)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        private static void Iterating_With_While()
         {
             int i = 1;
             while (i <= 3)
