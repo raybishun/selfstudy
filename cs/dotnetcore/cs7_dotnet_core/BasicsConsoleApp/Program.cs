@@ -31,9 +31,24 @@ namespace BasicsConsoleApp
             // Pattern_Matching_Switch_Case_CS7();
             // Iterating_With_While();
             // Iterating_With_ForEach();
-            IEnumerator_In_Action();
+            // IEnumerator_In_Action();
+            Implicit_Casting();
 
             Console.ReadKey();
+        }
+
+        private static void Implicit_Casting()
+        {
+            int a = 100;
+            double b = a;
+            Console.WriteLine(b);
+
+            // Results in:
+            // "Cannot implicitly convert type 'double' to 'int'.
+            // An explicit conversion exists (are you missing a cast?)"
+            //double x = 100.25;
+            //int y = x; 
+            //Console.WriteLine(y);
         }
 
         private static void IEnumerator_In_Action()
