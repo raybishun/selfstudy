@@ -32,9 +32,26 @@ namespace BasicsConsoleApp
             // Iterating_With_While();
             // Iterating_With_ForEach();
             // IEnumerator_In_Action();
-            Implicit_Casting();
+            // Implicit_Casting();
+            Explicit_Casting();
+
 
             Console.ReadKey();
+        }
+
+        private static void Explicit_Casting()
+        {
+            double a = 100.00;
+            int b = (int)a;
+            Console.WriteLine($"{b}\n");
+
+            long e = 10;
+            int f = (int)e;
+            Console.WriteLine($"e is {e} and f is {f}");
+
+            e = long.MaxValue;
+            f = (int)e;
+            Console.WriteLine($"e is {e:N} and f is {f}"); // f is -1
         }
 
         private static void Implicit_Casting()
