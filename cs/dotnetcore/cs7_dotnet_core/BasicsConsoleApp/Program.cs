@@ -33,10 +33,48 @@ namespace BasicsConsoleApp
             // Iterating_With_ForEach();
             // IEnumerator_In_Action();
             // Implicit_Casting();
-            Explicit_Casting();
-
-
+            // Explicit_Casting();
+            // Convert_Type();
+            // Rounding_Rules();
+            Parsing();
+                       
             Console.ReadKey();
+        }
+
+        private static void Parsing()
+        {
+            Console.Write("Enter age: ");
+            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine($"{age + 1}");
+        }
+
+        private static void Rounding_Rules()
+        {
+            // NOTE: In school we learned to round up if greater than .5, and down if less than .5
+            // HOWEVER, in C#, 'Banker's Rounding' is applied, where 
+            // round up if .5 or higher AND the whole number is ODD, and round down if the whole number is EVEN
+            // And always round down when less than .5
+
+            // NOTE: JavaScript uses the traditional method taught in school
+
+            double i = 9.49;
+            double j = 9.5;
+            double k = 10.49;
+            double l = 10.5;
+            Console.WriteLine($"{i} \t {Convert.ToInt32(i)}");
+            Console.WriteLine($"{j} \t {Convert.ToInt32(j)}");
+            Console.WriteLine($"{k} \t {Convert.ToInt32(k)}");
+            Console.WriteLine($"{l} \t {Convert.ToInt32(l)}");
+        }
+
+        private static void Convert_Type()
+        {
+            // A key difference between casting using ( ) is that
+            // converting rounds the value up or down, rather than 
+            // simply the trimming the decimal off
+            double g = 9.8;
+            int h = Convert.ToInt32(g);
+            Console.WriteLine($"{g} | {h}");
         }
 
         private static void Explicit_Casting()
