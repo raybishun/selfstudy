@@ -36,16 +36,137 @@ namespace BasicsConsoleApp
             // Explicit_Casting();
             // Convert_Type();
             // Rounding_Rules();
-            Parsing();
+            // Parse_With_Parsing();
+            // Parse_With_TryParse();
+            // Specific_Exceptions();
+            // Using_Dispose();
+            // Automatic_Dispose();
+            Check_For_Overflow();
                        
             Console.ReadKey();
         }
 
-        private static void Parsing()
+        private static void Check_For_Overflow()
+        {
+            // Throw an exception when an overflow occurs
+            // Instead of permitting it to occur
+        }
+
+        private static void Automatic_Dispose()
+        {
+            string path = @"c:\temp";
+
+            using (FileStream file = File.OpenWrite(Path.Combine(path, "file.txt")))
+            {
+                using (StreamWriter sw = new StreamWriter(file))
+                {
+                    try
+                    {
+                        sw.WriteLine("Using will call Dispose if object not null...");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"{ex.GetType()} -> {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        private static void Using_Dispose()
+        {
+            string path = @"c:\temp";
+            FileStream file = null;
+            StreamWriter sw = null;
+
+            try
+            {
+                if (Directory.Exists(path))
+                {
+                    file = File.OpenWrite(Path.Combine(path, "test_file.txt"));
+                    sw = new StreamWriter(file);
+                    sw.WriteLine("Hello from .NET Core");
+                }
+                {
+                    Console.WriteLine($"{path} does not exist.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"{ex.GetType()} -> {ex.Message}");
+            }
+            finally
+            {
+                sw.Dispose();
+
+                if (file != null)
+                {
+                    file.Dispose();
+                }
+            }
+        }
+
+        private static void Specific_Exceptions()
         {
             Console.Write("Enter age: ");
-            int age = int.Parse(Console.ReadLine());
-            Console.WriteLine($"{age + 1}");
+
+            try
+            {
+                int age = int.Parse(Console.ReadLine());
+                Console.WriteLine($"{age + 1}");
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("OverflowException");
+            }
+            catch (StackOverflowException)
+            {
+                Console.WriteLine("Don't believe you are able to catch a StackOverflowException...");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static void Parse_With_TryParse()
+        {
+            Console.Write("Enter age: ");
+
+            int result; // assigned if tryparse was successful
+
+            string input = Console.ReadLine();
+
+            bool isInt = int.TryParse(input, out result);
+
+            if (isInt)
+            {
+                Console.WriteLine($"{Convert.ToInt32(input) + 1}");
+            }
+            else
+            {
+                Console.WriteLine($"{input} NaN.");
+            }
+
+            // Or all in one line
+            int value = int.TryParse(input, out result) ? Convert.ToInt32(input) + 1 : result;
+
+            Console.WriteLine(value);
+        }
+
+        private static void Parse_With_Parsing()
+        {
+            Console.Write("Enter age: ");
+
+            try
+            {
+                int age = int.Parse(Console.ReadLine());
+                Console.WriteLine($"{age + 1}");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"{ex.GetType()} -> {ex.Message}"); ;
+            }
         }
 
         private static void Rounding_Rules()
