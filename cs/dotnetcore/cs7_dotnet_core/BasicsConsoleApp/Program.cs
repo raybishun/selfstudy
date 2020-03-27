@@ -41,15 +41,70 @@ namespace BasicsConsoleApp
             // Specific_Exceptions();
             // Using_Dispose();
             // Automatic_Dispose();
-            Check_For_Overflow();
-                       
+            // Silent_Overflow();
+            // Check_For_Overflow();
+            Unchecked_Overflow();
+
             Console.ReadKey();
+        }
+
+        private static void Unchecked_Overflow()
+        {
+            // Default (compile-time) behavior
+            // VS will tell you that 'The operation overflows at compile time in checked mode'
+            // As such, will not permit you to compile
+            
+            //int y = int.MaxValue + 1;
+
+            // To turn this 'checked mode' off
+            // Although, don't know why you would ever do this...
+            unchecked
+            {
+                int y = int.MaxValue + 1;
+                Console.WriteLine(y);
+            }
         }
 
         private static void Check_For_Overflow()
         {
-            // Throw an exception when an overflow occurs
-            // Instead of permitting it to occur
+            checked
+            {
+                try
+                {
+                    int x = int.MaxValue;
+                    Console.WriteLine(x);
+                    x++;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private static void Silent_Overflow()
+        {
+            // Checked tells .NET to throw an exception when an 
+            // overflow occurs, instead of permitting it to occur
+
+            // The below shows when the max value is reached,
+            // it overflows to its minimum value, and starts
+            // incrementing from there
+            try
+            {
+                int x = int.MaxValue;
+                Console.WriteLine(x);
+                x++;
+                Console.WriteLine(x);
+                x++;
+                Console.WriteLine(x);
+                x++;
+                Console.WriteLine(x);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void Automatic_Dispose()
