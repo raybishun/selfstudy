@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicsConsoleApp", "BasicsC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumbersConsoleApp", "NumbersConsoleApp\NumbersConsoleApp.csproj", "{7B5F92AA-6EEA-4099-A6E4-E661F17D1FDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsConsoleApp", "StringsConsoleApp\StringsConsoleApp.csproj", "{8703E07E-C354-49C5-96BD-0DE90E54EBDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringsConsoleApp", "StringsConsoleApp\StringsConsoleApp.csproj", "{8703E07E-C354-49C5-96BD-0DE90E54EBDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegExConsoleApp", "RegExConsoleApp\RegExConsoleApp.csproj", "{B92EFD3B-03E0-446D-A15D-D9E002315366}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{8703E07E-C354-49C5-96BD-0DE90E54EBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8703E07E-C354-49C5-96BD-0DE90E54EBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8703E07E-C354-49C5-96BD-0DE90E54EBDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B92EFD3B-03E0-446D-A15D-D9E002315366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B92EFD3B-03E0-446D-A15D-D9E002315366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B92EFD3B-03E0-446D-A15D-D9E002315366}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B92EFD3B-03E0-446D-A15D-D9E002315366}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
