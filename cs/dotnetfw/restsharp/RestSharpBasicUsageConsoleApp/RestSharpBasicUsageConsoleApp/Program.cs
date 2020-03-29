@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 using RestSharp;
 using RestSharp.Authenticators;
 
+// Resources
+// https://reqres.in/
+// http://json2csharp.com/
+
 namespace RestSharpBasicUsageConsoleApp
 {
     class Program
