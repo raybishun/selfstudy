@@ -39,15 +39,15 @@ namespace DebuggingMonitoringTestingConsoleApp
             long bytesPhysicalAfter = Process.GetCurrentProcess().WorkingSet64;
             long bytesVirtualAfter = Process.GetCurrentProcess().VirtualMemorySize64;
 
-            Console.WriteLine("Stopped recording.");
-            Console.WriteLine($"{bytesPhysicalAfter - bytesPhysicalBefore:N0} physical bytes used.");
-            Console.WriteLine($"{bytesVirtualAfter - bytesVirtualBefore:N0} virtual bytes used.");
+            Console.WriteLine("\tStopped recording.");
+            Console.WriteLine($"\t{bytesPhysicalAfter - bytesPhysicalBefore:N0} physical bytes used.");
+            Console.WriteLine($"\t{bytesVirtualAfter - bytesVirtualBefore:N0} virtual bytes used.");
 
             // The Elapsed property returns a TimeSpan (the total timespan elapsed in hours:minutes:seconds)
-            Console.WriteLine($"{timer.Elapsed} total timespan elapsed.");
+            Console.WriteLine($"\t{timer.Elapsed} total timespan elapsed.");
 
             // The ElapsedMilliseconds property returns a long (the total timespan elapsed in ms) 
-            Console.WriteLine($"{timer.ElapsedMilliseconds:N0} total milliseconds elapsed.");
+            Console.WriteLine($"\t{timer.ElapsedMilliseconds:N0} total milliseconds elapsed.");
         }
     }
 }

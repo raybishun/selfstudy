@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 
 namespace DebuggingMonitoringTestingConsoleApp
 {
@@ -7,12 +8,44 @@ namespace DebuggingMonitoringTestingConsoleApp
     {
         static void Main(string[] args)
         {
-            Monitoring_Stopwatch();
+            //Monitoring_Large_Int_Array();
+            Monitoring_StringBuilder();
 
             Console.ReadLine();
         }
 
-        private static void Monitoring_Stopwatch()
+        private static void Monitoring_StringBuilder()
+        {
+            int[] numbers = Enumerable.Range(1, 100000).ToArray();
+
+            // ----------------------------------------------------------------
+            // Test using String Class
+            // ----------------------------------------------------------------
+            Recorder.Start();
+            Console.WriteLine("Test using String Class");
+            string s = "";
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                s += numbers[i] + ", ";
+            }
+            Recorder.Stop();
+            Console.WriteLine("");
+
+            // ----------------------------------------------------------------
+            // Test using StringBuilder Class
+            // ----------------------------------------------------------------
+            Recorder.Start();
+            Console.WriteLine("Test using StringBuilder Class");
+            var sb = new StringBuilder();
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sb.Append(numbers[i]);
+                sb.Append(", ");
+            }
+            Recorder.Stop();
+        }
+
+        private static void Monitoring_Large_Int_Array()
         {
             Console.WriteLine("Press ENTER to start timer: ");
             Console.ReadLine();
