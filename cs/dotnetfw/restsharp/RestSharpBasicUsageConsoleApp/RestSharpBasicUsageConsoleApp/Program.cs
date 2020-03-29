@@ -15,27 +15,35 @@ namespace RestSharpBasicUsageConsoleApp
             // BasicUsage_Twitter();
             BasicUsage_ReqRes();
 
-
             Console.ReadLine();
         }
 
         private static void BasicUsage_ReqRes()
         {
-            var client = new RestClient("https://reqres.in/");
+            try
+            {
+                var client = new RestClient("https://reqres.in/");
 
-            var request = new RestRequest("/api/users/2", DataFormat.Json);
+                var request = new RestRequest("/api/users/2", DataFormat.Json);
 
-            var response = client.Get(request);
+                var response = client.Get(request);
 
-            Console.WriteLine(response.Content);
+                Console.WriteLine(response.Content);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
-        static void BasicUsage_Twitter()
+        private static void BasicUsage_Twitter()
         {
             try
             {
-                var client = new RestClient("https://api.twitter.com/1.1");
-                client.Authenticator = new HttpBasicAuthenticator("username", "password");
+                var client = new RestClient("https://api.twitter.com/1.1")
+                {
+                    Authenticator = new HttpBasicAuthenticator("username", "password")
+                };
 
                 var request = new RestRequest("statuses/home_timeline.json", DataFormat.Json);
 
