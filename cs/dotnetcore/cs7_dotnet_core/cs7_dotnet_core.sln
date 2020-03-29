@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegExConsoleApp", "RegExCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericsConsoleApp", "GenericsConsoleApp\GenericsConsoleApp.csproj", "{66A16A4C-8582-43A0-B332-44C3CB2EDB30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalizationConsoleApp", "GlobalizationConsoleApp\GlobalizationConsoleApp.csproj", "{18B62FBC-4A25-44C7-8671-EEF067487353}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{66A16A4C-8582-43A0-B332-44C3CB2EDB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66A16A4C-8582-43A0-B332-44C3CB2EDB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66A16A4C-8582-43A0-B332-44C3CB2EDB30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18B62FBC-4A25-44C7-8671-EEF067487353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18B62FBC-4A25-44C7-8671-EEF067487353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18B62FBC-4A25-44C7-8671-EEF067487353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18B62FBC-4A25-44C7-8671-EEF067487353}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
