@@ -29,13 +29,13 @@ namespace RegExConsoleApp
         static void Main(string[] args)
         {
             // RegEx_Find_Single_Digit_In_String();
-            RegEd_Only_Accept_Single_Digit();
+            RegEx_Only_Accept_Single_Digit();
  
 
             Console.ReadLine();
         }
 
-        private static void RegEd_Only_Accept_Single_Digit()
+        private static void RegEx_Only_Accept_Single_Digit()
         {
             Console.Write("Only enter a single digit: ");
 
