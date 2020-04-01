@@ -31,8 +31,27 @@ namespace RestSharpBasicUsage2UnitTest
             // using Newtonsoft (another option)
             JObject obs = JObject.Parse(response.Content);
             Assert.That(obs["author"].ToString(), Is.EqualTo("Diana Prince"), "Author is invalid.");
+     
+        }
 
-       
+        [Test]
+        public void PostWithAnonymousBody()
+        {
+            var client = new RestClient("http://localhost:3000/");
+
+            var request = new RestRequest("posts/{postid}/profile", Method.POST);
+
+            request.AddJsonBody(new { name = "Ray" });
+
+            request.AddUrlSegment("postid", 1);
+
+            var response = client.Execute(request);
+
+            var deserialize = new JsonDeserializer();
+            var output = deserialize.Deserialize<Dictionary<string, string>>(response);
+            var result = output["name"];
+
+            Assert.That(result, Is.EqualTo("Ray"), "Author is invalid.");
         }
     }
 }

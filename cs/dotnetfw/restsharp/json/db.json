@@ -1,65 +1,70 @@
 {
-	"posts": [{
-			"id": 1,
-			"title": "Python For Finance",
-			"author": "Diana Prince"
-		},
-		{
-			"id": 2,
-			"title": "C++ For Finance",
-			"author": "Peter Parker"
-		},
-		{
-			"id": 3,
-			"title": "The Turtle Experiment",
-			"author": "Richard Dennis"
-		}
-	],
-	"comments": [{
-			"id": 1,
-			"body": "I failed my way to success",
-			"postId": 1
-		},
-		{
-			"id": 2,
-			"body": "Buy low, sell high",
-			"postId": 2
-		},
-		{
-			"id": 3,
-			"body": "Sell high, cover low",
-			"postId": 3
-		}
-	],
-	"profile": {
-		"name": "typicode"
-	},
-	"address": {
-		"primary": [{
-				"city": "Seattle",
-				"state": "Washington",
-				"country": "USA",
-				"pincode": 98105
-			},
-			{
-				"city": "New York",
-				"state": "New York",
-				"country": "USA",
-				"pincode": 10001
-			}
-		],
-		"secondary": [{
-				"city": "Broklyn",
-				"state": "New York",
-				"country": "USA",
-				"pincode": 11211
-			},
-			{
-				"city": "Quens",
-				"state": "New York",
-				"country": "USA",
-				"pincode": 11101
-			}
-		]
-	}
+  "posts": [
+    {
+      "id": 1,
+      "title": "Python For Finance",
+      "author": "Diana Prince"
+    },
+    {
+      "id": 2,
+      "title": "C++ For Finance",
+      "author": "Peter Parker"
+    },
+    {
+      "id": 3,
+      "title": "The Turtle Experiment",
+      "author": "Richard Dennis"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "I failed my way to success",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "Buy low, sell high",
+      "postId": 2
+    },
+    {
+      "id": 3,
+      "body": "Sell high, cover low",
+      "postId": 3
+    }
+  ],
+  "profile": {
+    "name": "Ray",
+    "postId": "1"
+  },
+  "address": {
+    "primary": [
+      {
+        "city": "Seattle",
+        "state": "Washington",
+        "country": "USA",
+        "pincode": 98105
+      },
+      {
+        "city": "New York",
+        "state": "New York",
+        "country": "USA",
+        "pincode": 10001
+      }
+    ],
+    "secondary": [
+      {
+        "city": "Broklyn",
+        "state": "New York",
+        "country": "USA",
+        "pincode": 11211
+      },
+      {
+        "city": "Queens",
+        "state": "New York",
+        "country": "USA",
+        "pincode": 11101
+      }
+    ]
+  }
 }
