@@ -8,8 +8,10 @@ namespace RestSharpBasicUsage2UnitTest.Model
 {
     public class Posts
     {
-        public string Id { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
+        // Never name properties this way, 
+        // just following silly instructor...
+        public string id { get; internal set; }
+        public string title { get; set; }
+        public string author { get; set; }
     }
 }

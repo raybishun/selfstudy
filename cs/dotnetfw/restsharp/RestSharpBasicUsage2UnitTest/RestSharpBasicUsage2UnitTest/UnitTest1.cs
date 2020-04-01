@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
 using RestSharp.Serialization.Json;
+using RestSharpBasicUsage2UnitTest.Model;
 
 namespace RestSharpBasicUsage2UnitTest
 {
@@ -50,6 +51,24 @@ namespace RestSharpBasicUsage2UnitTest
             var deserialize = new JsonDeserializer();
             var output = deserialize.Deserialize<Dictionary<string, string>>(response);
             var result = output["name"];
+
+            Assert.That(result, Is.EqualTo("Ray"), "Author is invalid.");
+        }
+
+        [Test]
+        public void PostWithStronglyTypedBody()
+        {
+            var client = new RestClient("http://localhost:3000/");
+
+            var request = new RestRequest("posts", Method.POST);
+
+            request.AddJsonBody(new Posts() { id="17", author="Ray", title="TheTitle" });
+
+            var response = client.Execute(request);
+
+            var deserialize = new JsonDeserializer();
+            var output = deserialize.Deserialize<Dictionary<string, string>>(response);
+            var result = output["author"];
 
             Assert.That(result, Is.EqualTo("Ray"), "Author is invalid.");
         }
