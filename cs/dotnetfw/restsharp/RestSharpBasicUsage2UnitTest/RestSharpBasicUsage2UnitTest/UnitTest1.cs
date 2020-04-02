@@ -62,7 +62,7 @@ namespace RestSharpBasicUsage2UnitTest
 
             var request = new RestRequest("posts", Method.POST);
 
-            request.AddJsonBody(new Posts() { id="17", author="Ray", title="TheTitle" });
+            request.AddJsonBody(new Posts() { id="22", author="Ray", title="TheTitle" });
 
             var response = client.Execute(request);
 
@@ -71,6 +71,21 @@ namespace RestSharpBasicUsage2UnitTest
             var result = output["author"];
 
             Assert.That(result, Is.EqualTo("Ray"), "Author is invalid.");
+        }
+
+        [Test]
+        public void PostUsingGenerics()
+        {
+            var client = new RestClient("http://localhost:3000/");
+
+            var request = new RestRequest("posts", Method.POST);
+
+            request.AddJsonBody(new Posts() { id = "23", author = "Ray", title = "TheTitle" });
+
+            // var response = client.Execute<Posts>(request).Data;
+            var response = client.Execute<Posts>(request);
+
+            Assert.That(response.Data.author, Is.EqualTo("Ray"), "Author is invalid.");
         }
     }
 }
