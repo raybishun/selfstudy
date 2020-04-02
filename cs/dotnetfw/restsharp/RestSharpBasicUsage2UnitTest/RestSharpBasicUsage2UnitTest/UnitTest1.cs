@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using RestSharp;
@@ -80,12 +81,49 @@ namespace RestSharpBasicUsage2UnitTest
 
             var request = new RestRequest("posts", Method.POST);
 
-            request.AddJsonBody(new Posts() { id = "23", author = "Ray", title = "TheTitle" });
+            request.AddJsonBody(new Posts() { id = "25", author = "Ray", title = "TheTitle" });
 
             // var response = client.Execute<Posts>(request).Data;
             var response = client.Execute<Posts>(request);
 
             Assert.That(response.Data.author, Is.EqualTo("Ray"), "Author is invalid.");
+        }
+
+        [Test]
+        public void PostUsingAsync()
+        {
+            var client = new RestClient("http://localhost:3000/");
+
+            var request = new RestRequest("posts", Method.POST);
+
+            request.AddJsonBody(new Posts() { id = "26", author = "Ray", title = "TheTitle" });
+
+            // var response = client.Execute<Posts>(request).Data;
+            // var response = client.Execute<Posts>(request);
+
+           var response = ExecuteAsyncRequest<Posts>(client, request).GetAwaiter().GetResult();
+
+
+            Assert.That(response.Data.author, Is.EqualTo("Ray"), "Author is invalid.");
+        }
+
+        private async Task<IRestResponse<T>> ExecuteAsyncRequest<T>(RestClient client, IRestRequest request) where T: class, new()
+        {
+            var taskCompletionSource = new TaskCompletionSource<IRestResponse<T>>();
+
+            client.ExecuteAsync<T>(request, restResponse =>
+            {
+                if (restResponse.ErrorException != null)
+                {
+                    const string message = "Error retrieving response.";
+                    throw new ApplicationException(message, restResponse.ErrorException);
+                }
+
+                taskCompletionSource.SetResult(restResponse);
+
+            });
+
+            return await taskCompletionSource.Task;
         }
     }
 }
