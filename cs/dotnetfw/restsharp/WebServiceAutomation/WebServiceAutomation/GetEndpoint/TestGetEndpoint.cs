@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,8 +82,79 @@ namespace WebServiceAutomation.GetEndpoint
             string data = responseData.Result;
 
             Console.WriteLine($"{data}");
+            
+            httpClient.Dispose();
+        }
+
+        [TestMethod]
+        public void TestGetAllEndpointAsJson()
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpRequestHeaders requestHeaders = httpClient.DefaultRequestHeaders;
+            // requestHeaders.Add("Accept", "application/xml");
+            requestHeaders.Add("Accept", "application/json");
+
+            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getURL);
+            HttpResponseMessage httpResponseMessage = httpResponse.Result;
+            Console.WriteLine(httpResponseMessage.ToString());
+
+            HttpStatusCode statusCode = httpResponseMessage.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            Console.WriteLine($"Status Code: {(int)statusCode}");
+
+            HttpContent responseContent = httpResponseMessage.Content;
+            Task<string> responseData = responseContent.ReadAsStringAsync();
+            string data = responseData.Result;
+            Console.WriteLine($"{data}");
+
+            httpClient.Dispose();
+        }
+
+        [TestMethod]
+        public void TestGetAllEndpointAsXml()
+        {
+            HttpClient httpClient = new HttpClient();
+            HttpRequestHeaders requestHeaders = httpClient.DefaultRequestHeaders;
+            requestHeaders.Add("Accept", "application/xml");
+
+            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getURL);
+            HttpResponseMessage httpResponseMessage = httpResponse.Result;
+            Console.WriteLine(httpResponseMessage.ToString());
+
+            HttpStatusCode statusCode = httpResponseMessage.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            Console.WriteLine($"Status Code: {(int)statusCode}");
+
+            HttpContent responseContent = httpResponseMessage.Content;
+            Task<string> responseData = responseContent.ReadAsStringAsync();
+            string data = responseData.Result;
+            Console.WriteLine($"{data}");
+
+            httpClient.Dispose();
+        }
+
+        [TestMethod]
+        public void TestGetAllEndpointUsingAcceptHeader()
+        {
+            MediaTypeWithQualityHeaderValue jsonHeader = new MediaTypeWithQualityHeaderValue("application/json");
 
 
+            HttpClient httpClient = new HttpClient();
+            HttpRequestHeaders requestHeaders = httpClient.DefaultRequestHeaders;
+            requestHeaders.Accept.Add(jsonHeader);
+
+            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getURL);
+            HttpResponseMessage httpResponseMessage = httpResponse.Result;
+            Console.WriteLine(httpResponseMessage.ToString());
+
+            HttpStatusCode statusCode = httpResponseMessage.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            Console.WriteLine($"Status Code: {(int)statusCode}");
+
+            HttpContent responseContent = httpResponseMessage.Content;
+            Task<string> responseData = responseContent.ReadAsStringAsync();
+            string data = responseData.Result;
+            Console.WriteLine($"{data}");
 
             httpClient.Dispose();
         }
