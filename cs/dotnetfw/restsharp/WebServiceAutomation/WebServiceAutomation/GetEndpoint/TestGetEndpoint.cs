@@ -158,5 +158,32 @@ namespace WebServiceAutomation.GetEndpoint
 
             httpClient.Dispose();
         }
+
+        [TestMethod]
+        public void GetEndpointUsingSendAsync()
+        {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage();
+            httpRequestMessage.RequestUri = new Uri(getURL);
+            httpRequestMessage.Method = HttpMethod.Get;
+            httpRequestMessage.Headers.Add("Accept", "application/json");
+
+            HttpClient httpClient = new HttpClient();
+            Task<HttpResponseMessage> httpResponse = httpClient.SendAsync(httpRequestMessage);
+
+            HttpResponseMessage httpResponseMessage = httpResponse.Result;
+            Console.WriteLine(httpResponseMessage.ToString());
+
+            HttpStatusCode statusCode = httpResponseMessage.StatusCode;
+            Console.WriteLine($"Status Code: {statusCode}");
+            Console.WriteLine($"Status Code: {(int)statusCode}");
+
+            HttpContent responseContent = httpResponseMessage.Content;
+            Task<string> responseData = responseContent.ReadAsStringAsync();
+            string data = responseData.Result;
+            Console.WriteLine($"{data}");
+
+            httpClient.Dispose();
+
+        }
     }
 }
