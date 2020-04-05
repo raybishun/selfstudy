@@ -9,12 +9,12 @@ namespace WebServiceAutomation.Model
     public class RestResponse
     {
         private int statusCode;
-        private string responseData;
+        private string responseContent;
 
         public RestResponse(int statusCode, string responseData)
         {
             this.statusCode = statusCode;
-            this.responseData = responseData;
+            this.responseContent = responseData;
         }
 
         public int StatusCode
@@ -24,17 +24,17 @@ namespace WebServiceAutomation.Model
                 return statusCode;
             }
         }
-        public string ResponseData
+        public string ResponseContent
         {
             get 
             {
-                return responseData;
+                return responseContent;
             }
         }
 
         public override string ToString()
         {
-            return $"StatusCode: {statusCode} ResponseData: {responseData}";
+            return $"StatusCode: {statusCode} ResponseData: {responseContent}";
         }
     }
 }
