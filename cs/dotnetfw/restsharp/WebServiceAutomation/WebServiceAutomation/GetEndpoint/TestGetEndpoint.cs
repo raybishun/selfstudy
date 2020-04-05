@@ -2,13 +2,16 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using WebServiceAutomation.Model;
+using WebServiceAutomation.Model.XmlModel;
 
 namespace WebServiceAutomation.GetEndpoint
 {
@@ -250,6 +253,43 @@ namespace WebServiceAutomation.GetEndpoint
 
                         List<JsonRootObject> jsonRootObject = JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
                         Console.WriteLine(jsonRootObject[0].ToString());
+                    }
+                }
+            }
+        }
+
+        [TestMethod]
+        public void TestDeserializationOfXmlResponse()
+        {
+            using (HttpClient httpClient = new HttpClient())
+            {
+                using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage())
+                {
+                    httpRequestMessage.RequestUri = new Uri(getURL);
+                    httpRequestMessage.Method = HttpMethod.Get;
+                    httpRequestMessage.Headers.Add("Accept", "application/xml");
+
+                    Task<HttpResponseMessage> httpResponse = httpClient.SendAsync(httpRequestMessage);
+
+                    using (HttpResponseMessage httpResponseMessage = httpResponse.Result)
+                    {
+                        Console.WriteLine(httpResponseMessage.ToString());
+
+                        HttpStatusCode statusCode = httpResponseMessage.StatusCode;
+
+                        HttpContent responseContent = httpResponseMessage.Content;
+                        Task<string> responseData = responseContent.ReadAsStringAsync();
+                        string data = responseData.Result;
+
+                        RestResponse restResponse = new RestResponse((int)statusCode, responseData.Result);
+
+                        XmlSerializer xmlSerializer = new XmlSerializer(typeof(LaptopDetailss));
+
+                        TextReader textReader = new StringReader(restResponse.ResponseContent);
+
+                        LaptopDetailss xmlData = (LaptopDetailss)xmlSerializer.Deserialize(textReader);
+
+                        Console.WriteLine(xmlData.ToString());
                     }
                 }
             }

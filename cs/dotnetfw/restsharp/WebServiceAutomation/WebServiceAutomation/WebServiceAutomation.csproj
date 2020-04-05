@@ -89,12 +89,16 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetEndpoint\TestGetEndpoint.cs" />
     <Compile Include="Model\JsonModel\Features.cs" />
     <Compile Include="Model\JsonModel\JsonRootObject.cs" />
     <Compile Include="Model\RestResponse.cs" />
+    <Compile Include="Model\XmlModel\Features.cs" />
+    <Compile Include="Model\XmlModel\Laptop.cs" />
+    <Compile Include="Model\XmlModel\LaptopDetailss.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
