@@ -290,6 +290,12 @@ namespace WebServiceAutomation.GetEndpoint
                         LaptopDetailss xmlData = (LaptopDetailss)xmlSerializer.Deserialize(textReader);
 
                         Console.WriteLine(xmlData.ToString());
+
+                        // Assertions
+                        Assert.AreEqual(200, restResponse.StatusCode);
+                        Assert.IsNotNull(restResponse.ResponseContent);
+                        Assert.IsTrue(xmlData.Laptop.Features.Feature.Contains("Windows 10 Home 64-bit English"), "Item not found.");
+                        Assert.AreEqual("Alienware", xmlData.Laptop.BrandName);
                     }
                 }
             }

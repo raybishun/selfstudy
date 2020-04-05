@@ -15,7 +15,7 @@ namespace WebServiceAutomation.Model.XmlModel
 
 
         [XmlElement(ElementName = "Features")]
-        public string Features { get; set; }
+        public Features Features { get; set; }
 
 
         [XmlElement(ElementName = "Id")]
