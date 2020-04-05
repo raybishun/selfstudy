@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using WebServiceAutomation.Model;
 
 namespace WebServiceAutomation.GetEndpoint
 {
@@ -204,13 +205,18 @@ namespace WebServiceAutomation.GetEndpoint
                         Console.WriteLine(httpResponseMessage.ToString());
 
                         HttpStatusCode statusCode = httpResponseMessage.StatusCode;
-                        Console.WriteLine($"Status Code: {statusCode}");
-                        Console.WriteLine($"Status Code: {(int)statusCode}");
+                        //Console.WriteLine($"Status Code: {statusCode}");
+                        //Console.WriteLine($"Status Code: {(int)statusCode}");
 
                         HttpContent responseContent = httpResponseMessage.Content;
                         Task<string> responseData = responseContent.ReadAsStringAsync();
                         string data = responseData.Result;
-                        Console.WriteLine($"{data}");
+                        //Console.WriteLine($"{data}");
+
+                        // The below RestResponse Class is an alternate way of returning data
+                        // And eliminates the need for the above 3 remarked statements
+                        RestResponse restResponse = new RestResponse((int)statusCode, responseData.Result);
+                        Console.WriteLine(restResponse.ToString());
                     }
                 }
             }
