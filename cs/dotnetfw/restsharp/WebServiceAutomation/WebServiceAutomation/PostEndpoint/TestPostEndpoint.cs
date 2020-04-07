@@ -2,12 +2,15 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using WebServiceAutomation.Model;
+using WebServiceAutomation.Model.XmlModel;
 
 namespace WebServiceAutomation.PostEndpoint
 {
@@ -15,7 +18,7 @@ namespace WebServiceAutomation.PostEndpoint
     public class TestPostEndpoint
     {
         private string postUrl = "http://localhost:8080/laptop-bag/webapi/api/add";
-        private string getUrl = "http://localhost:8080/laptop-bag/webapi/api/find";
+        private string getUrl = "http://localhost:8080/laptop-bag/webapi/api/find/";
         private RestResponse restResponse;
         private RestResponse restResponseForGet;
         private string jsonMediaType = "application/json";
@@ -83,7 +86,7 @@ namespace WebServiceAutomation.PostEndpoint
                                     "<Feature>NVIDIA GeForce GTX 1660 Ti 6GB GDDR6</Feature>" +
                                     "<Feature>8GB, 2x4GB, DDR4, 2666Mhz</Feature>" +
                                 "</Features>" +
-                                  "<Id>" + id + "</id>" +
+                                  "<Id>" + id + "</Id>" +
                                   "<LaptopName>Alienware M17</LaptopName>" +
                               "</Laptop>";
 
@@ -103,6 +106,24 @@ namespace WebServiceAutomation.PostEndpoint
                 Assert.IsNotNull(restResponse.ResponseContent, "Response Data is null/empty.");
 
                 Console.WriteLine(restResponse.ToString());
+
+                // Another way to validate the post operation
+                httpResponseMessage = httpClient.GetAsync(getUrl + id);
+
+                if (!httpResponseMessage.Result.IsSuccessStatusCode)
+                {
+                    Assert.Fail("HTTP response was unsuccessful.");
+                }
+
+                restResponse =
+                    new RestResponse((int)httpResponseMessage.Result.StatusCode,
+                    httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(Laptop));
+                TextReader textReader = new StringReader(restResponse.ResponseContent);
+                Laptop xmlObj = (Laptop)xmlSerializer.Deserialize(textReader);
+
+                Assert.IsTrue(xmlObj.Features.Feature.Contains("8GB, 2x4GB, DDR4, 2666Mhz"), "Item not found in list.");
             }
         }
     }
