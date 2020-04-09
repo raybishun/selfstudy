@@ -10,6 +10,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using WebServiceAutomation.Helper.Request;
 using WebServiceAutomation.Model;
 using WebServiceAutomation.Model.XmlModel;
 
@@ -18,14 +19,14 @@ namespace WebServiceAutomation.GetEndpoint
     [TestClass]
     public class TestGetEndpoint
     {
-        private string getURL = "http://localhost:8080/laptop-bag/webapi/api/all";
+        private string getUrl = "http://localhost:8080/laptop-bag/webapi/api/all";
         
         [TestMethod]
         public void TestGetAllEndpoint()
         {
             HttpClient httpClient = new HttpClient();
 
-            httpClient.GetAsync(getURL);
+            httpClient.GetAsync(getUrl);
 
             httpClient.Dispose();
         }
@@ -35,7 +36,7 @@ namespace WebServiceAutomation.GetEndpoint
         {
             HttpClient httpClient = new HttpClient();
 
-            Uri getUri = new Uri(getURL);
+            Uri getUri = new Uri(getUrl);
 
             // httpClient.GetAsync(getUri);
 
@@ -67,7 +68,7 @@ namespace WebServiceAutomation.GetEndpoint
             HttpClient httpClient = new HttpClient();
 
             // Modify URL to return a NonFound 404 HTTP error
-            Uri getUri = new Uri($"{getURL}_Invalid_Url_Here");
+            Uri getUri = new Uri($"{getUrl}_Invalid_Url_Here");
 
             Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getUri);
 
@@ -99,7 +100,7 @@ namespace WebServiceAutomation.GetEndpoint
             // requestHeaders.Add("Accept", "application/xml");
             requestHeaders.Add("Accept", "application/json");
 
-            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getURL);
+            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getUrl);
             HttpResponseMessage httpResponseMessage = httpResponse.Result;
             Console.WriteLine(httpResponseMessage.ToString());
 
@@ -122,7 +123,7 @@ namespace WebServiceAutomation.GetEndpoint
             HttpRequestHeaders requestHeaders = httpClient.DefaultRequestHeaders;
             requestHeaders.Add("Accept", "application/xml");
 
-            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getURL);
+            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getUrl);
             HttpResponseMessage httpResponseMessage = httpResponse.Result;
             Console.WriteLine(httpResponseMessage.ToString());
 
@@ -148,7 +149,7 @@ namespace WebServiceAutomation.GetEndpoint
             HttpRequestHeaders requestHeaders = httpClient.DefaultRequestHeaders;
             requestHeaders.Accept.Add(jsonHeader);
 
-            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getURL);
+            Task<HttpResponseMessage> httpResponse = httpClient.GetAsync(getUrl);
             HttpResponseMessage httpResponseMessage = httpResponse.Result;
             Console.WriteLine(httpResponseMessage.ToString());
 
@@ -168,7 +169,7 @@ namespace WebServiceAutomation.GetEndpoint
         public void GetEndpointUsingSendAsync()
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage();
-            httpRequestMessage.RequestUri = new Uri(getURL);
+            httpRequestMessage.RequestUri = new Uri(getUrl);
             httpRequestMessage.Method = HttpMethod.Get;
             httpRequestMessage.Headers.Add("Accept", "application/json");
 
@@ -197,7 +198,7 @@ namespace WebServiceAutomation.GetEndpoint
             {
                 using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage())
                 {
-                    httpRequestMessage.RequestUri = new Uri(getURL);
+                    httpRequestMessage.RequestUri = new Uri(getUrl);
                     httpRequestMessage.Method = HttpMethod.Get;
                     httpRequestMessage.Headers.Add("Accept", "application/json");
 
@@ -232,7 +233,7 @@ namespace WebServiceAutomation.GetEndpoint
             {
                 using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage())
                 {
-                    httpRequestMessage.RequestUri = new Uri(getURL);
+                    httpRequestMessage.RequestUri = new Uri(getUrl);
                     httpRequestMessage.Method = HttpMethod.Get;
                     httpRequestMessage.Headers.Add("Accept", "application/json");
 
@@ -265,7 +266,7 @@ namespace WebServiceAutomation.GetEndpoint
             {
                 using (HttpRequestMessage httpRequestMessage = new HttpRequestMessage())
                 {
-                    httpRequestMessage.RequestUri = new Uri(getURL);
+                    httpRequestMessage.RequestUri = new Uri(getUrl);
                     httpRequestMessage.Method = HttpMethod.Get;
                     httpRequestMessage.Headers.Add("Accept", "application/xml");
 
@@ -299,6 +300,19 @@ namespace WebServiceAutomation.GetEndpoint
                     }
                 }
             }
+        }
+
+        [TestMethod]
+        public void GetUsingHelperMethod()
+        {
+            Dictionary<string, string> httpHeader = new Dictionary<string, string>();
+            httpHeader.Add("Accept", "application/json");
+
+            HttpClientHelper.PerformGetRequest(getUrl, httpHeader);
+            RestResponse restResponse = HttpClientHelper.PerformGetRequest(getUrl, httpHeader);
+
+            List<JsonRootObject> jsonRootObject = JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
+            Console.WriteLine(jsonRootObject[0].ToString());
         }
     }
 }

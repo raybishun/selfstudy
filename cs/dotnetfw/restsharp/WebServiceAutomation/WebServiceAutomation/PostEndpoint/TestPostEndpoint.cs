@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using WebServiceAutomation.Helper.Request;
 using WebServiceAutomation.Model;
 using WebServiceAutomation.Model.XmlModel;
 
@@ -127,6 +128,7 @@ namespace WebServiceAutomation.PostEndpoint
             }
         }
 
+        [TestMethod]
         public void TestPostEndpointUsingSendAsyncJson()
         {
             int id = random.Next(1000);
@@ -163,6 +165,7 @@ namespace WebServiceAutomation.PostEndpoint
             }
         }
 
+        [TestMethod]
         public void TestPostEndpointUsingSendAsyncXml()
         {
             int id = random.Next(1000);
@@ -195,6 +198,37 @@ namespace WebServiceAutomation.PostEndpoint
                     Assert.AreEqual(200, restResponse.StatusCode);
                 }
             }
+        }
+
+        [TestMethod]
+        public void TestPostUsingHelperClass()
+        {
+            int id = random.Next(1000);
+
+            string xmlData = "<Laptop>" +
+                                 "<BrandName>Alienware</BrandName>" +
+                                 "<Features>" +
+                                     "<Feature>8th Generation Intel Core i5-8300H</Feature>" +
+                                     "<Feature>Windows 10 Home 64-bit English</Feature>" +
+                                     "<Feature>NVIDIA GeForce GTX 1660 Ti 6GB GDDR6</Feature>" +
+                                     "<Feature>8GB, 2x4GB, DDR4, 2666Mhz</Feature>" +
+                                 "</Features>" +
+                                   "<Id>" + id + "</Id>" +
+                                   "<LaptopName>Alienware M17</LaptopName>" +
+                               "</Laptop>";
+
+            Dictionary<string, string> headers = new Dictionary<string, string>()
+            {
+                { "Accept", "application/xml"}
+            };
+
+            restResponse = HttpClientHelper.PerformPostRequest(postUrl, xmlData, xmlMediaType, headers);
+
+            // HttpContent httpContent = new StringContent(xmlData, Encoding.UTF8, xmlMediaType);
+
+            // HttpClientHelper.PerformPostRequest(postUrl, httpContent, headers);
+
+            Assert.AreEqual(200, restResponse.StatusCode);
         }
     }
 }
