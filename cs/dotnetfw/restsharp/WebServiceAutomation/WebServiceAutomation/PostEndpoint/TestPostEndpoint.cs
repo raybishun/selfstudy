@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using WebServiceAutomation.Helper.Request;
+using WebServiceAutomation.Helper.Response;
 using WebServiceAutomation.Model;
 using WebServiceAutomation.Model.XmlModel;
 
@@ -229,6 +230,11 @@ namespace WebServiceAutomation.PostEndpoint
             // HttpClientHelper.PerformPostRequest(postUrl, httpContent, headers);
 
             Assert.AreEqual(200, restResponse.StatusCode);
+
+
+            Laptop laptop = ResponseDataHelper.DeserializeXmlResponse<Laptop>(restResponse.ResponseContent);
+            Console.WriteLine(laptop.ToString());
+
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using WebServiceAutomation.Helper.Request;
+using WebServiceAutomation.Helper.Response;
 using WebServiceAutomation.Model;
 using WebServiceAutomation.Model.XmlModel;
 
@@ -308,11 +309,21 @@ namespace WebServiceAutomation.GetEndpoint
             Dictionary<string, string> httpHeader = new Dictionary<string, string>();
             httpHeader.Add("Accept", "application/json");
 
-            HttpClientHelper.PerformGetRequest(getUrl, httpHeader);
             RestResponse restResponse = HttpClientHelper.PerformGetRequest(getUrl, httpHeader);
 
-            List<JsonRootObject> jsonRootObject = JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
-            Console.WriteLine(jsonRootObject[0].ToString());
+            //List<JsonRootObject> jsonRootObject =
+            //    JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
+            //Console.WriteLine(jsonRootObject[0].ToString());
+
+            // Handling a single JsonRootObject
+            //JsonRootObject jsonData =
+            //    ResponseDataHelper.DeserializeJsonResponse<JsonRootObject>(restResponse.ResponseContent);
+
+            // A single JsonRootObject a list of JsonRootObjects
+            List<JsonRootObject> jsonData =
+                ResponseDataHelper.DeserializeJsonResponse<List<JsonRootObject>>(restResponse.ResponseContent);
+
+            Console.WriteLine(jsonData.ToString());
         }
     }
 }
