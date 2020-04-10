@@ -102,6 +102,7 @@
     <Compile Include="Model\XmlModel\Laptop.cs" />
     <Compile Include="Model\XmlModel\LaptopDetailss.cs" />
     <Compile Include="PostEndpoint\TestPostEndpoint.cs" />
+    <Compile Include="PutEndpoint\TestPutEndpoint.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
