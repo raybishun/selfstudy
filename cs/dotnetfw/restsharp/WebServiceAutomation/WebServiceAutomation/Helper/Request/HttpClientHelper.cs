@@ -32,7 +32,7 @@ namespace WebServiceAutomation.Helper.Request
         private static HttpRequestMessage CreateHttpRequestMessage(string requestUrl, HttpMethod httpMethod, HttpContent httpContent)
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage(httpMethod, requestUrl);
-            if (httpMethod != HttpMethod.Get)
+            if (httpMethod != HttpMethod.Get || httpMethod == HttpMethod.Delete)
             {
                 httpRequestMessage.Content = httpContent;
             }
@@ -94,5 +94,9 @@ namespace WebServiceAutomation.Helper.Request
             return SendRequest(requestUrl, HttpMethod.Put, httpContent, headers);
         }
 
+        public static RestResponse PerformDeleteRequest(string requestUrl)
+        {
+            return SendRequest(requestUrl, HttpMethod.Delete, null, null);
+        }
     }
 }

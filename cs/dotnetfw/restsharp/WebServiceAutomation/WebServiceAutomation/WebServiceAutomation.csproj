@@ -92,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteEndpoint\TestDeleteEndpoint.cs" />
     <Compile Include="GetEndpoint\TestGetEndpoint.cs" />
     <Compile Include="Helper\Request\HttpClientHelper.cs" />
     <Compile Include="Helper\Response\ResponseDataHelper.cs" />
