@@ -49,12 +49,12 @@ namespace WebServiceAutomation.Helper.Request
             try
             {
                 Task<HttpResponseMessage> httpResponseMessage = httpClient.SendAsync(httpRequestMessage);
-                restResponse = new RestResponse((int)httpResponseMessage.Result.StatusCode, 
-                httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                restResponse = new RestResponse() { StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                    ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result };
             }
             catch (Exception err)
             {
-                restResponse = new RestResponse(500, err.Message);
+                restResponse = new RestResponse() { StatusCode = 500, ResponseContent = err.Message };
             }
             finally
             {

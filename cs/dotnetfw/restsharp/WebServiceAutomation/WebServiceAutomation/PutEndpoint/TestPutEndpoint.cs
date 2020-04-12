@@ -69,8 +69,11 @@ namespace WebServiceAutomation.PutEndpoint
 
                 Task<HttpResponseMessage> httpResponseMessage = httpClient.PutAsync(putUrl, httpContent);
 
-                restResponse =
-                    new RestResponse((int)httpResponseMessage.Result.StatusCode, httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                restResponse = new RestResponse()
+                {
+                    StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                    ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result
+                };
 
                 Assert.AreEqual(200, restResponse.StatusCode);
             }
@@ -131,8 +134,11 @@ namespace WebServiceAutomation.PutEndpoint
 
                 Task<HttpResponseMessage> httpResponseMessage = httpClient.PutAsync(putUrl, httpContent);
 
-                restResponse =
-                    new RestResponse((int)httpResponseMessage.Result.StatusCode, httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                restResponse = new RestResponse()
+                {
+                    StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                    ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result
+                };
 
                 Assert.AreEqual(200, restResponse.StatusCode);
             }

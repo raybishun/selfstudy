@@ -14,6 +14,7 @@ using WebServiceAutomation.Helper.Request;
 using WebServiceAutomation.Helper.Response;
 using WebServiceAutomation.Model;
 using WebServiceAutomation.Model.XmlModel;
+using WebServiceAutomation.Helper.Authentication;
 
 namespace WebServiceAutomation.GetEndpoint
 {
@@ -21,7 +22,8 @@ namespace WebServiceAutomation.GetEndpoint
     public class TestGetEndpoint
     {
         private string getUrl = "http://localhost:8080/laptop-bag/webapi/api/all";
-        
+        private string secureGetUrl = "http://localhost:8080/laptop-bag/webapi/secure/all";
+
         [TestMethod]
         public void TestGetAllEndpoint()
         {
@@ -220,7 +222,9 @@ namespace WebServiceAutomation.GetEndpoint
 
                         // The below RestResponse Class is an alternate way of returning data
                         // And eliminates the need for the above 3 remarked statements
-                        RestResponse restResponse = new RestResponse((int)statusCode, responseData.Result);
+
+                        RestResponse restResponse = new RestResponse() { StatusCode = (int)statusCode, ResponseContent = responseData.Result };
+
                         Console.WriteLine(restResponse.ToString());
                     }
                 }
@@ -250,7 +254,9 @@ namespace WebServiceAutomation.GetEndpoint
                         Task<string> responseData = responseContent.ReadAsStringAsync();
                         string data = responseData.Result;
 
-                        RestResponse restResponse = new RestResponse((int)statusCode, responseData.Result);
+                        //RestResponse restResponse = new RestResponse((int)statusCode, responseData.Result);
+
+                        RestResponse restResponse = new RestResponse() { StatusCode = (int)statusCode, ResponseContent = responseData.Result };
                         // Console.WriteLine(restResponse.ToString());
 
                         List<JsonRootObject> jsonRootObject = JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
@@ -283,7 +289,7 @@ namespace WebServiceAutomation.GetEndpoint
                         Task<string> responseData = responseContent.ReadAsStringAsync();
                         string data = responseData.Result;
 
-                        RestResponse restResponse = new RestResponse((int)statusCode, responseData.Result);
+                        RestResponse restResponse = new RestResponse() { StatusCode = (int)statusCode, ResponseContent = responseData.Result };
 
                         XmlSerializer xmlSerializer = new XmlSerializer(typeof(LaptopDetailss));
 
@@ -320,6 +326,34 @@ namespace WebServiceAutomation.GetEndpoint
             //    ResponseDataHelper.DeserializeJsonResponse<JsonRootObject>(restResponse.ResponseContent);
 
             // A single JsonRootObject a list of JsonRootObjects
+            List<JsonRootObject> jsonData =
+                ResponseDataHelper.DeserializeJsonResponse<List<JsonRootObject>>(restResponse.ResponseContent);
+
+            Console.WriteLine(jsonData.ToString());
+        }
+
+        [TestMethod]
+        public void TestSecureGetEndpoint()
+        {
+            Dictionary<string, string> httpHeader = new Dictionary<string, string>();
+            httpHeader.Add("Accept", "application/json");
+            // httpHeader.Add("Authorization", "Basic YWRtaW46d2VsY29tZQ==");
+            string authHeader = Base64StringConverter.GetBsae64String("admin", "welcome");
+            httpHeader.Add("Authorization", $"Basic {authHeader}");
+
+
+            RestResponse restResponse = HttpClientHelper.PerformGetRequest(secureGetUrl, httpHeader);
+
+            //List<JsonRootObject> jsonRootObject =
+            //    JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
+            //Console.WriteLine(jsonRootObject[0].ToString());
+
+            // Handling a single JsonRootObject
+            //JsonRootObject jsonData =
+            //    ResponseDataHelper.DeserializeJsonResponse<JsonRootObject>(restResponse.ResponseContent);
+
+            Assert.AreEqual(200, restResponse.StatusCode);
+            
             List<JsonRootObject> jsonData =
                 ResponseDataHelper.DeserializeJsonResponse<List<JsonRootObject>>(restResponse.ResponseContent);
 

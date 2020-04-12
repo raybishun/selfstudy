@@ -21,6 +21,8 @@ namespace WebServiceAutomation.PostEndpoint
     {
         private string postUrl = "http://localhost:8080/laptop-bag/webapi/api/add";
         private string getUrl = "http://localhost:8080/laptop-bag/webapi/api/find/";
+        private string secureGetUrl = "http://localhost:8080/laptop-bag/webapi/secure/find/";
+        private string securePostUrl = "http://localhost:8080/laptop-bag/webapi/secure/add";
         private RestResponse restResponse;
         private RestResponse restResponseForGet;
         private string jsonMediaType = "application/json";
@@ -56,7 +58,7 @@ namespace WebServiceAutomation.PostEndpoint
                 HttpContent responseContent = postResponse.Result.Content;
                 string responseData = responseContent.ReadAsStringAsync().Result;
 
-                restResponse = new RestResponse((int)statusCode, responseData);
+                restResponse = new RestResponse() { StatusCode = (int)statusCode, ResponseContent = responseData };
 
                 Assert.AreEqual(200, restResponse.StatusCode);
                 Assert.IsNotNull(restResponse.ResponseContent, "Response data is null/empty.");
@@ -64,8 +66,11 @@ namespace WebServiceAutomation.PostEndpoint
                 Task<HttpResponseMessage> getResponse = httpClient.GetAsync(getUrl + id);
 
                 restResponseForGet = 
-                    new RestResponse((int)getResponse.Result.StatusCode, 
-                    getResponse.Result.Content.ReadAsStringAsync().Result);
+                    new RestResponse()
+                    {
+                        StatusCode = (int)getResponse.Result.StatusCode,
+                        ResponseContent = getResponse.Result.Content.ReadAsStringAsync().Result
+                    };
 
                 JsonRootObject jsonObject = 
                     JsonConvert.DeserializeObject<JsonRootObject>(restResponseForGet.ResponseContent);
@@ -100,9 +105,11 @@ namespace WebServiceAutomation.PostEndpoint
                 Task<HttpResponseMessage> httpResponseMessage = 
                     httpClient.PostAsync(postUrl, httpContent);
 
-                restResponse = 
-                    new RestResponse((int)httpResponseMessage.Result.StatusCode, 
-                    httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                restResponse = new RestResponse()
+                {
+                    StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                    ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result
+                };
 
                 Assert.AreEqual(200, restResponse.StatusCode);
                 Assert.IsNotNull(restResponse.ResponseContent, "Response Data is null/empty.");
@@ -117,9 +124,11 @@ namespace WebServiceAutomation.PostEndpoint
                     Assert.Fail("HTTP response was unsuccessful.");
                 }
 
-                restResponse =
-                    new RestResponse((int)httpResponseMessage.Result.StatusCode,
-                    httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                restResponse = new RestResponse()
+                {
+                    StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                    ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result
+                };
 
                 XmlSerializer xmlSerializer = new XmlSerializer(typeof(Laptop));
                 TextReader textReader = new StringReader(restResponse.ResponseContent);
@@ -158,8 +167,11 @@ namespace WebServiceAutomation.PostEndpoint
 
                     Task<HttpResponseMessage> httpResponseMessage = httpClient.SendAsync(httpRequestMessage);
 
-                    restResponse = new RestResponse((int)httpResponseMessage.Result.StatusCode,
-                        httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                    restResponse = new RestResponse()
+                    {
+                        StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                        ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result
+                    };
 
                     Assert.AreEqual(200, restResponse.StatusCode);
                 }
@@ -193,8 +205,11 @@ namespace WebServiceAutomation.PostEndpoint
 
                     Task<HttpResponseMessage> httpResponseMessage = httpClient.SendAsync(httpRequestMessage);
 
-                    restResponse = new RestResponse((int)httpResponseMessage.Result.StatusCode,
-                        httpResponseMessage.Result.Content.ReadAsStringAsync().Result);
+                    restResponse = new RestResponse()
+                    {
+                        StatusCode = (int)httpResponseMessage.Result.StatusCode,
+                        ResponseContent = httpResponseMessage.Result.Content.ReadAsStringAsync().Result
+                    };
 
                     Assert.AreEqual(200, restResponse.StatusCode);
                 }
@@ -234,7 +249,6 @@ namespace WebServiceAutomation.PostEndpoint
 
             Laptop laptop = ResponseDataHelper.DeserializeXmlResponse<Laptop>(restResponse.ResponseContent);
             Console.WriteLine(laptop.ToString());
-
         }
     }
 }
