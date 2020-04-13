@@ -23,6 +23,7 @@ namespace WebServiceAutomation.GetEndpoint
     {
         private string getUrl = "http://localhost:8080/laptop-bag/webapi/api/all";
         private string secureGetUrl = "http://localhost:8080/laptop-bag/webapi/secure/all";
+        private string delayGet = "http://localhost:8080/laptop-bag/webapi/delay/all";
 
         [TestMethod]
         public void TestGetAllEndpoint()
@@ -358,6 +359,68 @@ namespace WebServiceAutomation.GetEndpoint
                 ResponseDataHelper.DeserializeJsonResponse<List<JsonRootObject>>(restResponse.ResponseContent);
 
             Console.WriteLine(jsonData.ToString());
+        }
+
+        [TestMethod]
+        public void TestGetEndpoint_Sync()
+        {
+            HttpClientHelper.PerformGetRequest(delayGet, null);
+
+            HttpClientHelper.PerformGetRequest(delayGet, null);
+
+            HttpClientHelper.PerformGetRequest(delayGet, null);
+
+            HttpClientHelper.PerformGetRequest(delayGet, null);
+        }
+
+        [TestMethod]
+        public void TestGetEndpoint_Async()
+        {
+            Task t1 = new Task(GetEndpoint());
+            t1.Start();
+
+            Task t2 = new Task(GetEndpoint());
+            t2.Start();
+
+            Task t3 = new Task(GetEndpoint());
+            t3.Start();
+
+            Task t4 = new Task(GetEndpointFailed());
+            t4.Start();
+
+            t1.Wait();
+            t2.Wait();
+            t3.Wait();
+            t4.Wait();
+        }
+       
+        private Action GetEndpoint()
+        {
+            Dictionary<string, string> headers = new Dictionary<string, string>()
+            {
+                { "Accept", "application/xml" }
+            };
+            
+            return new Action(() => 
+            { 
+                RestResponse restResponse = HttpClientHelper.PerformGetRequest(delayGet, headers);
+                Assert.AreEqual(200, restResponse.StatusCode);
+            
+            });
+        }
+
+        private Action GetEndpointFailed()
+        {
+            Dictionary<string, string> headers = new Dictionary<string, string>()
+            {
+                { "Accept", "application/xml" }
+            };
+
+            return new Action(() =>
+            {
+                RestResponse restResponse = HttpClientHelper.PerformGetRequest(delayGet, headers);
+                Assert.AreEqual(201, restResponse.StatusCode);
+            });
         }
     }
 }

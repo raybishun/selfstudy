@@ -103,6 +103,7 @@
     <Compile Include="Model\XmlModel\Features.cs" />
     <Compile Include="Model\XmlModel\Laptop.cs" />
     <Compile Include="Model\XmlModel\LaptopDetailss.cs" />
+    <Compile Include="ParallelExecution\TestParallelExecution.cs" />
     <Compile Include="PostEndpoint\TestPostEndpoint.cs" />
     <Compile Include="PutEndpoint\TestPutEndpoint.cs" />
     <Compile Include="UnitTest1.cs" />
