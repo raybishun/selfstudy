@@ -7,7 +7,7 @@
 
         public override string ToString()
         {
-            return $"StatusCode: {StatusCode} ResponseData: {ResponseContent}";
+            return $"StatusCode: {StatusCode} ResponseContent: {ResponseContent}";
         }
     }
 }

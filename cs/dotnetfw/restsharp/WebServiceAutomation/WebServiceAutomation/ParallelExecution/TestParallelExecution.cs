@@ -21,13 +21,15 @@ namespace WebServiceAutomation.ParallelExecution
         private string xmlMediaType = "application/xml";
         private string jsonMediaType = "application/json";
         private Random random = new Random();
+        private HttpClientAsyncHelper HttpClientAsyncHelper = new HttpClientAsyncHelper();
 
         private void SendGetRequest()
         {
             Dictionary<string, string> httpHeader = new Dictionary<string, string>();
             httpHeader.Add("Accept", "application/json");
 
-            RestResponse restResponse = HttpClientHelper.PerformGetRequest(delayGetUrl, httpHeader);
+            RestResponse restResponse = HttpClientAsyncHelper.PerformGetRequest(delayGetUrl, httpHeader)
+                .GetAwaiter().GetResult();
 
             //List<JsonRootObject> jsonRootObject =
             //    JsonConvert.DeserializeObject<List<JsonRootObject>>(restResponse.ResponseContent);
@@ -37,11 +39,13 @@ namespace WebServiceAutomation.ParallelExecution
             //JsonRootObject jsonData =
             //    ResponseDataHelper.DeserializeJsonResponse<JsonRootObject>(restResponse.ResponseContent);
 
+            Assert.AreEqual(200, restResponse.StatusCode);
+
             // A single JsonRootObject a list of JsonRootObjects
             List<JsonRootObject> jsonData =
                 ResponseDataHelper.DeserializeJsonResponse<List<JsonRootObject>>(restResponse.ResponseContent);
 
-            Console.WriteLine(jsonData.ToString());
+            Console.WriteLine(jsonData[0].ToString());
         }
 
         public void SendPostRequest()
@@ -65,16 +69,17 @@ namespace WebServiceAutomation.ParallelExecution
                 { "Accept", "application/xml"}
             };
 
-            RestResponse restResponse = HttpClientHelper.PerformPostRequest(delayPostUrl, xmlData, xmlMediaType, headers);
+            RestResponse restResponse = HttpClientAsyncHelper.PerformPostRequest(delayPostUrl, xmlData, xmlMediaType, headers).GetAwaiter().GetResult();
 
             // HttpContent httpContent = new StringContent(xmlData, Encoding.UTF8, xmlMediaType);
-
             // HttpClientHelper.PerformPostRequest(postUrl, httpContent, headers);
 
             Assert.AreEqual(200, restResponse.StatusCode);
 
+            Console.WriteLine($">>>>>>>>>> {restResponse.ResponseContent}");
 
-            Laptop laptop = ResponseDataHelper.DeserializeXmlResponse<Laptop>(restResponse.ResponseContent);
+            Laptop laptop = ResponseDataHelper.DeserializeXmlResponse<Laptop>
+                (restResponse.ResponseContent);
             Console.WriteLine(laptop.ToString());
         }
 
@@ -99,7 +104,8 @@ namespace WebServiceAutomation.ParallelExecution
                 { "Accept", "application/xml" }
             };
 
-            RestResponse restResponse = HttpClientHelper.PerformPostRequest(delayPostUrl, xmlData, xmlMediaType, headers);
+            RestResponse restResponse = HttpClientAsyncHelper.PerformPostRequest(delayPostUrl, xmlData, xmlMediaType, headers).GetAwaiter().GetResult();
+            
             Assert.AreEqual(200, restResponse.StatusCode);
 
             xmlData = "<Laptop>" +
@@ -115,13 +121,16 @@ namespace WebServiceAutomation.ParallelExecution
                                 "<LaptopName>Alienware M17</LaptopName>" +
                             "</Laptop>";
 
-            restResponse = HttpClientHelper.PerformPutRequest(delayPostUrl, xmlData, xmlMediaType, headers);
+            restResponse = HttpClientAsyncHelper.PerformPutRequest(delayPostUrl, xmlData, xmlMediaType, headers).GetAwaiter().GetResult();
+            
             Assert.AreEqual(200, restResponse.StatusCode);
 
-            restResponse = HttpClientHelper.PerformGetRequest(delayGetWithId + id, headers);
+            restResponse = HttpClientAsyncHelper.PerformGetRequest(delayGetWithId + id, headers).GetAwaiter().GetResult();
+            
             Assert.AreEqual(200, restResponse.StatusCode);
 
             Laptop xmlObj = ResponseDataHelper.DeserializeXmlResponse<Laptop>(restResponse.ResponseContent);
+            
             Assert.IsTrue(xmlObj.Features.Feature.Contains("1TB of SSD"), "Expected new feature not found...");
         }
 

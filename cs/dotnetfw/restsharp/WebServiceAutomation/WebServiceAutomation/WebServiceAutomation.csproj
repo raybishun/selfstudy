@@ -95,6 +95,7 @@
     <Compile Include="DeleteEndpoint\TestDeleteEndpoint.cs" />
     <Compile Include="GetEndpoint\TestGetEndpoint.cs" />
     <Compile Include="Helper\Authentication\Base64StringConverter.cs" />
+    <Compile Include="Helper\Request\HttpClientAsyncHelper.cs" />
     <Compile Include="Helper\Request\HttpClientHelper.cs" />
     <Compile Include="Helper\Response\ResponseDataHelper.cs" />
     <Compile Include="Model\JsonModel\Features.cs" />
