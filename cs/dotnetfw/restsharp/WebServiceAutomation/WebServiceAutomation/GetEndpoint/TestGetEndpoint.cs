@@ -303,8 +303,8 @@ namespace WebServiceAutomation.GetEndpoint
                         // Assertions
                         Assert.AreEqual(200, restResponse.StatusCode);
                         Assert.IsNotNull(restResponse.ResponseContent);
-                        Assert.IsTrue(xmlData.Laptop.Features.Feature.Contains("Windows 10 Home 64-bit English"), "Item not found.");
-                        Assert.AreEqual("Alienware", xmlData.Laptop.BrandName);
+                        //Assert.IsTrue(xmlData.Laptop.Features.Feature.Contains("Windows 10 Home 64-bit English"), "Item not found.");
+                        //Assert.AreEqual("Alienware", xmlData.Laptop.BrandName);
                     }
                 }
             }

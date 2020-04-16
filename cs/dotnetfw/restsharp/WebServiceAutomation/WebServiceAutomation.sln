@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceAutomation", "Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MsTestProject", "MsTestProject\MsTestProject.csproj", "{68448C85-5C03-46B5-A31E-27DFD635C833}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestSharpAutomation", "RestSharpAutomation\RestSharpAutomation.csproj", "{B3FD96CE-9C1E-4F48-9C32-54B31449371F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68448C85-5C03-46B5-A31E-27DFD635C833}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68448C85-5C03-46B5-A31E-27DFD635C833}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68448C85-5C03-46B5-A31E-27DFD635C833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3FD96CE-9C1E-4F48-9C32-54B31449371F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3FD96CE-9C1E-4F48-9C32-54B31449371F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3FD96CE-9C1E-4F48-9C32-54B31449371F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3FD96CE-9C1E-4F48-9C32-54B31449371F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
