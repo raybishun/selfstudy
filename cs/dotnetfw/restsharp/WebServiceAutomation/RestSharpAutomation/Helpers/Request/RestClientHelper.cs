@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using RestSharp.Deserializers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace RestSharpAutomation.HelperClass.Request
             return restClient;
         }
 
-        private IRestRequest GetRequest(
+        private IRestRequest GetRequestRequest(
             string url, Dictionary<string, string> header, Method method)
         {
             IRestRequest restRequest = new RestRequest()
@@ -24,14 +25,20 @@ namespace RestSharpAutomation.HelperClass.Request
                 Method = method
             };
 
-            foreach (var item in header)
+            if (header != null)
             {
-                restRequest.AddHeader(item.Key, item.Value);
+                foreach (var item in header)
+                {
+                    restRequest.AddHeader(item.Key, item.Value);
+                }
             }
 
-            //foreach (string key in header.Keys)
+            //if (header != null)
             //{
-            //    restRequest.AddHeader(key, header[key]);
+            //    foreach (string key in header.Keys)
+            //    {
+            //        restRequest.AddHeader(key, header[key]);
+            //    }
             //}
 
             return restRequest;
@@ -48,6 +55,31 @@ namespace RestSharpAutomation.HelperClass.Request
         {
             IRestClient restClient = GetRestClient();
             IRestResponse<T> restResponse = restClient.Execute<T>(restRequest);
+
+            // Explicitly deserialize if ContentType is xml
+            // Else (automatically) deserialize as json (the build in default), 
+            // but need to verify this
+            // TODO: Verify you need to explicitely deserialize if ContentType is xml
+            if (restResponse.ContentType.Equals("application/xml"))
+            {
+                var deserializer = new DotNetXmlDeserializer();
+                restResponse.Data = deserializer.Deserialize<T>(restResponse);
+            }
+
+            return restResponse;
+        }
+
+        public IRestResponse PerformGetRequest(string url, Dictionary<string, string> header)
+        {
+            IRestRequest restRequest = GetRequestRequest(url, header, Method.GET);
+            IRestResponse restResponse = SendRequest(restRequest);
+            return restResponse;
+        }
+
+        public IRestResponse<T> PerformGetRequest<T>(string url, Dictionary<string, string> header) where T : new()
+        {
+            IRestRequest restRequest = GetRequestRequest(url, header, Method.GET);
+            IRestResponse<T> restResponse = SendRequest<T>(restRequest);
             return restResponse;
         }
     }

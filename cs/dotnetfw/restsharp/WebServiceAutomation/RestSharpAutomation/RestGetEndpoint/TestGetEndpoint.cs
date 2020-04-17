@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
+using RestSharpAutomation.HelperClass.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -112,7 +113,8 @@ namespace RestSharpAutomation.RestGetEndpoint
                 LaptopDetailss data = dotNetXmlDeserializer.Deserialize<LaptopDetailss>(restResponse);
                 Console.WriteLine($"Size: {data.Laptop.Count}");
 
-                Laptop laptop = data.Laptop.Find((x) => {
+                Laptop laptop = data.Laptop.Find((x) =>
+                {
                     return x.Id.Equals("1", StringComparison.OrdinalIgnoreCase);
                 });
             }
@@ -139,6 +141,44 @@ namespace RestSharpAutomation.RestGetEndpoint
 
             Assert.AreEqual(200, (int)restResponse.StatusCode);
             Assert.IsNotNull(restResponse.Data, "Response is null.");
+        }
+
+        [TestMethod]
+        public void TestGetWithXmlUsingHelperClass()
+        {
+            Dictionary<string, string> header = new Dictionary<string, string>()
+            {
+                { "Accept", "application/xml" }
+            };
+
+            RestClientHelper restClientHelper = new RestClientHelper();
+            
+            IRestResponse restResponse = restClientHelper.PerformGetRequest(getUrl, header);
+            Assert.AreEqual(200, (int)restResponse.StatusCode);
+            Assert.IsNotNull(restResponse.Content, "Response Content is null.");
+
+            IRestResponse<LaptopDetailss> restResponse1 = restClientHelper.PerformGetRequest<LaptopDetailss>(getUrl, header);
+            Assert.AreEqual(200, (int)restResponse.StatusCode);
+            Assert.IsNotNull(restResponse1.Data, "Response Content is null.");
+        }
+
+        [TestMethod]
+        public void TestGetWithJsonUsingHelperClass()
+        {
+            Dictionary<string, string> header = new Dictionary<string, string>()
+            {
+                { "Accept", "application/json" }
+            };
+
+            RestClientHelper restClientHelper = new RestClientHelper();
+
+            IRestResponse restResponse = restClientHelper.PerformGetRequest(getUrl, header);
+            Assert.AreEqual(200, (int)restResponse.StatusCode);
+            Assert.IsNotNull(restResponse.Content, "Response Content is null.");
+
+            IRestResponse<List<Laptop>> restResponse1 = restClientHelper.PerformGetRequest<List<Laptop>>(getUrl, header);
+            Assert.AreEqual(200, (int)restResponse.StatusCode);
+            Assert.IsNotNull(restResponse1.Data, "Response Content is null.");
         }
     }
 }
