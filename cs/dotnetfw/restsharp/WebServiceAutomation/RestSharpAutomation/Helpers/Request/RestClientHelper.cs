@@ -46,7 +46,18 @@ namespace RestSharpAutomation.HelperClass.Request
             if (body != null)
             {
                 restRequest.RequestFormat = DataFormat.Json;
-                restRequest.AddBody(body);
+
+                switch (dataFormat)
+                {
+                    case DataFormat.Json:
+                        restRequest.AddBody(body);
+                        break;
+                    case DataFormat.Xml:
+                        restRequest.XmlSerializer = new RestSharp.Serializers.DotNetXmlSerializer();
+                        restRequest.AddParameter("xmlData", GetType().Equals(typeof(string)) ? body : 
+                            restRequest.XmlSerializer.Serialize(body), ParameterType.RequestBody);
+                    break;
+                }
             }
 
             return restRequest;
