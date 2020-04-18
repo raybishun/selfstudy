@@ -17,7 +17,7 @@ namespace RestSharpAutomation.HelperClass.Request
         }
 
         private IRestRequest GetRequestRequest(
-            string url, Dictionary<string, string> header, Method method)
+            string url, Dictionary<string, string> header, Method method, object body, DataFormat dataFormat)
         {
             IRestRequest restRequest = new RestRequest()
             {
@@ -33,6 +33,7 @@ namespace RestSharpAutomation.HelperClass.Request
                 }
             }
 
+            #region
             //if (header != null)
             //{
             //    foreach (string key in header.Keys)
@@ -40,6 +41,13 @@ namespace RestSharpAutomation.HelperClass.Request
             //        restRequest.AddHeader(key, header[key]);
             //    }
             //}
+            #endregion
+
+            if (body != null)
+            {
+                restRequest.RequestFormat = DataFormat.Json;
+                restRequest.AddBody(body);
+            }
 
             return restRequest;
         }
@@ -71,15 +79,35 @@ namespace RestSharpAutomation.HelperClass.Request
 
         public IRestResponse PerformGetRequest(string url, Dictionary<string, string> header)
         {
-            IRestRequest restRequest = GetRequestRequest(url, header, Method.GET);
+            IRestRequest restRequest = GetRequestRequest(
+                url, header, Method.GET, null, DataFormat.None);
             IRestResponse restResponse = SendRequest(restRequest);
             return restResponse;
         }
 
         public IRestResponse<T> PerformGetRequest<T>(string url, Dictionary<string, string> header) where T : new()
         {
-            IRestRequest restRequest = GetRequestRequest(url, header, Method.GET);
+            IRestRequest restRequest = GetRequestRequest(
+                url, header, Method.GET, null, DataFormat.None);
             IRestResponse<T> restResponse = SendRequest<T>(restRequest);
+            return restResponse;
+        }
+
+        public IRestResponse<T> PerformPostRequest<T>(
+            string url, Dictionary<string, string> header, object body, DataFormat dataFormat) where T : new ()
+        {
+            IRestRequest request = GetRequestRequest(
+                url, header, Method.POST, body, dataFormat);
+            IRestResponse<T> restResponse = SendRequest<T>(request);
+            return restResponse;
+        }
+
+        public IRestResponse PerformPostRequest(
+            string url, Dictionary<string, string> header, object body, DataFormat dataFormat)
+        {
+            IRestRequest request = GetRequestRequest(
+                url, header, Method.POST, body, dataFormat);
+            IRestResponse restResponse = SendRequest(request);
             return restResponse;
         }
     }
