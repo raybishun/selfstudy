@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
-using RestSharpAutomation.HelperClass.Request;
+using RestSharpAutomation.Helpers.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
