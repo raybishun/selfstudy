@@ -117,5 +117,30 @@ namespace RestSharpAutomation.Helpers.Request
             IRestResponse restResponse = SendRequest(request);
             return restResponse;
         }
+
+        public IRestResponse<T> PerformPutRequest<T>(
+    string url, Dictionary<string, string> header, object body, DataFormat dataFormat) where T : new()
+        {
+            IRestRequest request = GetRequestRequest(
+                url, header, Method.PUT, body, dataFormat);
+            IRestResponse<T> restResponse = SendRequest<T>(request);
+            return restResponse;
+        }
+
+        public IRestResponse PerformPutRequest(
+            string url, Dictionary<string, string> header, object body, DataFormat dataFormat)
+        {
+            IRestRequest request = GetRequestRequest(
+                url, header, Method.PUT, body, dataFormat);
+            IRestResponse restResponse = SendRequest(request);
+            return restResponse;
+        }
+
+        public IRestResponse PerformDeleteRequest(string url, Dictionary<string, string> header)
+        {
+            IRestRequest request = GetRequestRequest(url, header, Method.DELETE, null, DataFormat.None);
+            IRestResponse restResponse = SendRequest(request);
+            return restResponse;
+        }
     }
 }
