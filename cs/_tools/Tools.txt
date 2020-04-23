@@ -1,0 +1,12 @@
+https://jsonlint.com/
+http://json2csharp.com/
+https://quicktype.io/csharp/
+https://app.quicktype.io/?l=csharp
+
+
+
+OAUTH2
+
+DropBox
+http://www.dropbox.com/developers/apps
+https://www.dropbox.com/developers/documentation/http/documentation
