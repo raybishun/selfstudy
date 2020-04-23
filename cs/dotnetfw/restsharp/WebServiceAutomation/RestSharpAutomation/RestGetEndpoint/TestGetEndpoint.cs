@@ -17,8 +17,7 @@ namespace RestSharpAutomation.RestGetEndpoint
     {
         private readonly string getUrl = "http://localhost:8080/laptop-bag/webapi/api/all";
         private readonly string secureGet = "http://localhost:8080/laptop-bag/webapi/secure/all";
-
-
+        
         [TestMethod]
         public void TestGetUsingRestSharp()
         {
