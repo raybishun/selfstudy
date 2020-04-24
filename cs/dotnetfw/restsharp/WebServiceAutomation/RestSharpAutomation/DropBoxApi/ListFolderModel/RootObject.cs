@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestSharpAutomation.DropBoxApi.ListFolderModel
+namespace RestSharpAutomation.DropBoxAPI.ListFolderModel
 {
     public class RootObject
     {
+        public List<Entry> Entry { get; set; }
+        public string Cursor { get; set; }
+        public bool HasMore { get; set; }
     }
 }
