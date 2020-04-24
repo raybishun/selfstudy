@@ -15,7 +15,7 @@ namespace RestSharpAutomation.DropBoxAPI
         private readonly string listEndPointUrl = 
             "https://api.dropboxapi.com/2/files/list_folder";
         private const string accessToken = 
-            "v_QhBm64dEAAAAAAAAAADwb2Ie3LHTpzxC_ECbuxd5V-BE9cz0lVPbBXfFZEc5Rp";
+            "<accessToken>";
 
         [TestMethod]
         public void TestListFolder()
