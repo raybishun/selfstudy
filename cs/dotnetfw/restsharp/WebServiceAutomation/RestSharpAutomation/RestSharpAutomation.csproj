@@ -64,6 +64,7 @@
     <Compile Include="RestGetEndpoint\TestGetEndpoint.cs" />
     <Compile Include="RestPostEndpoint\TestPostEndpoint.cs" />
     <Compile Include="RestPutEndpoint\TestPutEndpoint.cs" />
+    <Compile Include="SecureStoreHelper.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

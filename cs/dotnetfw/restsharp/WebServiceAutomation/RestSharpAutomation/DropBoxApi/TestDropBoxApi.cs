@@ -12,11 +12,11 @@ namespace RestSharpAutomation.DropBoxAPI
     [TestClass]
     public class TestDropBoxAPI
     {
-        private readonly string listEndPointUrl = 
-            "https://api.dropboxapi.com/2/files/list_folder";
-        private const string accessToken = 
-            "<accessToken>";
-
+        private static string[] creds = 
+            SecureStoreHelper.GetCreds(@"C:\SecureStore\dropbox_app_token_endpoint_list_folder.txt").Split(',');
+        private static string accessToken = creds[0];
+        private static string listEndPointUrl = creds[1];
+        
         [TestMethod]
         public void TestListFolder()
         {
