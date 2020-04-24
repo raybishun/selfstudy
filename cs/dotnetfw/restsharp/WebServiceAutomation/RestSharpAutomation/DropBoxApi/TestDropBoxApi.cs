@@ -15,8 +15,9 @@ namespace RestSharpAutomation.DropBoxAPI
         private static string[] creds = 
             SecureStoreHelper.GetCreds(@"C:\SecureStore\dropbox_app_token_endpoint_list_folder.txt").Split(',');
         private static string accessToken = creds[0];
-        private static string listEndPointUrl = creds[1];
-        
+        private static string listFolderUrl = "https://api.dropboxapi.com/2/files/list_folder";
+        private static string createFolderUrl = "https://api.dropboxapi.com/2/files/create_folder_v2";
+
         [TestMethod]
         public void TestListFolder()
         {
@@ -24,14 +25,35 @@ namespace RestSharpAutomation.DropBoxAPI
                 "{\"path\": \"\",\"recursive\": false,\"include_media_info\": false,\"include_deleted\": false,\"include_has_explicit_shared_members\": false,\"include_mounted_folders\": true,\"include_non_downloadable_files\": true}";
             
             IRestClient client = new RestClient();
-            IRestRequest request = new RestRequest() { Resource = listEndPointUrl };
+            
+            IRestRequest request = new RestRequest() { Resource = listFolderUrl };
             request.AddHeader("Authorization", $"Bearer {accessToken}");
             request.AddHeader("Content-Type", "application/json");
             request.RequestFormat = DataFormat.Json;
             request.AddBody(body);
 
             IRestResponse response = client.Post<RootObject>(request);
+            
             Assert.AreEqual(200, (int)response.StatusCode);
         }
+
+        [TestMethod]
+        public void TestCreateFolder()
+        {
+            string body = "{\"path\": \"/TestFolder\",\"autorename\": true}";
+
+            IRestClient client = new RestClient();
+            
+            IRestRequest request = new RestRequest() { Resource = createFolderUrl };
+            request.AddHeader("Authorization", $"Bearer {accessToken}");
+            request.AddHeader("Content-Type", "application/json");
+            request.RequestFormat = DataFormat.Json;
+            request.AddBody(body);
+
+            IRestResponse response = client.Post<RootObject>(request);
+            
+            Assert.AreEqual(200, (int)response.StatusCode);
+        }
+
     }
 }
