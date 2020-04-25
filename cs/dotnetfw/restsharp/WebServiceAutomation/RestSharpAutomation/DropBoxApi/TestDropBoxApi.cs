@@ -70,9 +70,54 @@ namespace RestSharpAutomation.DropBoxAPI
             request.AddHeader("Dropbox-API-Arg", srcFile);
             request.RequestFormat = DataFormat.Json;
            
-            byte[] byteArrayResponse = client.DownloadData(request);
+            byte[] response = client.DownloadData(request);
 
-            File.WriteAllBytes(dstFile, byteArrayResponse);
+            File.WriteAllBytes(dstFile, response);
+        }
+
+        [TestMethod]
+        public void TestFileDownloadParallel()
+        {
+            string srcFile1 = "{\"path\": \"/VX1.dat\"}";
+            string srcFile2 = "{\"path\": \"/VX2.dat\"}";
+
+            IRestRequest request1 = new RestRequest() { Resource = downloadUrl };
+            request1.AddHeader("Authorization", $"Bearer {accessToken}");
+            request1.AddHeader("Drop box-API-Arg", srcFile1);
+            request1.RequestFormat = DataFormat.Json;
+            
+            IRestRequest request2 = new RestRequest() { Resource = downloadUrl };
+            request2.AddHeader("Authorization", $"Bearer {accessToken}");
+            request2.AddHeader("Drop box-API-Arg", srcFile2);
+            request2.RequestFormat = DataFormat.Json;
+
+            IRestClient client = new RestClient();
+
+            byte[] data1 = null;
+            byte[] data2 = null;
+
+            Task task1 = Task.Factory.StartNew(() =>
+            {
+               data1 = client.DownloadData(request1);
+            });
+
+            Task task2 = Task.Factory.StartNew(() =>
+            {
+                data2 = client.DownloadData(request2);
+            });
+
+            task1.Wait();
+            task2.Wait();
+
+            if (data1 != null)
+            {
+                File.WriteAllBytes("VX1.dat", data1);
+            }
+
+            if (data2 != null)
+            {
+                File.WriteAllBytes("VX2.dat", data2);
+            }
         }
     }
 }
