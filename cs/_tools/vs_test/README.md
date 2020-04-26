@@ -12,7 +12,8 @@
 ### Example 1 (using .trx as output)
 - "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" "C:\git\selfstudy\cs\dotnetfw\restsharp\WebServiceAutomation\MsTestProject\bin\Debug\MsTestProject.dll" /Logger:trx
 
-### Results 1 (using .trx as output) 
+### Results 1 (using .trx as output)
+```
 Microsoft (R) Test Execution Command Line Tool Version 16.4.0
 Copyright (c) Microsoft Corporation.  All rights reserved.
 
@@ -28,7 +29,7 @@ Total tests: 2
      Passed: 1
     Skipped: 1
  Total time: 0.5333 Seconds
-
+```
 ### Example 2 (using .html as output)
 - "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" "C:\git\selfstudy\cs\dotnetfw\restsharp\WebServiceAutomation\MsTestProject\bin\Debug\MsTestProject.dll" /Logger:html
 
@@ -36,6 +37,6 @@ Total tests: 2
 - https://github.com/raybishun/selfstudy/blob/master/cs/_tools/vs_test/TestResult_ray.bishun_X1CARBON_20200425_213348.html
 
 
-### Reference
+### References
 1. VSTest.Console.exe command-line options: https://docs.microsoft.com/en-us/visualstudio/test/vstest-console-options?view=vs-2019
 2. More info on Console Logger: https://aka.ms/console-logger
