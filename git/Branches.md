@@ -37,7 +37,7 @@
 1. git checkout <branch name>
 2. git checkout - (switch to previous branch)
 
-### Delete a branch
+### Deleting a branch
 1. git checkout -b feature/userprofile2 (creating a new branch, to demo delete)
 2. git checkout master
 3. git branch -D feature/userprofile2 (only deletes branch from your local repo)
