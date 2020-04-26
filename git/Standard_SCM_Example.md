@@ -1,4 +1,4 @@
-# Standard Source Code Management Practice
+# Standard SCM Example
 
 ### Create a new branch (locally)
 - git branch alpha
@@ -7,13 +7,13 @@
 ### Checkout the alpha branch
 - git checkout alpha
 
+### Alternatively, create and checkout a branch at the same time
+- git checkout -b beta
+
 ### Verify you are using the alpha branch
 - git status
 
-### Create and checkout a branch at the same time
-- git checkout -b beta
-
-### Create a file
+### Make your source code changes
 - [...]
 
 ### Push to/and create alpha on https://github.com/
@@ -29,5 +29,5 @@
 ### View activity (in graph mode)
 - git log --graph
 
-#### Finally push master to github
+### Finally push master to github
 - git push
