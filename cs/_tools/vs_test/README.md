@@ -33,7 +33,7 @@ Total tests: 2
 - "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" "C:\git\selfstudy\cs\dotnetfw\restsharp\WebServiceAutomation\MsTestProject\bin\Debug\MsTestProject.dll" /Logger:html
 
 ### Results 2 (using .html as output)
-- file:///C:/git/selfstudy/cs/_tools/vs_test/TestResult_ray.bishun_X1CARBON_20200425_213348.html
+- https://github.com/raybishun/selfstudy/blob/master/cs/_tools/vs_test/TestResult_ray.bishun_X1CARBON_20200425_213348.html
 
 
 ### Reference
