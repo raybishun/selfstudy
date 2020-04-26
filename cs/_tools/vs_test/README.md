@@ -7,7 +7,7 @@
 - vstest.console.exe
 
 ### Help
-- .\vstest.console.exe /?
+- vstest.console.exe /?
 
 ### Example 1 (using .trx as output)
 - "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe" "C:\git\selfstudy\cs\dotnetfw\restsharp\WebServiceAutomation\MsTestProject\bin\Debug\MsTestProject.dll" /Logger:trx
