@@ -42,3 +42,13 @@
 3. Confirm the Instance Configuration URL is: http://localhost:8181/
 4. Save and Finish
 5. Start using Jenkins
+
+### Add additional plugins
+1. Manage Jenkins
+2. Manage Plugins
+3. Available tab
+4. Filter: Blue Ocean, find and select Blue Ocean
+5. Filter: MSBuild, find and select MSBuild
+6. Filter: VSTest, find and select VSTest Runner
+7. Install without restart
+8. Wait about 2 minutes for the 'Installing Plugins/Upgrades' to complete
