@@ -13,7 +13,7 @@
 6. Variable name: JENKINS_HOME
 7. Variable value: C:\jenkins
 
-### Verify that TCP:8181 is not in use
+### Verify TCP:8181 is not in use
 1. Launch an elevated CMD prompt
 2. netstat -abno | findstr 8181
 
@@ -33,7 +33,7 @@
 2. Enter the 'Administrator password' from: C:\jenkins\secrets\initialAdminPassword
 3. Continue
 
-### Customize jenkins
+### Customize Jenkins
 1. Install suggested plugins
 
 ### Create First Admin User
@@ -52,3 +52,6 @@
 6. Filter: VSTest, find and select VSTest Runner
 7. Install without restart
 8. Wait about 2 minutes for the 'Installing Plugins/Upgrades' to complete
+
+### How to start Jenkins
+- java -jar jenkins.war --httpPort=8181
