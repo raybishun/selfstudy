@@ -33,9 +33,9 @@
 2. Login if necessary using the admin account you created during the Jenkins installation
 3. Manage Jenkins
 4. Global Tool Configuration
-5. Git\Git installations\Path to Git executable = C:\Program Files\Git\bin
+5. Git\Git installations\Path to Git executable = C:\Program Files\Git\bin\git.exe
 6. MSBuild\MSBuild installations...\Add MSBuild\Name = MSBuild
-7. Path to MSBuild = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin
+7. Path to MSBuild = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe
 8. VSTest\VSTest installations..\Add VSTest\Name = VSTest
-9. Path to VSTest = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform
+9. Path to VSTest = C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\TestPlatform\vstest.console.exe
 10. Save
