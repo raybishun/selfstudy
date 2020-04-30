@@ -50,7 +50,7 @@ pipeline {
 1. Configure
 2. Ensure the above pipeline script was saved
 3. Build Now
-4. The build will complete and show the 4 stages per our pipeline script
+4. The build will complete and show the 4 stages defined in our pipeline script
 
 ### Review Results
 1. Build History\#1
