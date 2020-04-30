@@ -42,7 +42,6 @@ pipeline {
         }
     }
 }
-
 ```
 2. Save
 

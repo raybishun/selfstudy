@@ -29,12 +29,48 @@
 10. Configure
 11. Pipeline\Script
 12. Copy and paste the above results to the 'Git Checkout Stage' step
-
-### Save the Pipeline Script
-1. Save
+13. Save
 
 ### Build
 1. Build Now
 2. Build History\#2\Console Output
 3. Ensure the last line of output says: 'Finished: SUCCESS'
 4. And per the output, verify the Git repo was created here: C:\jenkins\workspace\RestSharpAutomation
+
+### Current Pipeline Script
+```
+pipeline {
+    agent any
+    
+    stages{
+        stage('CleanUp Stage'){
+            steps{
+                bat 'echo CleanUp Stage'
+                cleanWs notFailBuild: true
+            }
+        }
+        stage('Git Checkout Stage'){
+             steps{
+                bat 'echo Git Checkout Stage'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/raybishun/selfstudy.git']]])
+            }
+        }
+        stage('Restore Package Stage'){
+             steps{
+                bat 'echo Restore Package Stage'
+            }
+        }
+        stage('Build Stage'){
+             steps{
+                bat 'echo Build Stage'
+            }
+        }
+        stage('Test Execution Stage'){
+             steps{
+                bat 'echo Test Execution Stage started'
+                bat 'echo Test Execution Stage completed'
+            }
+        }
+    }
+}
+```
