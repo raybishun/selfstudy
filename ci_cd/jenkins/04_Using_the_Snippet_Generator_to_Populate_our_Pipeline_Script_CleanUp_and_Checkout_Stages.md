@@ -1,4 +1,4 @@
-# Using the Snippet Generator to Populate our Pipeline Script
+# Using the Snippet Generator to Populate our Pipeline Script CleanUp and Checkout Stages
 
 ### Generate snippet for our 'CleanUp Stage'
 1. http://localhost:8181/
