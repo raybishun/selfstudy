@@ -33,7 +33,7 @@
 
 ### Build
 1. Build Now
-2. Build History\#2\Console Output
+2. Build History\<buildNumber>\Console Output
 3. Ensure the last line of output says: 'Finished: SUCCESS'
 4. And per the output, verify the Git repo was created here: C:\jenkins\workspace\RestSharpAutomation
 

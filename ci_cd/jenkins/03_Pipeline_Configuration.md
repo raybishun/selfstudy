@@ -52,8 +52,7 @@ pipeline {
 4. The build will complete and show the 4 stages defined in our pipeline script
 
 ### Review Results
-1. Build History\#1
-2. Console Output
+1. Build History\<buildNumber>\Console Output
 3. Ensure you find the output the Batch (bat) command echoed
 
 ### Configure housekeeping tasks

@@ -16,7 +16,7 @@ stage('Restore Package Stage'){
 ```
 6. Save
 7. Build Now
-8. Build History\#3\Console Output
+8. Build History\<buildNumber>\Console Output
 9. Verify the last line shows Finished: SUCCESS
 
 ### Optional step
@@ -67,7 +67,7 @@ pipeline {
 ```
 13. Save
 14. Build Now
-15. Build History\#4\Console Output
+15. Build History\<buildNumber>\Console Output
 16. And note the 'Build Stage Path' (it will be used in the next step below)
 17. In my case the full path was: 'C:\jenkins\workspace\RestSharpAutomation'
 18. Verify the last line shows Finished: SUCCESS
@@ -107,5 +107,5 @@ pipeline {
 ```
 6. Save
 7. Build Now
-8. Build History\#7 (in my case)\Console Output
+8. Build History\<buildNumber>\Console Output
 9. Verify the last line shows Finished: SUCCESS
