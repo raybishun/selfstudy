@@ -1,6 +1,6 @@
-# Using the Snippet Generator to Populate our Pipeline Script Restore Package Stage
+# Using the Snippet Generator to Populate the Pipeline Script Restore Package Stage
 
-### Generate snippet for our 'Restore Package Stage'
+### Generate snippet for the 'Restore Package Stage'
 1. http://localhost:8181/
 2. Select the RestSharpAutomation job
 3. Configure
