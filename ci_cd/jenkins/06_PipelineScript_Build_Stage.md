@@ -1,11 +1,11 @@
 # Using the Snippet Generator to Populate our Pipeline Script Build Stage
 
-### Generate snippet for our 'Build Stage'
+### Generate snippet for the 'Build Stage'
 1. http://localhost:8181/
 2. Select the RestSharpAutomation job
 3. Configure
 4. Pipeline\Script
-5. Update the Pipeline Script 'Build Stage' step as shown below
+5. Update the Pipeline script's 'Build Stage' step as shown below
 ```
 pipeline {
     agent any
