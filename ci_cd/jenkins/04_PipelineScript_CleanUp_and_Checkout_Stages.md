@@ -1,6 +1,6 @@
-# Using the Snippet Generator to Populate our Pipeline Script CleanUp and Checkout Stages
+# Using the Snippet Generator to Populate the Pipeline Script's CleanUp and Checkout Stages
 
-### Generate snippet for our 'CleanUp Stage'
+### Generate snippet for the 'CleanUp Stage'
 1. http://localhost:8181/
 2. Select the RestSharpAutomation job
 3. Pipeline Syntax
@@ -17,7 +17,7 @@
 12. Copy and paste the above results to the 'CleanUp Stage' step
 13. Save
 
-### Generate snippet for our 'Git Checkout Stage'
+### Generate snippet for the 'Git Checkout Stage'
 1. Pipeline Syntax
 2. Snippet Generator
 3. Steps\Sample Step = git: Git
