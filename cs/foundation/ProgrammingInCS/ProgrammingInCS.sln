@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionsQueue", "Collect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQFilteringOrdering", "LINQFilteringOrdering\LINQFilteringOrdering.csproj", "{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADODotNetRead", "ADODotNetRead\ADODotNetRead.csproj", "{270FAE93-8C07-4748-ABCA-3A4FB8CEEE9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270FAE93-8C07-4748-ABCA-3A4FB8CEEE9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270FAE93-8C07-4748-ABCA-3A4FB8CEEE9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270FAE93-8C07-4748-ABCA-3A4FB8CEEE9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270FAE93-8C07-4748-ABCA-3A4FB8CEEE9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
