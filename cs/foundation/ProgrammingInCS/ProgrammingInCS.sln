@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{155B8402-8374-408F-8968-4AA0EFE9A42B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionsQueue", "CollectionsQueue\CollectionsQueue.csproj", "{C839324C-C008-41E6-9990-C6E914C4630E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQFilteringOrdering", "LINQFilteringOrdering\LINQFilteringOrdering.csproj", "{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{155B8402-8374-408F-8968-4AA0EFE9A42B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{155B8402-8374-408F-8968-4AA0EFE9A42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{155B8402-8374-408F-8968-4AA0EFE9A42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{155B8402-8374-408F-8968-4AA0EFE9A42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C839324C-C008-41E6-9990-C6E914C4630E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C839324C-C008-41E6-9990-C6E914C4630E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C839324C-C008-41E6-9990-C6E914C4630E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C839324C-C008-41E6-9990-C6E914C4630E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6E62D93-EBA9-4F9C-82F3-7352F3D78603}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

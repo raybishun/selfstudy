@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Collections
+namespace CollectionsQueue
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            QueueOfT();
-        }
+        #region TODO
+        // SortedList
+        // LinkedList<T>
+        // HashTable
+        // Array<T> ??
+        #endregion
 
-        private static void QueueOfT()
+        static void Main(string[] args)
         {
             // Used to store a collection of ordered objects
             // Is strongly typed
