@@ -16,9 +16,16 @@ namespace CollectionsIEnumerable
 
             LoanCollection loanCollection = new LoanCollection(personalLoans.ToArray());
 
-            foreach (var loan in loanCollection)
+            //foreach (var loan in loanCollection)
+            //{
+            //    Console.WriteLine(loan.ToString());
+            //}
+
+            var item = loanCollection.GetEnumerator();
+
+            if (item.MoveNext())
             {
-                Console.WriteLine(loan.ToString());
+                Console.WriteLine(item.Current);
             }
         }
     }
