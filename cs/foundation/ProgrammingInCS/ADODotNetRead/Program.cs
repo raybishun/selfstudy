@@ -6,13 +6,23 @@ namespace ADODotNetRead
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             // http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.open.aspx 
             // http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldatareader.read.aspx   
-        }
 
-        private static IEnumerable<Animal> GetAnimals(string sqlConStr)
+            string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\git\selfstudy\cs\foundation\ProgrammingInCS\ADODotNetRead\data\Animals.mdf;Integrated Security=True";
+            
+            var animals = GetAnimals(conString);
+
+            foreach (var animal in animals)
+            {
+                Console.WriteLine($"{animal.Name}\t{animal.Color}");
+            }
+    }
+
+    private static IEnumerable<Animal> GetAnimals(string sqlConStr)
         {
             var animals = new List<Animal>();
 
@@ -22,7 +32,7 @@ namespace ADODotNetRead
 
             using (sqlCon)
             {
-                SqlCommand sqlCmd = new SqlCommand("SELECT Name, Color FROM Animals", sqlCon);
+                SqlCommand sqlCmd = new SqlCommand("SELECT Name, Color FROM Animal", sqlCon);
 
                 using (SqlDataReader sqlreader = sqlCmd.ExecuteReader())
                 {
