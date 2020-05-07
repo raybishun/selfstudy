@@ -12,7 +12,8 @@ namespace ADODotNetRead
             // http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.open.aspx 
             // http://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldatareader.read.aspx   
 
-            string conString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\git\selfstudy\cs\foundation\ProgrammingInCS\ADODotNetRead\data\Animals.mdf;Integrated Security=True";
+            string conString = 
+                @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\git\selfstudy\cs\foundation\ProgrammingInCS\ADODotNetRead\data\Animals.mdf;Integrated Security=True";
             
             var animals = GetAnimals(conString);
 
