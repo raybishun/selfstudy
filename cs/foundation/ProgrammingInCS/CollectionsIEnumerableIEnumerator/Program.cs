@@ -8,8 +8,8 @@ namespace CollectionsIEnumerableIEnumerator
 
         static void Main(string[] args)
         {
-            //BasicArrayExample();
-            //TheArrayGetEnumerator();
+            // BasicArrayExample();
+            // TheArrayGetEnumerator();
             InfiniteEnumerable();
         }
 
@@ -27,9 +27,7 @@ namespace CollectionsIEnumerableIEnumerator
         private static void TheArrayGetEnumerator()
         {
             // Same as the above foreach example
-
             var enumerator = myArray.GetEnumerator();
-
             while (enumerator.MoveNext())
             {
                 Console.WriteLine(enumerator.Current);
@@ -38,11 +36,17 @@ namespace CollectionsIEnumerableIEnumerator
 
         private static void InfiniteEnumerable()
         {
-            var infiniteEnumerable = new MyInfiniteIEnumerable();
+            //var infiniteEnumerable = new MyInfiniteIEnumerable();
+            //foreach (var item in infiniteEnumerable)
+            //{
+            //    Console.Write($"{item} ");
+            //}
 
-            foreach (var item in infiniteEnumerable)
+            var infiniteEnumerable = new MyInfiniteIEnumerable();
+            var enumerator = infiniteEnumerable.GetEnumerator();
+            while (enumerator.MoveNext())
             {
-                Console.Write($"{item} ");
+                Console.Write($"{enumerator.Current} ");
             }
         }
     }
