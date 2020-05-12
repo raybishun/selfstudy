@@ -10,8 +10,7 @@ namespace GraphApiUnitTest
     [TestClass]
     public class UnitTest
     {
-        private static readonly string sessionToken =
-               "";
+        private static readonly string sessionToken = "";
 
         private static readonly GraphServiceClient graphServiceClient = new GraphServiceClient(
             new DelegateAuthenticationProvider(
