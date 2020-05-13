@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+
+    <OutputType>Exe</OutputType>
+
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <!-- Set the language version to C#8-->
+    <LangVersion>preview</LangVersion>
+
+    <!--NOTE: Nullable Ref Types is no longer working in VS2019, neither NullableContextOptions or Nullable-->
+    <!--Enable the C#S NullableContextOptions-->
+    <Nullable>enable</Nullable>
+
+  </PropertyGroup>
+
+</Project>
