@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWorld", "HelloWorld\He
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NullableReferenceTypes", "NullableReferenceTypes\NullableReferenceTypes.csproj", "{37BE708E-FCE4-4657-A8F3-C9F9BD81DBD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AysncStreams", "AysncStreams\AysncStreams.csproj", "{3D07E4DA-910D-41AE-A1A0-B52DD999949C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AysncStreams", "AysncStreams\AysncStreams.csproj", "{3D07E4DA-910D-41AE-A1A0-B52DD999949C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ranges", "Ranges\Ranges.csproj", "{CCF3C5CC-7C94-4403-9960-71673457BD45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ranges", "Ranges\Ranges.csproj", "{CCF3C5CC-7C94-4403-9960-71673457BD45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSPatterns", "CSPatterns\CSPatterns.csproj", "{B6596AF3-F9F5-4FCD-AF91-167AECEB49CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CCF3C5CC-7C94-4403-9960-71673457BD45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCF3C5CC-7C94-4403-9960-71673457BD45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCF3C5CC-7C94-4403-9960-71673457BD45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6596AF3-F9F5-4FCD-AF91-167AECEB49CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6596AF3-F9F5-4FCD-AF91-167AECEB49CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6596AF3-F9F5-4FCD-AF91-167AECEB49CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6596AF3-F9F5-4FCD-AF91-167AECEB49CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
