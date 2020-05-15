@@ -34,6 +34,19 @@ namespace CSPatterns
 
         void WriteLine(Exception ex, ConsoleColor color, string text)
         {
+            switch (ex)
+            {
+                case DatabaseException dbEx:
+                    text = $"[Database - {dbEx.DbName}]: {text}";
+                    break;
+                case FileSystemException fsEx:
+                    text = $"[FS]: {text}";
+                    break;
+                case HttpException httpEx:
+                    text = $"[HTTP Error] {httpEx.StatusCode} -{httpEx.Url}: {text}";
+                    break;
+            }
+
             var currentColor = Console.ForegroundColor;
             Console.ForegroundColor = color;
             Console.WriteLine(text);
