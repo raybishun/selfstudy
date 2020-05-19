@@ -1,4 +1,4 @@
-# Clases, Structures & Interfaces
+# Classes, Structures & Interfaces
 
 ### Access Modifiers - (accessibility/visibility)
 - Public - from any assembly in the app
@@ -17,3 +17,17 @@
 - Real Numbers - decimal, double, float
 - Whole Number - Long, Int, Short
 - Other - Char, Bool, Byte
+
+### Reference Types
+- Stored on the heap
+- A pointer is used to reference a location in memory
+- Reference types include: class, interface and dynamic
+- NOTE: dynamic types - avoid compile-time type checking, and are defined at runtime
+- And of course, objects are a reference type; objects are an instance of a class, and use the 'new' keyword to instantiate then
+- Stings are also reference types
+- NOTE: stings are immutable, creating and modifying them in large apps can get expensive, as behind the scenes, a new string object gets created in memory - however, C# offers StringBuild to handle the manipulation of strings
+
+### Struct Types
+- *** Struct is a value type, as such, is stored on the stack (along with its members), and why your structs need to be lightweight
+- Does not have a default ctor
+- Cannon inherit from another struct
