@@ -30,4 +30,4 @@
 ### Struct Types
 - *** Struct is a value type, as such, is stored on the stack (along with its members), and why your structs need to be lightweight
 - Does not have a default ctor
-- Cannon inherit from another struct
+- Cannot inherit from another struct
