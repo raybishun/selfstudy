@@ -8,7 +8,7 @@
         // but Interfaces can contain properties
         int SomeInt { get; set; }
 
-        // and of course, method signatures
+        // and of course, the method declarations
         string MustDowork(string[] arrayOfWork);
     }
 }

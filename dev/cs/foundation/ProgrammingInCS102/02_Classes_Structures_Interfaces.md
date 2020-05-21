@@ -31,3 +31,10 @@
 - *** Struct is a value type, as such, is stored on the stack (along with its members), and why your structs need to be lightweight
 - Does not have a default ctor
 - Cannot inherit from another struct
+- However, structs are able to to inherit from Interfaces
+
+### Interfaces
+- You must the 'interface' keyword to declare an Interfaces
+- InterfacesmMembers cannot have an access modifier
+- Can contain properties
+- Regarding methods, you only declare them, that is, no body/implementation
