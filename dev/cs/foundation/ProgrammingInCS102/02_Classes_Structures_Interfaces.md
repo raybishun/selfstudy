@@ -38,3 +38,4 @@
 - InterfacesmMembers cannot have an access modifier
 - Can contain properties
 - Regarding methods, you only declare them, that is, no body/implementation
+- Interfaces are automatically public
