@@ -12,13 +12,13 @@ namespace PolymorphismOverriding
             Car ferrari = new Ferrari();
             ferrari.Accelerate();
 
-            Console.WriteLine("---");
+            Console.WriteLine("-----");
 
             Car suzuki = new Suzuki();
             suzuki.Accelerate();
 
-            Console.WriteLine("---");
-            Console.WriteLine("---");
+            Console.WriteLine("-----");
+            Console.WriteLine("-----");
 
             // ================================================================
             // New up Ferrari as a Ferrari, and new up Suzuki as a Suzuki
@@ -26,7 +26,7 @@ namespace PolymorphismOverriding
             Ferrari ferrari2 = new Ferrari();
             ferrari2.Accelerate();
 
-            Console.WriteLine("---");
+            Console.WriteLine("-----");
 
             Suzuki suzuki2 = new Suzuki();
             suzuki2.Accelerate();
@@ -35,8 +35,8 @@ namespace PolymorphismOverriding
             // Takeaway: The Car (base) ctor was called for all of the above!!!
             // ================================================================
 
-            Console.WriteLine("---");
-            Console.WriteLine("---");
+            Console.WriteLine("-----");
+            Console.WriteLine("-----");
 
             // ================================================================
             // New up BWM
