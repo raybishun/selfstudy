@@ -37,10 +37,12 @@
 - >>
 
 ### Logical, Conditional & Null Operators
-- | (logical OR), both operands are evaluated
-- & (logical AND), 
-- && (conditional AND), 
-- || (conditional OR), 
-- ^ (logical XOR), 
-- ?? (null coalescing), 
-- ? (ternary operator), 
+- | (logical OR)
+- || (conditional OR, aka short-circuiting logical OR operator)
+- & (logical AND)
+- && (conditional AND)
+- ^ (logical XOR, aka bitwise exclusive OR)
+- ?? (null coalescing)
+- ?: (ternary operator)
+
+(For examples, refer to Code.04_ProgramFlow.LogicalConditionalNullOperators.Program.cs)
