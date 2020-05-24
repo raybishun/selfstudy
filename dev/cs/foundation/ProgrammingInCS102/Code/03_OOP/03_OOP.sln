@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolymorphismOverriding", "PolymorphismOverriding\PolymorphismOverriding.csproj", "{55D705D1-AEF1-485F-A029-9079CAF44E7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PolymorphismOverriding", "PolymorphismOverriding\PolymorphismOverriding.csproj", "{55D705D1-AEF1-485F-A029-9079CAF44E7F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClasses", "AbstractClasses\AbstractClasses.csproj", "{0AB0E8FC-5910-4973-BC81-A8D2C04D9ED7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{55D705D1-AEF1-485F-A029-9079CAF44E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55D705D1-AEF1-485F-A029-9079CAF44E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55D705D1-AEF1-485F-A029-9079CAF44E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AB0E8FC-5910-4973-BC81-A8D2C04D9ED7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AB0E8FC-5910-4973-BC81-A8D2C04D9ED7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AB0E8FC-5910-4973-BC81-A8D2C04D9ED7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AB0E8FC-5910-4973-BC81-A8D2C04D9ED7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
