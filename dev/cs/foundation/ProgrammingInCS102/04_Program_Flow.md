@@ -32,6 +32,15 @@
 - == is equal to
 - != is not equal to
 
-### Shift Operators
+### Shift Operators (for use with binary bits)
 - <<
 - >>
+
+### Logical, Conditional & Null Operators
+- | (logical OR), both operands are evaluated
+- & (logical AND), 
+- && (conditional AND), 
+- || (conditional OR), 
+- ^ (logical XOR), 
+- ?? (null coalescing), 
+- ? (ternary operator), 
