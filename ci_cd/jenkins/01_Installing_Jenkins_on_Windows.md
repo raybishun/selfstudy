@@ -103,3 +103,4 @@ java -jar jenkins.war --httpPort=8181 --enable-future-java
 
 ### How to start Jenkins
 - java -jar jenkins.war --httpPort=8181
+- or java -jar jenkins.war --httpPort=8181 --enable-future-java (per above)
