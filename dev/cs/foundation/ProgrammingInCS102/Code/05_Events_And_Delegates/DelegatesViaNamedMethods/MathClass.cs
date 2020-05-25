@@ -6,7 +6,7 @@ namespace DelegatesViaNamedMethods
     {
         public void MultiplyNums(int x, double y)
         {
-            Console.Write($"{x * y} ");
+            Console.WriteLine($"{x * y} ");
         }
     }
 }

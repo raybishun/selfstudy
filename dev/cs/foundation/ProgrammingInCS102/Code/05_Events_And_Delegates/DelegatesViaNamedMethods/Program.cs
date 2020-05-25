@@ -14,6 +14,23 @@ namespace DelegatesViaNamedMethods
             {
                 md(i, 2);
             }
+
+            InvokeDelegate();
+        }
+
+        static void InvokeDelegate()
+        {
+            HelperClass helper = new HelperClass();
+
+            // Link to instance method
+            SampleDelegate sd = helper.InstanceMethod;
+            sd();
+
+            // Link to static method
+            sd = HelperClass.StaticMethod;
+            sd();
         }
     }
 }
+
+// Reference: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/delegates-with-named-vs-anonymous-methods
