@@ -32,7 +32,7 @@ Open a CMD prompt
 * TIP: Ensure the 'Physical Path' is set to the 'Publish' folder, i.e. C:\inetpub\aspnetcoreapp\bin\Release\netcoreapp3.1\publish
 
 ### Test the app
-1. From within IIS - select the app, and click Browse on the Actions pane
+1. From within the IIS Management Console - select the app, and click Browse on the Actions pane
 
 ### References
 1. .NET Core SDK overview: https://docs.microsoft.com/en-us/dotnet/core/sdk 
