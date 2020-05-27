@@ -25,4 +25,5 @@
 
 #### Lambda Expressions
 - Use the operator => operator
+- Structure: input parameters => Expression
 - Lambdas are very popular today, and something like LINQ (which supports any enumerable collection), makes heavy use of lambdas
