@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegatesViaNamedMethods", "DelegatesViaNamedMethods\DelegatesViaNamedMethods.csproj", "{B3DA4B05-AA22-49C9-A61E-9595DE425055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DelegatesViaNamedMethods", "DelegatesViaNamedMethods\DelegatesViaNamedMethods.csproj", "{B3DA4B05-AA22-49C9-A61E-9595DE425055}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LambdaExpressions", "LambdaExpressions\LambdaExpressions.csproj", "{77F84E5C-E573-467B-AB98-3BA8B0EE0F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B3DA4B05-AA22-49C9-A61E-9595DE425055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3DA4B05-AA22-49C9-A61E-9595DE425055}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3DA4B05-AA22-49C9-A61E-9595DE425055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F84E5C-E573-467B-AB98-3BA8B0EE0F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F84E5C-E573-467B-AB98-3BA8B0EE0F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F84E5C-E573-467B-AB98-3BA8B0EE0F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F84E5C-E573-467B-AB98-3BA8B0EE0F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

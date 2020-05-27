@@ -24,4 +24,5 @@
 - Contain in-line expressions and/or statements
 
 #### Lambda Expressions
--Use the Lambda operator =>
+- Use the operator => operator
+- Lambdas are very popular today, and something like LINQ (which supports any enumerable collection), makes heavy use of lambdas
