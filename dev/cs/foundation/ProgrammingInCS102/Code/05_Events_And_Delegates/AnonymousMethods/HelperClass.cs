@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LambdaExpressionsWithDelegates
+namespace AnonymousMethods
 {
     class HelperClass
     {
