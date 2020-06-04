@@ -36,3 +36,8 @@
 ### Built-in Delegates: Action
 - Accepts 0 or up to 16 parameters
 - Does not return anything
+
+### Events
+- Allow an object to broadcast that something has occurred
+- Are based on the delegate model
+- Implement the Observer Pattern - where subscribers register for notifications, and publishers register for push notifications
