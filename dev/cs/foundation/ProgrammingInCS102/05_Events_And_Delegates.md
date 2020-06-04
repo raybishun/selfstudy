@@ -20,10 +20,19 @@
 ### Anonymous Functions
 - There are 2 types of anonymous functions: anonymous methods and lambda expressions
 
-#### Anonymous Methods
+### Anonymous Methods
 - Contain in-line expressions and/or statements
 
-#### Lambda Expressions
+### Lambda Expressions
 - Use the operator => operator
 - Structure: input parameters => Expression
 - Lambdas are very popular today, and something like LINQ (which supports any enumerable collection), makes heavy use of lambdas
+
+### Built-in Delegates: Func
+- Accepts 0 or up to 16 parameters
+- The last last parameter is the out parameter, named TResult
+- Returns a value as an out parameter
+
+### Built-in Delegates: Action
+- Accepts 0 or up to 16 parameters
+- Does not return anything
