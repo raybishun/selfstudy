@@ -39,3 +39,8 @@
 6. Ctrl + C (to stop the web server)
 7. Code . (to launch VS Code)
 8. Click yes, if you are prompted with: "Required assets to build and debug are missing from hello_world" Add them?
+
+### Adding a Package (Newtonsoft.Json)
+1. dotnet add package Newtonsoft.Json
+2. Open the hello_world.csproj file
+3. Ensue you find a line added for: PackageReference Include="Newtonsoft.Json"...
