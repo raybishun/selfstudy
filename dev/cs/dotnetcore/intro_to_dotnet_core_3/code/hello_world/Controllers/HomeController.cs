@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using hello_world.Models;
+using Newtonsoft.Json;
 
 namespace hello_world.Controllers
 {
@@ -23,9 +24,31 @@ namespace hello_world.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public string Contact()
         {
-            return View();
+            var user = new User {
+                UserName = "peter",
+                FullName = "peter parker",
+                Password = "spiderman"
+            };
+
+            var json = JsonConvert.SerializeObject(user, Formatting.Indented);
+
+            return json;
+        }
+
+        public string Privacy()
+        {
+            var user = new User {
+                UserName = "peter",
+                FullName = "peter parker",
+                Password = "spiderman"
+            };
+
+            var json = JsonConvert.SerializeObject(user, Formatting.Indented);
+            _logger.LogInformation(json);
+            throw new Exception("I'm not a happy camper...");
+            return json;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
