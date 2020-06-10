@@ -15,3 +15,7 @@
 
 ### Where to get .NET Core?
 - https://dotnet.microsoft.com/download/dotnet-core
+
+### Note
+- You should consider adding back the Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation NuGet package
+- This allows web apps to reflect code changes in the browser that are made during a live debug session
