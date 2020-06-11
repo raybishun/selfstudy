@@ -1,6 +1,6 @@
 # Network Setup
 
-ssh ray@192.168.0.8
+ssh ray@ideapad
 
 sudo -i
 
@@ -20,7 +20,6 @@ nmcli con modify enp3s0 connection.autoconnect true (sets ONBOOT=YES)
 
 ifconfig enp3s0
 
-
 ### Verify
 
 cd /etc/sysconfig/network-scripts/
@@ -29,7 +28,7 @@ ls -ltr
 
 more ifcfg-enp3s0
 
-# Troubleshooting
+### Troubleshooting
 
 nmcli con down enp3s0
 
