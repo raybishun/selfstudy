@@ -8,9 +8,9 @@
 6. Using your right arrow key, move to the end of the line
 7. Type: rd.break
 8. Press: Ctrl X
-9. The system will reboot and enter in the emergency mode
+9. The system will reboot and enter into emergency mode
 10. mount
-11. Observe the last line that shows the rhel-root is mounted on /sysroot as 'read-only'
+11. Observe the last line shows that rhel-root is mounted on /sysroot as 'read-only'
 ```
 /dev/mapper/rhel-root on /sysroot type xfs (ro,relatime,attr2,inode64,noquota)
 ```
