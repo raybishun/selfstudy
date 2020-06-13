@@ -26,7 +26,11 @@ namespace BooksRazor
         public void ConfigureServices(IServiceCollection services)
         {
             // Obviously required to run the database migrations 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            string path = @"C:\SecureStore\BookRazorConStr.txt";
+            string conStr = System.IO.File.ReadAllText(path);
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conStr));
 
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
