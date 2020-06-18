@@ -1,6 +1,6 @@
 # Set SELinux to Enforcing Mode
 
-# Description
+### Description
 SELinux modes can be:
 - enforcing
 - permissive (warns but not enforced)
@@ -15,7 +15,7 @@ Important
 - a reboot is required
 - a 'relabeling' process is initiated on next reboot
 
-# Steps
+### Steps
 [root@ideapad ~]# getenforce
 ```
 Enforcing
