@@ -1,9 +1,9 @@
 # Set the default boot target to multi-user.target (run levels)
 
-# Description
+### Description
 - The default boot target can be either multi-user or graphical
 
-# Steps
+### Steps
 [root@ideapad ~]# systemctl get-default
 ```
 graphical.target

@@ -1,28 +1,26 @@
 # Set Directory Permissions and Ownership
 
-### Steps
-
-#### Create a directory named '/redhat/sysgrp'
+### Create a directory named '/redhat/sysgrp'
 [root@ideapad ~]# mkdir -p /redhat/sysgrp
 
-#### View the current group ownership
+### View the current group ownership
 [root@ideapad ~]# ls -ltrd /redhat/sysgrp/
 ```
 drwxr-xr-x. 2 root root 6 Jun 19 23:18 /redhat/sysgrp/
 ```
-#### Change the group ownership of '/redhat/sysgrp/' to the sysgrp group
+### Change the group ownership of '/redhat/sysgrp/' to the sysgrp group
 [root@ideapad ~]# chgrp sysgrp /redhat/sysgrp/
 [root@ideapad ~]# ls -ltrd /redhat/sysgrp/
 ```
 drwxr-xr-x. 2 root sysgrp 6 Jun 19 23:18 /redhat/sysgrp/
 ```
-#### Set the permissions of the '/redhat/sysgrp/' directory to RW for only the sysgrp members
+### Set the permissions of the '/redhat/sysgrp/' directory to RW for only the sysgrp members
 [root@ideapad ~]# chmod 770 /redhat/sysgrp/
 [root@ideapad ~]# ls -ltrd /redhat/sysgrp/
 ```
 drwxrwx---. 2 root sysgrp 6 Jun 19 23:18 /redhat/sysgrp/
 ```
-#### Ensure files created under '/redhat/sysgrp' automatically have group ownership set to the sysgrp group
+### Ensure files created under '/redhat/sysgrp' automatically have group ownership set to the sysgrp group
 [root@ideapad sysgrp]# cd /redhat/sysgrp/
 [root@ideapad sysgrp]# touch test.txt
 [root@ideapad sysgrp]# ls -ltr
