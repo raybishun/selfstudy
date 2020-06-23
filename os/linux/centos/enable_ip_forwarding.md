@@ -31,9 +31,9 @@
 3. Press i for INSERT
 4. Press ENTER to add a new line
 5. Enter the below
-
+```
 net.ipv4.ip_forward = 1
-
+```
 ESC (to exit edit mode)
 :wq! (to write and quit)
 
