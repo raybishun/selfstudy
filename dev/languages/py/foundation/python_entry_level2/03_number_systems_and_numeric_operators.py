@@ -38,3 +38,8 @@ print('---\n')
 #          (1 * 2(3)) + (1 * 2(2)) + (1 * 2(1)) + (1 * 2(0))
 #               8     +     4      +     2      +     1
 #  Equals 15
+
+# Floating-Point Accuracy (...or not so accurate)
+# - Are stored as binary fractions in memory
+# - Not all decimal values can be represented as binary fractions, i.e. 0.1
+# - As such, floats can introduce rounding issues
