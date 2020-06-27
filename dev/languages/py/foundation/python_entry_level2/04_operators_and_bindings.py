@@ -99,3 +99,25 @@ a = 0b0110 # returns 6
 print(bin(a))       # 0b110
 print(bin(a << 2))  # 0b11000 (or 24)
 print('---\n')
+
+# -----------------------------------------------------------------------------
+# Boolean
+# -----------------------------------------------------------------------------
+# unary operator
+print(not True)         # False
+print(not False)        # True
+print('---\n')
+
+# 'or' - one must be true
+print(True or True)     # True
+print(True or False)    # True
+print(False or False)   # False
+print(False or True)    # True
+print('---\n')
+
+# 'and' - both must be true
+print(True and True)     # True
+print(True and False)    # False
+print(False and False)   # False
+print(False and True)    # False
+print('---\n')
