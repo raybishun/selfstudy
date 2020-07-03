@@ -2,7 +2,10 @@ body {
 	overflow-x: hidden; /*--right gutter fix--*/
 }
 
-
+.navbar-brand img {
+    /*-- 1 rem = 16 pixels in Google Chrome --*/
+    height: 2rem;
+}
 
 
 

@@ -68,14 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\style.css" />
-    <Content Include="Images\1.png" />
-    <Content Include="Images\2.png" />
-    <Content Include="Images\3.png" />
-    <Content Include="Images\4.png" />
-    <Content Include="Images\5.png" />
-    <Content Include="Images\6.png" />
-    <Content Include="Images\landing.png" />
-    <Content Include="Images\nest.png" />
+    <Content Include="img\1.png" />
+    <Content Include="img\2.png" />
+    <Content Include="img\3.png" />
+    <Content Include="img\4.png" />
+    <Content Include="img\5.png" />
+    <Content Include="img\6.png" />
+    <Content Include="img\landing.png" />
+    <Content Include="img\nest.png" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
