@@ -15,5 +15,7 @@ int main()
     myIntPtr = &myInt;
     cout << myIntPtr << endl;
 
+    return 0;
+
     system("pause");
 }
