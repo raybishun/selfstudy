@@ -37,4 +37,6 @@ int main()
 	//{
 	//	// As with the above while (true) statement {} => to infinity and beyond...
 	//}
+
+	return 0;
 }
