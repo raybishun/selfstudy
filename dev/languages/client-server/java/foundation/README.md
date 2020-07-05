@@ -1,3 +1,4 @@
 # Java Foundation
 
-1. HelloWorld
+1. Basics
+2. Hello World
