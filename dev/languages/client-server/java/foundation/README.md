@@ -1,4 +1,4 @@
 # Java Foundation
 
-1. Basics
+1. CrashCourse
 2. Hello World
