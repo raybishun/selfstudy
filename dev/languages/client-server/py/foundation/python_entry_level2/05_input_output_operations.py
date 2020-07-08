@@ -25,3 +25,22 @@ print(bool('')) # false
 
 print(1 and 0) # 0
 print(1 or 0) # 1
+
+# Input Function
+# =============================================================================
+name = input("Enter name: ")
+number = int(input("Enter your luck number: "))
+
+# Print Function
+# =============================================================================
+print('Really, ' + 'your lucky number is ' + str(number))
+print('Hello', name, 'would you like to play a game?')
+
+# end=' '
+print('Do', end=' ')
+print('not', end=' ')
+print('include', end=' ')
+print('crlf')
+
+# sep=' ' (' ' is the default separator)
+print('a', 'b', 'c', sep='-')
