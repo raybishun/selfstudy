@@ -1,4 +1,4 @@
-#Deny write access to unencrypted removable drives
+# Deny write access to unencrypted removable drives
 1. Computer Configuration
 2. Policies
 3. Administrative Templates
