@@ -13,11 +13,10 @@ dotnet new mvc
 ```
 dotnet build
 ```
-### Run the AspNetCore Kestrel web server)
+### Run the AspNetCore Kestrel web server
 ```
 dotnet run
 ```
-
 ### Access the app
 ```
 https://localhost:5001/
