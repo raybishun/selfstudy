@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.Storage.Table;
 
-namespace storage.tables
+namespace tablesapp
 {
     public class Gamer : TableEntity 
     {

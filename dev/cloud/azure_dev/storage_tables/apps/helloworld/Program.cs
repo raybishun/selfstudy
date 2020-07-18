@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 
-namespace storage.tables
+namespace helloworld
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Tables.runDemoAsync().Wait();
+            Console.WriteLine("Hello World!");
         }
     }
 }
