@@ -9,7 +9,7 @@ namespace storage.blobs
     public class Blobs
     {
         public static string _connectionString = 
-            "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=laaz203blobs;AccountKey=3A1YdQ11kVDHJZy+V6lEw4ejKmPxLyUbKf86DCpffYV+/Ctt/vdLhG4/bKvs8vmgbJZHk4PORqB48H55BQpNlw==";
+            "";
         public static async Task RunAsync()
         {
             var storageAccount = CloudStorageAccount
