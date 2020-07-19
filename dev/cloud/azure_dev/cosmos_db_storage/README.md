@@ -19,7 +19,7 @@
 - Note however, you can only have 2 of the above 3
 4. Cosmos DB can be configured using any 2 combination mentioned above
 
-### References
+# References
 1. Consistency levels in Azure Cosmos DB: https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels
 2. Getting Behind the 9-Ball: Cosmos DB Consistency Levels Explained: https://blog.jeremylikness.com/blog/2018-03-23_getting-behind-the-9ball-cosmosdb-consistency-levels/
 3. CAP theorem: https://en.wikipedia.org/wiki/CAP_theorem
