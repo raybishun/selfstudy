@@ -10,13 +10,15 @@
 4. Use JSON to serialize data
 5. Perform OData-based queries (platform neutral)
 
+# References
+1. Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB: https://docs.microsoft.com/en-us/azure/cosmos-db/create-table-dotnet
+2. Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK: https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-table-dotnet
+
+# Appendix
+
 ### Create and run a new console app
 - mkdir helloworld
 - cd .\helloworld\
 - dotnet new console
 - dotnet build
 - dotnet run
-
-### References
-1. Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB: https://docs.microsoft.com/en-us/azure/cosmos-db/create-table-dotnet
-2. Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK: https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-table-dotnet
