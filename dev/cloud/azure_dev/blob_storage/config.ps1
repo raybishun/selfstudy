@@ -24,3 +24,7 @@ az storage account create `
  az storage account show-connection-string `
  -n $acct `
  --query "connectionString"
+ 
+# Clean Up
+# -----------------------------------------------------------------------------
+az group delete -n $rg
