@@ -17,8 +17,12 @@ namespace cosmosdb
         private static DocumentClient _client;
         private const string _databaseId = "myDatabase";
         private const string _collectionId = "Families";
+        
+        // You can retrieve the endpoint using: az cosmosdb list-connection-strings
         private const string _endpoint = 
-            "";
+            "https://laazcosmosdb.documents.azure.com:443/";
+        
+        // You can retrieve the 'primaryMasterKey' using: az cosmosdb list-keys
         private const string _key = 
             "";
 
@@ -34,6 +38,7 @@ namespace cosmosdb
             await _client.CreateDatabaseIfNotExistsAsync(
                 new Database { Id = _databaseId });
 
+            // Create Collection
             await _client.CreateDocumentCollectionIfNotExistsAsync(
                 UriFactory.CreateDatabaseUri(_databaseId), 
                 new DocumentCollection { 
@@ -43,6 +48,7 @@ namespace cosmosdb
                     }
                 });
  
+            // Get Data
             var family1 = JObject.Parse(File.ReadAllText("data/andersen.json"));
             var family2 = JObject.Parse(File.ReadAllText("data/wakefield.json"));
 
@@ -105,6 +111,7 @@ SELECT c.givenName
             {
                 if (de.StatusCode == HttpStatusCode.NotFound)
                 {
+                    // Insert
                     await _client.CreateDocumentAsync(
                         UriFactory.CreateDocumentCollectionUri(
                             databaseId, collectionId), 
@@ -123,6 +130,7 @@ SELECT c.givenName
             string collectionId,
             string documentId)
         {
+            // Get
             var response = await _client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(
                     databaseId, collectionId, documentId),
