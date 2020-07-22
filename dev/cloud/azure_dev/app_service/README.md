@@ -2,7 +2,7 @@
 
 ### What is Azure App Service?
 - Allows you to deploy scalable mission-critical web applications
-- Considered the workhorse of Aazure PaaS
+- Considered the workhorse of Azure PaaS
 
 ### Features
 1. Cross platform
@@ -11,7 +11,7 @@
 4. Continuous deployment with Git, Team Foundation server, GetHub, and DevOps
 5. Even supports WordPress, Umbraco, Joomla!, and Drupal
 
-### Creating an App Service (on Windows and using theFree Sku)
+### Creating an App Service (on Windows and using the Free Sku)
 1. http://portal.azure.com
 2. App Services
 3. Add
