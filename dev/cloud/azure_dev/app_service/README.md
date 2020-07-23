@@ -31,9 +31,19 @@
 12. Create
 
 # References
-
+1. App Service docs: https://docs.microsoft.com/en-us/azure/app-service/
+2. Create an App Service app with deployment from GitHub using Azure CLI: https://docs.microsoft.com/en-us/azure/app-service/scripts/cli-deploy-github
+3. Create an App Service app with deployment from GitHub using Azure CLI: https://azure.microsoft.com/en-us/services/app-service/containers/
+4. Build a containerized web application with Docker: https://docs.microsoft.com/en-us/learn/modules/intro-to-containers/
+5. GitHub Sample app used in this tutorial: https://github.com/Azure-Samples/php-docs-hello-world
+6. DockerHub .NET Core Samples used in this tutorial: https://hub.docker.com/_/microsoft-dotnet-core-samples
 
 # Appendix
+
+### Azure commands used in this tutorial
+1. az group create
+2. az app service plan create
+3. az webapp create
 
 ### Create and run a new console app
 - mkdir helloworld
