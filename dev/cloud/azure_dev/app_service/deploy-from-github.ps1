@@ -1,5 +1,7 @@
 # -----------------------------------------------------------------------------
-# Manually deploy an app stored in a Git repo into an Azure App Service
+# 1. Create an App Service 
+# 2. Manually deploy an app stored in a github into the App Service
+# 3. Run the app
 # -----------------------------------------------------------------------------
 
 # login in Azure
