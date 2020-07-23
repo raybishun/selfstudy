@@ -11,7 +11,12 @@
 4. Continuous deployment with Git, Team Foundation server, GetHub, and DevOps
 5. Even supports WordPress, Umbraco, Joomla!, and Drupal
 
-### Creating an App Service (on Windows and using the Free Sku)
+### What we will be doing - creating an App Service using 3 different methods
+1. Create an App Service using the Azure Portal
+2. Create an App Service using the CLI (deploy-from-github.ps1), and deploying an app from github
+3. Create an App Service using the CLI (via deploy-from-dockerhub.ps1), and deploying an app from dockerhub 
+
+### Creating an App Service using the Azure Portal (and the Free Sku)
 1. http://portal.azure.com
 2. App Services
 3. Add
