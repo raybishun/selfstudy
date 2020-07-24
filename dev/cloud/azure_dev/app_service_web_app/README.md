@@ -1,6 +1,6 @@
-# Azure App Service
+# Azure App Service: Web Apps
 
-### What is Azure App Service?
+### What is Azure App Service: Web Apps?
 - Allows you to deploy scalable mission-critical web applications
 - Considered the workhorse of Azure PaaS
 
