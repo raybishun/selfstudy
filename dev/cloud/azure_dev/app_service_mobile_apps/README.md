@@ -56,10 +56,6 @@
 ### Configure your client app
 1. Click Download
 
-### Data Access and Sync with Mobile Clients
-1. [you are here...]
-
-
 ### Configure the mobile app: Application Settings
 1. Settings\Configuration
 2. Application Settings\New application settings
@@ -67,21 +63,13 @@
 4. Value: latest
 5. OK
 
-### Configure the mobile app: Create the Database
-1. 
-
-### Configure the Firewall rules for the Database
-1. 
-
 ### Configure the mobile app: Connection Strings 
 1. Connection strings\New connection string
 
 # References
+1. Mobile Apps: https://azure.microsoft.com/en-us/services/app-service/mobile/
 
 # Appendix
-
-### Azure commands used in this tutorial
-
 
 ### Create and run a new console app
 - mkdir helloworld
