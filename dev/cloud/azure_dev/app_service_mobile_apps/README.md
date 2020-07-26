@@ -11,22 +11,54 @@
 5. Social integration with Facebook, Twitter, and Google
 
 #### Lab
-1. Create a mobile app service
+1. Create an App Service (*** used to also create mobile apps)
 2. Create a client to consume the mobile app
 3. Review off-line data storage for the mobile app
 4. Create a back-end SQL database for the mobile app
 
-### Create a mobile app service based on the Mobile App Template in the Azure Marketplace
+### Create an App Service
 1. http://portal.azure.com
-2. App Services *** used to also create mobile apps
+2. App Services 
 3. Add
 4. Resource Group\Create new: MyAppService_MobileApp_RG
-5. Name: mymobileappjuly24
+5. Name: mymobileappjuly25
 6. Publish: Code
-7. Runtime stack: .NET Core 3.1 (LTS)
-8. Operating System: Linux
+7. Runtime stack: ASP.NET V4.7
+8. Operating System: Windows
 9. Region: East US
-10. Sku and size: Dev/Test, F1 (1GB 60m/day compute, free)
+10. Sku and size: Dev/Test, Free F1 (1GB 60m/day compute)
+11. Review + create
+12. Create
+
+### QuickStart
+1. App Services
+2. Select the app mymobileappjuly25
+3. Deployment\QuickStart
+*** Process has changed; the below steps are now legacy; need to research how this is configured today...
+4. Xamarin.Forms
+5. Connect a database
+6. Data Connections\Add
+7. Add data connection
+8. Type: SQL Database
+9. Database\Create a new database
+10. Name: mobileapp
+11. Crete a new server
+12. Server name: mobileappdb
+13. Server admin login: mobile
+14. Password: enter a password
+15. Location: you region
+16. Select
+17. Connection string
+
+### Create a table API
+1. Backend language: Node.js
+
+### Configure your client app
+1. Click Download
+
+### Data Access and Sync with Mobile Clients
+1. [you are here...]
+
 
 ### Configure the mobile app: Application Settings
 1. Settings\Configuration
@@ -43,8 +75,6 @@
 
 ### Configure the mobile app: Connection Strings 
 1. Connection strings\New connection string
-2. 
-
 
 # References
 
