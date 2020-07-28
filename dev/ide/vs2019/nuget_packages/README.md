@@ -8,4 +8,11 @@
 
 ### Prerequisites
 1. Visual Studio 2019
-2. The NuGet Package Manager Tool (install by running the Visual Studio Installer)
+2. The NuGet Package Manager Tool (available as an option in the Visual Studio Installer)
+
+### How to install the NuGet Package Manager
+1. Launch Visual Studio 2019
+2. Tools
+3. Get Tool and Features...
+4. Select the 'Individual components' tab
+5. Under Core tools, find and select 'NuGet package manager'
