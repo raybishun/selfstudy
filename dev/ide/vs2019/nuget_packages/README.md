@@ -16,3 +16,6 @@
 3. Get Tool and Features...
 4. Select the 'Individual components' tab
 5. Under Core tools, find and select 'NuGet package manager'
+
+### Where can I download the NuGet CLI Tool?
+1. https://www.nuget.org/nuget.exe
