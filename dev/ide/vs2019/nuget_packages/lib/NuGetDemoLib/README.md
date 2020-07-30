@@ -49,3 +49,9 @@ Created 'NuGetDemoLib.nuspec' successfully.
 ### Semantic Versioning
 - NuGet uses semantic versioning, where you have the Major.Minor.Patch convention
 - NuGet uses this semantic versioning to determine the latest stable version
+
+### Semantic Versioning Best Practice
+- Version example: 3.5.1-beta (where 3 = Major, 5 = Minor, 1-beta = Patch)
+- When not releasing the GA version, it's common practice to append: -alpha, -beta, -gamma
+- Or use the -prelease switch
+- Or any string that describes the non GA release
