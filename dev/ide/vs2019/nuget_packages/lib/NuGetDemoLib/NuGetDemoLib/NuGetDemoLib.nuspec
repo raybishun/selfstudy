@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
-    <title>$title$</title>
-    <authors>$author$</authors>
-    <owners>$author$</owners>
-    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
-    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
-    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>$description$</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <id>Demo.Ray.Bishun.NuGetDemoLib</id>
+    <version>1.0.0-alpha</version>
+    <title>NuGet Demo Library</title>
+    <authors>Ray Bishun</authors>
+    <owners>BitsBytesLab</owners>
+    <description>For demo use only</description>
+    <releaseNotes>ChangeLog1, ChangeLog2, ...</releaseNotes>
     <copyright>Copyright 2020</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>Demo, BitsBytesLab</tags>
   </metadata>
+  <files>
+	<file src="bin\Release\NuGetDemoLib.dll"
+		target="lib\NuGetDemoLib.dll"/>
+  </files>
 </package>
