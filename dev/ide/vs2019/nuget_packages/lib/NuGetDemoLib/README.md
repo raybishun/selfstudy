@@ -112,14 +112,14 @@ This is a prerelease version of Demo.Ray.Bishun.NuGetDemoLib.
 6. View the package on-line at: https://www.nuget.org/packages/Demo.Ray.Bishun.NuGetDemoLib/
 
 # Install the NuGet Package: Option 1 of 2
-1. Create a simple .NET Framework Console appear
+1. Create a .NET Framework Console sample application
 2. Right-click the project and select 'Manage NuGet Packages...'
 3. Ensure the Package Source is: nuget.org/
 4. Check 'Include prerelease'
 5. In the Search bar enter: Demo.Ray.Bishun.NuGetDemoLib
 6. Install
 
-### Add the Using Statement to your Console app
+### Add the Using Statement to the sample Console app
 1. using NuGetDemoLib;
 ```
 using NuGetDemoLib;
