@@ -141,4 +141,6 @@ namespace client_console_app
 1. Tools
 2. NuGet Package Manager
 3. Package Manager Console
-4. Install-Package Demo.Ray.Bishun.NuGetDemoLib -Pre
+```
+Install-Package Demo.Ray.Bishun.NuGetDemoLib -Pre
+```
