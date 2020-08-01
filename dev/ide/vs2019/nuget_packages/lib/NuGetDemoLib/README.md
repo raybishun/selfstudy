@@ -111,7 +111,7 @@ This is a prerelease version of Demo.Ray.Bishun.NuGetDemoLib.
 ```
 6. View the package on-line at: https://www.nuget.org/packages/Demo.Ray.Bishun.NuGetDemoLib/
 
-# Install your NuGet Package: Option 1 of 2
+# Install the NuGet Package: Option 1 of 2
 1. Create a simple .NET Framework Console appear
 2. Right-click the project and select 'Manage NuGet Packages...'
 3. Ensure the Package Source is: nuget.org/
@@ -136,10 +136,9 @@ namespace client_console_app
 }
 ```
 
-# Install your NuGet Package: Option 2 of 2
-(From withing Visual Studio)
+# Install the NuGet Package: Option 2 of 2
+(From within Visual Studio)
 1. Tools
 2. NuGet Package Manager
 3. Package Manager Console
-4. 
-
+4. Install-Package Demo.Ray.Bishun.NuGetDemoLib -Pre
