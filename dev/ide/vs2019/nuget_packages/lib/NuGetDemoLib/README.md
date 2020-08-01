@@ -97,4 +97,49 @@ Solution: Move it into a framework-specific folder. If this assembly is targeted
 # Publish the package to the NuGet Store
 1. From your web browser, sign into: https://www.nuget.org/
 2. Find and select 'Upload'
-3. 
+3. Browse
+4. Find and select the Demo.Ray.Bishun.NuGetDemoLib.1.0.0-alpha.nupkg file
+5. Publish
+```
+You successfully uploaded Demo.Ray.Bishun.NuGetDemoLib 1.0.0-alpha.
+
+This package has not been published yet. It will appear in search results and will be available for install/restore after both validation and indexing are complete. Package validation and indexing may take up to an hour. Read more.
+
+This is a prerelease version of Demo.Ray.Bishun.NuGetDemoLib.
+
+*** NOTE: The validation and indexing completed in less than 5 minutes.
+```
+6. View the package on-line at: https://www.nuget.org/packages/Demo.Ray.Bishun.NuGetDemoLib/
+
+# Install your NuGet Package: Option 1 of 2
+1. Create a simple .NET Framework Console appear
+2. Right-click the project and select 'Manage NuGet Packages...'
+3. Ensure the Package Source is: nuget.org/
+4. Check 'Include prerelease'
+5. In the Search bar enter: Demo.Ray.Bishun.NuGetDemoLib
+6. Install
+
+### Add the Using Statement to your Console app
+1. using NuGetDemoLib;
+```
+using NuGetDemoLib;
+
+namespace client_console_app
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            LogHelper.Log("Hello for NuGetDemoLib");
+        }
+    }
+}
+```
+
+# Install your NuGet Package: Option 2 of 2
+(From withing Visual Studio)
+1. Tools
+2. NuGet Package Manager
+3. Package Manager Console
+4. 
+
