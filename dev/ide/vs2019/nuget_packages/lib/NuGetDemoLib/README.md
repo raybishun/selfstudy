@@ -1,6 +1,6 @@
-# Creating a NuGet package for the .NET Framework
+# Create and Publish a NuGet package for the .NET Framework
 
-### Steps
+### Getting Started
 1. Create a Class Library (.NET Framework)
 2. Find demo lib here: ...\selfstudy\dev\ide\vs2019\nuget_packages\lib\NuGetDemoLib
 3. You must build a 'Release' mode of the project
@@ -8,7 +8,7 @@
 5. Copy nuget.exe to the 'root' of the 'project' folder
 6. Open a CMD prompt
 
-### Several ways to create the '.nuspec' file
+### There are several ways to create the '.nuspec' file
 - Option #1: nuget spec
 - Option #2: nuget spec NuGetDemoLib.csproj 
 - Option #3: nuget spec bin\Release\NuGetDemoLib.dll  
@@ -57,7 +57,7 @@ Created 'NuGetDemoLib.nuspec' successfully.
 - Or any string that describes the non GA release
 
 # Build the NuGet Package
-1. Update the '.nuspec' file
+1. Update the above '.nuspec' file
 ```
 <?xml version="1.0"?>
 <package >
@@ -78,7 +78,7 @@ Created 'NuGetDemoLib.nuspec' successfully.
   </files>
 </package>
 ```
-2. Run the build
+2. Build
 ```
 cd ...\NuGetDemoLib\NuGetDemoLib>
 .\nuget.exe pack .\NuGetDemoLib.nuspec
@@ -92,3 +92,9 @@ Issue: Assembly not inside a framework folder.
 Description: The assembly 'lib\NuGetDemoLib.dll' is placed directly under 'lib' folder. It is recommended that assemblies be placed inside a framework-specific folder.
 Solution: Move it into a framework-specific folder. If this assembly is targeted for multiple frameworks, ignore this warning.
 ```
+3. Note the naming convention used for the resultant NuGet filename (based from the data you entered in the NuGetDemoLib.nuspec file: Demo.Ray.Bishun.NuGetDemoLib.1.0.0-alpha.nupkg
+
+# Publish the package to the NuGet Store
+1. From your web browser, sign into: https://www.nuget.org/
+2. Find and select 'Upload'
+3. 
