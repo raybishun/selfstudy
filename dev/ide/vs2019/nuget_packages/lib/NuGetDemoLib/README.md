@@ -57,7 +57,7 @@ Created 'NuGetDemoLib.nuspec' successfully.
 - Or any string that describes the non GA release
 
 # Build the NuGet Package
-1. Update the above '.nuspec' file
+1. Update the above '.nuspec' file as shown below
 ```
 <?xml version="1.0"?>
 <package >
@@ -144,7 +144,7 @@ namespace client_console_app
     }
 }
 ```
-# Managing NuGet Packages (in Visual Studio)
+# Managing NuGet Packages (in Visual Studio, from the client app perspective)
 1. Tools
 2. NuGet Package Manager
 3. Manage NuGet Packages for Solutions...
@@ -152,12 +152,12 @@ namespace client_console_app
 - A blue up-arrow shows that an update is available
 - A green check-mark denotes the package is installed
 
-# Configuring NuGet Packages (in Visual Studio)
+# Configuring NuGet Packages (in Visual Studio, from the client app perspective)
 1. Tools
 2. Options
 3. Find and expand NuGet Package Manager
 
-### Nuget Package Manager: General
+### NuGet Package Manager: General
 
 #### Package Restore
 1. Allow NuGet to download missing packages/Demo
@@ -169,3 +169,8 @@ namespace client_console_app
 
 #### Clear NuGet Cache
 1. Clear All NuGet Cache(s) button
+
+### NuGet Package Manager: Package Sources 
+
+#### Package Sources
+1. Add/remove (HTTP) package sources
