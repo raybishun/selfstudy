@@ -119,6 +119,15 @@ This is a prerelease version of Demo.Ray.Bishun.NuGetDemoLib.
 5. In the Search bar enter: Demo.Ray.Bishun.NuGetDemoLib
 6. Install
 
+# Install the NuGet Package: Option 2 of 2
+(From within Visual Studio)
+1. Tools
+2. NuGet Package Manager
+3. Package Manager Console
+```
+Install-Package Demo.Ray.Bishun.NuGetDemoLib -Pre
+```
+
 ### Add the Using Statement to the sample Console app
 1. using NuGetDemoLib;
 ```
@@ -135,12 +144,28 @@ namespace client_console_app
     }
 }
 ```
-
-# Install the NuGet Package: Option 2 of 2
-(From within Visual Studio)
+# Managing NuGet Packages (in Visual Studio)
 1. Tools
 2. NuGet Package Manager
-3. Package Manager Console
-```
-Install-Package Demo.Ray.Bishun.NuGetDemoLib -Pre
-```
+3. Manage NuGet Packages for Solutions...
+4. Installed, where:
+- A blue up-arrow shows that an update is available
+- A green check-mark denotes the package is installed
+
+# Configuring NuGet Packages (in Visual Studio)
+1. Tools
+2. Options
+3. Find and expand NuGet Package Manager
+
+### Nuget Package Manager: General
+
+#### Package Restore
+1. Allow NuGet to download missing packages/Demo
+2. Automatically check for missing packages during build in Visual Studio
+
+#### Package Management
+1. Select the 'Default package management format', either: Packages.config or PackageReference
+- Note, .NET Core typically use the PackageReference format
+
+#### Clear NuGet Cache
+1. Clear All NuGet Cache(s) button
