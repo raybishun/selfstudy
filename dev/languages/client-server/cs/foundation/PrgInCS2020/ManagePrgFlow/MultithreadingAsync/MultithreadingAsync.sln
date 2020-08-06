@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29905.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagePrgFlow", "ManagePrgFlow\ManagePrgFlow.csproj", "{09A05704-E092-48BC-AD5D-08CCD05D6F4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskParallelLib", "TaskParallelLib\TaskParallelLib.csproj", "{CDC8E8BB-4A0A-433A-B4DA-2AD9BFBE2C8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{09A05704-E092-48BC-AD5D-08CCD05D6F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09A05704-E092-48BC-AD5D-08CCD05D6F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09A05704-E092-48BC-AD5D-08CCD05D6F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09A05704-E092-48BC-AD5D-08CCD05D6F4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDC8E8BB-4A0A-433A-B4DA-2AD9BFBE2C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDC8E8BB-4A0A-433A-B4DA-2AD9BFBE2C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDC8E8BB-4A0A-433A-B4DA-2AD9BFBE2C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDC8E8BB-4A0A-433A-B4DA-2AD9BFBE2C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6DAC7EEA-40D5-4266-8B7E-764895AB47C8}
+		SolutionGuid = {E8213DAE-3356-430A-B88F-20663567A448}
 	EndGlobalSection
 EndGlobal
