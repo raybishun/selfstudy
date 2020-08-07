@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace TaskParallelLib
 {
-    class BunchOfTasks
+    class Work
     {
         public static void Task1()
         {
@@ -70,6 +70,14 @@ namespace TaskParallelLib
             Console.WriteLine("Task-10 starting...");
             Thread.Sleep(1000);
             Console.WriteLine("Task-10 end.");
+        }
+
+        // 
+        public static void WorkOnItem(object item)
+        {
+            Console.WriteLine($"Started working on: {item}");
+            Thread.Sleep(1000);
+            Console.WriteLine($"Finished working on: {item}");
         }
     }
 }
