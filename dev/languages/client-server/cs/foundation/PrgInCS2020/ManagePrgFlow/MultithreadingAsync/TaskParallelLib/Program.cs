@@ -8,12 +8,13 @@ namespace TaskParallelLib
     {
         static void Main(string[] args)
         {
-            // The Task.Parallel class in the TPL (Task Parallel Library),
+            // Withing the System.Threading.Tasks namespace, 
+            // aka TPL (Task Parallel Library), the Parallel class 
             // provides 3 methods that can be used to execute tasks in parallel
 
             // Parallel_Invoke();
-            Parallel_ForEach();
-
+            // Parallel_ForEach();
+            Parallel_For();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -54,6 +55,16 @@ namespace TaskParallelLib
             Parallel.ForEach(items, item =>
             {
                 Work.WorkOnItem(item);
+            });
+        }
+
+        static void Parallel_For()
+        {
+            var items = Enumerable.Range(0, 100).ToArray();
+
+            Parallel.For(0, items.Length, i =>
+            {
+                Work.WorkOnItem(items[i]);
             });
         }
     }
