@@ -14,7 +14,8 @@ namespace TaskParallelLib
 
             // Parallel_Invoke();
             // Parallel_ForEach();
-            Parallel_For();
+            // Parallel_For();
+            Managing_Parallel_For_And_ForEach();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -66,6 +67,32 @@ namespace TaskParallelLib
             {
                 Work.WorkOnItem(items[i]);
             });
+        }
+
+        static void Managing_Parallel_For_And_ForEach()
+        {
+            // Manage Parallel.For and Parallel.ForEach with 
+            // the ParallelLoopResult return type 
+            // and the ParallelLoopState parameter
+
+            // NOTE: You are unable to guarantee the loop will actually
+            // stop at a specific iteration
+
+            var items = Enumerable.Range(0, 20).ToArray();
+
+            ParallelLoopResult result = 
+                Parallel.For(0, items.Count(), (int i, ParallelLoopState loopState) =>
+            {
+                if (i == 15)
+                {
+                    loopState.Stop();
+                }
+
+                Work.WorkOnItem(items[i]);
+            });
+
+            Console.WriteLine($"Completed: {result.IsCompleted}");
+            Console.WriteLine($"Items: {result.LowestBreakIteration}");
         }
     }
 }
