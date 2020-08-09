@@ -6,17 +6,18 @@ namespace TaskParallelLib
 {
     class Program
     {
+        static readonly Person[] people = Person.GetPeople();
+
         static void Main(string[] args)
         {
-            // Withing the System.Threading.Tasks namespace, 
-            // aka TPL (Task Parallel Library), the Parallel class 
-            // provides 3 methods that can be used to execute tasks in parallel
-
             // Parallel_Invoke();
             // Parallel_ForEach();
             // Parallel_For();
             // Managing_Parallel_For_And_ForEach();
-            Parallel_LINQ();
+            // Parallel_LINQ();
+            // Parallel_LINQ_Attempt_To_Force_Parallelism();
+            // Parallel_LINQ_AsOrdered();
+            Parallel_LINQ_AsSequential();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -81,7 +82,7 @@ namespace TaskParallelLib
 
             var items = Enumerable.Range(0, 20).ToArray();
 
-            ParallelLoopResult result = 
+            ParallelLoopResult result =
                 Parallel.For(0, items.Count(), (int i, ParallelLoopState loopState) =>
             {
                 if (i == 15)
@@ -97,8 +98,72 @@ namespace TaskParallelLib
         }
 
         static void Parallel_LINQ()
-        { 
+        {
+            // NOTE: Proceed with caution - AsParallel() will determine 
+            // whether the LINQ statement can be run in parallel or not
+            var result = from person in people.AsParallel()
+                         where person.City == "New York"
+                         select person;
+
+            foreach (var person in result)
+            {
+                Console.WriteLine(person.Name);
+            }
+        }
+
+        static void Parallel_LINQ_Attempt_To_Force_Parallelism()
+        {
+            // Forcing Parallelism 
+            var result = from person in people.AsParallel()
+                          // Request the query not run on more than 4 cores
+                          .WithDegreeOfParallelism(4) 
+                          .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
+                          where person.City == "New York"
+                          select person;
+
+            foreach (var person in result)
+            {
+                Console.WriteLine(person.Name);
+            }
+        }
+
+        static void Parallel_LINQ_AsOrdered()
+        {
+            // AsOrdered() organizes the results to match the order of the input
+            // NOTE: There may be a performance hit for this reordering
             
+            var result = from person in people.AsParallel()
+                         .AsOrdered()
+                         where person.City == "New York"
+                         select person;
+
+            foreach (var person in result)
+            {
+                Console.WriteLine(person.Name);
+            }
+        }
+
+        static void Parallel_LINQ_AsSequential()
+        {
+            // AsSequential() is used to ensure a particular sequence is followed
+
+            var result = (from person in people.AsParallel()
+                          where person.City == "New York"
+                          orderby (person.Name)
+                          select new
+                          {
+                              Name = person.Name
+                          }).AsSequential().Take(3); // Take only 3 from the results
+
+            foreach (var person in result)
+            {
+                Console.WriteLine(person.Name);
+            }
+        }
+
+        static void Parallel_LINQ_ForAll()
+        { 
+        
         }
     }
 }
