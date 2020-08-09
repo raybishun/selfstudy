@@ -18,7 +18,8 @@ namespace TaskParallelLib
             // Parallel_LINQ_Attempt_To_Force_Parallelism();
             // Parallel_LINQ_AsOrdered();
             // Parallel_LINQ_AsSequential();
-            Parallel_LINQ_ForAll();
+            // Parallel_LINQ_ForAll();
+            PLINQ_Exceptions();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -176,6 +177,33 @@ namespace TaskParallelLib
                          select person;
 
             result.ForAll(person => Console.WriteLine(person.Name));
+        }
+
+        static void PLINQ_Exceptions() 
+        {
+            try
+            {
+                var result = from person in people.AsParallel()
+                             where FilterCity(person.City)
+                             select person;
+
+                result.ForAll(person => Console.WriteLine(person.Name));
+            }
+            catch (AggregateException e)
+            {
+                Console.WriteLine($"{e.InnerExceptions.Count}: exceptions.");
+            }
+        }
+
+        static bool FilterCity(string city)
+        {
+            if (city == "")
+            {
+                throw new ArgumentException(city);
+            }
+
+            // Filter on New York
+            return city == "New York";
         }
     }
 }
