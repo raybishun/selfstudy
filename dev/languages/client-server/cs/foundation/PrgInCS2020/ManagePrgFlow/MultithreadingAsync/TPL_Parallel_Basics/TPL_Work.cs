@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 
-namespace TaskParallelLib
+namespace TPL_Parallel_Basics
 {
-    class Work
+    class TPL_Work
     {
         public static void Task1()
         {

@@ -1,4 +1,4 @@
-﻿namespace TaskParallelLib
+﻿namespace TPL_Parallel_PLINQ
 {
     class Person
     {
