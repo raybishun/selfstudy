@@ -15,7 +15,8 @@ namespace TaskParallelLib
             // Parallel_Invoke();
             // Parallel_ForEach();
             // Parallel_For();
-            Managing_Parallel_For_And_ForEach();
+            // Managing_Parallel_For_And_ForEach();
+            Parallel_LINQ();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -93,6 +94,11 @@ namespace TaskParallelLib
 
             Console.WriteLine($"Completed: {result.IsCompleted}");
             Console.WriteLine($"Items: {result.LowestBreakIteration}");
+        }
+
+        static void Parallel_LINQ()
+        { 
+            
         }
     }
 }
