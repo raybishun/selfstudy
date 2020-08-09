@@ -17,7 +17,8 @@ namespace TaskParallelLib
             // Parallel_LINQ();
             // Parallel_LINQ_Attempt_To_Force_Parallelism();
             // Parallel_LINQ_AsOrdered();
-            Parallel_LINQ_AsSequential();
+            // Parallel_LINQ_AsSequential();
+            Parallel_LINQ_ForAll();
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -129,8 +130,9 @@ namespace TaskParallelLib
 
         static void Parallel_LINQ_AsOrdered()
         {
-            // AsOrdered() organizes the results to match the order of the input
-            // NOTE: There may be a performance hit for this reordering
+            // AsOrdered() 
+            // - Organizes the results to match the order of the input
+            // - There may be a performance hit for this reordering
             
             var result = from person in people.AsParallel()
                          .AsOrdered()
@@ -145,7 +147,8 @@ namespace TaskParallelLib
 
         static void Parallel_LINQ_AsSequential()
         {
-            // AsSequential() is used to ensure a particular sequence is followed
+            // AsSequential() 
+            // - Used to ensure a particular sequence is followed
 
             var result = (from person in people.AsParallel()
                           where person.City == "New York"
@@ -153,7 +156,7 @@ namespace TaskParallelLib
                           select new
                           {
                               Name = person.Name
-                          }).AsSequential().Take(3); // Take only 3 from the results
+                          }).AsSequential().Take(3); // NOTE: Only take 3 from the results
 
             foreach (var person in result)
             {
@@ -162,8 +165,17 @@ namespace TaskParallelLib
         }
 
         static void Parallel_LINQ_ForAll()
-        { 
-        
+        {
+            // ForAll()
+            // - Is the parallel version of a normal ForEach
+            // - Interestingly enough, execution begins before the query has actually completed
+            // - Also, due to parallel processing, the output will not match the order of the input
+
+            var result = from person in people.AsParallel()
+                         where person.City == "New York"
+                         select person;
+
+            result.ForAll(person => Console.WriteLine(person.Name));
         }
     }
 }
