@@ -14,6 +14,13 @@ namespace TPL_Tasks
             Console.WriteLine("Work completed.");
         }
 
+        public static void SomeWork(int i)
+        {
+            Console.WriteLine($"Task {i} starting...");
+            Thread.Sleep(2000);
+            Console.WriteLine($"Task {i} completed.");
+        }
+
         public static int CalcResult()
         {
             Console.WriteLine("Stating work...");
