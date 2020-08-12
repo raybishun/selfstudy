@@ -21,6 +21,23 @@ namespace TPL_Tasks
             Console.WriteLine($"Task {i} completed.");
         }
 
+        public static void HelloTask()
+        {
+            Thread.Sleep(1000);
+            Console.Write("Hello, ");
+        }
+
+        public static void WorldTask()
+        {
+            Thread.Sleep(1000);
+            Console.WriteLine("World!");
+        }
+
+        public static void ExceptionTask()
+        {
+            Console.WriteLine("Run when exception occurred...");
+        }
+
         public static int CalcResult()
         {
             Console.WriteLine("Stating work...");
