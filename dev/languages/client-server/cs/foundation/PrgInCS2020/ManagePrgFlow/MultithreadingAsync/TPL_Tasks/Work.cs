@@ -45,5 +45,12 @@ namespace TPL_Tasks
             Console.WriteLine("Work completed.");
             return 99;
         }
+
+        public static void ChildTask(object state)
+        {
+            Console.WriteLine($"ChildTask {state} starting...");
+            Thread.Sleep(2000);
+            Console.WriteLine($"ChildTask {state} completed.");
+        }
     }
 }

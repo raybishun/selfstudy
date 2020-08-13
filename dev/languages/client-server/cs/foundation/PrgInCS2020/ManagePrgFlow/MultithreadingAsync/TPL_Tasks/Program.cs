@@ -17,11 +17,12 @@ namespace TPL_Tasks
             // - Task.Run() also uses the default task scheduler (the .NET framework thread pool)
 
 
-
             // DoSomeWork();
             // Return_A_Value_From_A_Task();
             // Task_WaitAll();
-            Continuous_Tasks();
+            // Continuous_Tasks();
+            Child_Tasks();
+
 
             Console.WriteLine("Done");
             Console.ReadKey();
@@ -74,6 +75,31 @@ namespace TPL_Tasks
 
             // A new task will run ExceptionTask() only if HelloTask() throws an exception 
             t.ContinueWith((prevTask) => Work.ExceptionTask(), TaskContinuationOptions.OnlyOnFaulted);
+        }
+
+        static void Child_Tasks()
+        {
+            // Child tasks execute independently from their parent,
+            // these child tasks are referred to as detached child tasks or detached nested tasks
+            // You can specify child tasks are attached to their parent, as such,
+            // the parent task will only end after all child tasks have completed their work
+
+            var parent = Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine("Parent task started...");
+                for (int i = 0; i < 10; i++)
+                {
+                    int taskNo = i;
+
+                    Task.Factory.StartNew(
+                        (x) => Work.ChildTask(x),
+                        taskNo, // state object
+                        TaskCreationOptions.AttachedToParent);
+                }
+            });
+
+            // Wait for all attached child tasks to complete
+            parent.Wait();
         }
     }
 }
