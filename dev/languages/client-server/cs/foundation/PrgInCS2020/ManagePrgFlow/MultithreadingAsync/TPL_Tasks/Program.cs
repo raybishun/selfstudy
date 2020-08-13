@@ -105,7 +105,8 @@ namespace TPL_Tasks
 
         static void Child_Tasks_Without_Attachment_To_Parent()
         {
-            // Using the DenyChildAttach option
+            // Using the TaskCreationOptions.DenyChildAttach option
+            // Note: By default Task.Run() uses the TaskCreationOptions.DenyChildAttach option
 
             var parent = Task.Factory.StartNew(() =>
             {
