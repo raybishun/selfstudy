@@ -21,7 +21,8 @@ namespace TPL_Tasks
             // Return_A_Value_From_A_Task();
             // Task_WaitAll();
             // Continuous_Tasks();
-            Child_Tasks();
+            // Child_Tasks_Attached_To_Parent();
+            Child_Tasks_Without_Attachment_To_Parent();
 
 
             Console.WriteLine("Done");
@@ -77,7 +78,7 @@ namespace TPL_Tasks
             t.ContinueWith((prevTask) => Work.ExceptionTask(), TaskContinuationOptions.OnlyOnFaulted);
         }
 
-        static void Child_Tasks()
+        static void Child_Tasks_Attached_To_Parent()
         {
             // Child tasks execute independently from their parent,
             // these child tasks are referred to as detached child tasks or detached nested tasks
@@ -99,6 +100,28 @@ namespace TPL_Tasks
             });
 
             // Wait for all attached child tasks to complete
+            parent.Wait();
+        }
+
+        static void Child_Tasks_Without_Attachment_To_Parent()
+        {
+            // Using the DenyChildAttach option
+
+            var parent = Task.Factory.StartNew(() =>
+            {
+                Console.WriteLine("Parent task started...");
+                for (int i = 0; i < 10; i++)
+                {
+                    int taskNo = i;
+
+                    Task.Factory.StartNew(
+                        (x) => Work.ChildTask(x),
+                        taskNo, // state object
+                        TaskCreationOptions.DenyChildAttach);
+                }
+            });
+
+            // Wait for all child tasks to complete
             parent.Wait();
         }
     }
