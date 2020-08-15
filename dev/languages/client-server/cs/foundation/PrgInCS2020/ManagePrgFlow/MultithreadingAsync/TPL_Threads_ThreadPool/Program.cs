@@ -25,15 +25,27 @@ namespace TPL_Threads_ThreadPool
 
         // Threads to not support exception aggregation (tasks do)
 
-        static void DoWork()
-        {
-            Console.WriteLine("Hello from thread...");
-            Thread.Sleep(2000);
-        }
-
         static void Main(string[] args)
         {
-            Thread t = new Thread(DoWork);
+            // Basic_Thread();
+            ThreadStart_Delegate();
+
+
+            Console.WriteLine("Done");
+            Console.ReadKey();
+        }
+
+        static void Basic_Thread()
+        {
+            Thread t = new Thread(Work.SomeWork);
+            t.Start();
+        }
+
+        static void ThreadStart_Delegate()
+        {
+            // The ThreadStart Delegate is legacy, and no longer required
+            ThreadStart ts = new ThreadStart(Work.SomeWork);
+            Thread t = new Thread(ts);
             t.Start();
         }
     }
