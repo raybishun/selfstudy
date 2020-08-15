@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPL_Parallel_Basics", "TPL_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPL_Parallel_PLINQ", "TPL_Parallel_PLINQ\TPL_Parallel_PLINQ.csproj", "{FF58DE98-E527-4BF6-8D1F-CB1542B3010D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPL_Tasks", "TPL_Tasks\TPL_Tasks.csproj", "{8051C7D4-A7DE-4503-94D6-ACA129FEA1B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPL_Tasks", "TPL_Tasks\TPL_Tasks.csproj", "{8051C7D4-A7DE-4503-94D6-ACA129FEA1B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPL_Threads_ThreadPool", "TPL_Threads_ThreadPool\TPL_Threads_ThreadPool.csproj", "{027156E3-F641-4AF4-B9F1-2F5B949359A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{8051C7D4-A7DE-4503-94D6-ACA129FEA1B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8051C7D4-A7DE-4503-94D6-ACA129FEA1B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8051C7D4-A7DE-4503-94D6-ACA129FEA1B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{027156E3-F641-4AF4-B9F1-2F5B949359A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{027156E3-F641-4AF4-B9F1-2F5B949359A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{027156E3-F641-4AF4-B9F1-2F5B949359A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{027156E3-F641-4AF4-B9F1-2F5B949359A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
