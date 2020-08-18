@@ -24,7 +24,8 @@ namespace Threads_Passing_Data
             // Pass data into a thread using the ParameterizedThreadStart
             // delegate which accepts an object as a parameter
             // Note: The data passed into a thread is always an object
-            ParameterizedThreadStart pts = new ParameterizedThreadStart(DoWork);
+            ParameterizedThreadStart pts = 
+                new ParameterizedThreadStart(DoWork);
             Thread t = new Thread(pts);
             t.Start(2020);
 
