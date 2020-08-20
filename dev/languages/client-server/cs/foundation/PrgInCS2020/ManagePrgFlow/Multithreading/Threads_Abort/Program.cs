@@ -39,7 +39,7 @@ namespace Threads_Abort
 
                 Console.WriteLine("Press any key to abort...");
                 Console.ReadKey();
-                // Note: Appears Thread.Abort() is not supported in .NET Core
+                // Appears Thread.Abort() is not supported in .NET Core
                 t.Abort();
             }
             catch (Exception ex)
