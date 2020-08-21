@@ -1,7 +1,7 @@
 # How to install Splunk on CentOS using the CLI
 
 ### Introduction
-This is a walk-through on how to install Splunk Enterprise 8.0.3 on CentOS 7. The free version allows you to Index 500 MB/Day. After 60 days you are able to convert to a perpetual free license or purchase a Splunk Enterprise license. For more information plese visit: https://www.splunk.com/en_us/download/get-started-with-your-free-trial.html.
+This is a walk-through on how to install Splunk Enterprise 8.0.3 on CentOS 8. The free version of Splunk allows you to Index 500 MB/Day. After 60 days you are able to convert to a perpetual free license or purchase a Splunk Enterprise license. For more information visit: https://www.splunk.com/en_us/download/get-started-with-your-free-trial.html.
 
 ### Prerequisites
 
