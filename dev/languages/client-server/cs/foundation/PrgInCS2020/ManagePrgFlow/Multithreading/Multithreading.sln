@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads_Abort", "Threads_Ab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads_Sync_Using_Join", "Threads_Sync_Using_Join\Threads_Sync_Using_Join.csproj", "{08F10C05-2991-4BB8-BEF8-7EB19B2477F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads_Local", "Threads_Static\Threads_Local.csproj", "{C0B59E64-B4E9-4083-B5AD-D4A597D51873}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{08F10C05-2991-4BB8-BEF8-7EB19B2477F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08F10C05-2991-4BB8-BEF8-7EB19B2477F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08F10C05-2991-4BB8-BEF8-7EB19B2477F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0B59E64-B4E9-4083-B5AD-D4A597D51873}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0B59E64-B4E9-4083-B5AD-D4A597D51873}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0B59E64-B4E9-4083-B5AD-D4A597D51873}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0B59E64-B4E9-4083-B5AD-D4A597D51873}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
