@@ -66,7 +66,7 @@ By default, the Splunk interface is at http://serverName:8000
 
 ### Troubleshooting
 
-#### Open 8000 on CentOS8
+#### Open TCP:8000 on CentOS8
 ```
 firewall-cmd --list-all
 firewall-cmd --get-services
