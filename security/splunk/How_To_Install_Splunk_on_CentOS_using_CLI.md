@@ -3,10 +3,40 @@
 ### Introduction
 This is a walk-through on how to install Splunk Enterprise 8.0.3 on CentOS 7. The free version allows you to Index 500 MB/Day. After 60 days you are able to convert to a perpetual free license or purchase a Splunk Enterprise license. For more information plese visit: https://www.splunk.com/en_us/download/get-started-with-your-free-trial.html.
 
-### Download Splunk
-1. Sign-up and retrieve download command from: https://www.splunk.com/en_us/download/splunk-enterprise/thank-you-enterprise.html
+### Prerequisites
 
-2. Select the Download via Command Line (wget) option, and copy the wget command
+#### Check Linux Kernel Version in CentOS (showing 5 options)
+```
+hostnamectl
+rpm -qa centos-release
+cat /etc/centos-release
+cat /etc/os-release
+uname -r
+```
+#### Update Linux (optional)
+```
+sudo yum update
+```
+
+#### Install wget on CentOS8 (if not found)
+```
+sudo yum search wget (try to locate wget package)
+sudo yum install wget
+```
+#### Install tar (if not found)
+```
+sudo yum search tar
+sudo yum list tar
+yum info tar.x86_64
+sudo yum install tar
+```
+
+### Download Splunk
+1. mkdir download (if necessary)
+2. cd download
+3. Sign-up and retrieve download command from: https://www.splunk.com/en_us/download/splunk-enterprise/thank-you-enterprise.html
+
+4. Select the Download via Command Line (wget) option, and copy the wget command
 ```
 wget -O splunk-8.0.3-a6754d8441bf-Linux-x86_64.tgz 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=8.0.3&product=splunk&filename=splunk-8.0.3-a6754d8441bf-Linux-x86_64.tgz&wget=true'
 ```
@@ -33,3 +63,15 @@ sudo /opt/splunk/bin/splunk start
 
 ### Verify installation
 By default, the Splunk interface is at http://serverName:8000
+
+### Troubleshooting
+
+#### Open 8000 on CentOS8
+```
+firewall-cmd --list-all
+firewall-cmd --get-services
+firewall-cmd --get-zones
+firewall-cmd --zone=public --permanent --add-port 8000/tcp
+firewall-cmd --reload
+firewall-cmd --list-all
+```
