@@ -59,7 +59,7 @@ export SPLUNK_HOME=/opt/splunk
 ### Start Splunk
 1. Start Splunk
 ```
-sudo /opt/splunk/bin/splunk start
+sudo /opt/splunk/bin/splunk start (q/y/enter to accept the EULA)
 sudo /opt/splunk/bin/splunk start –accept-license (need to verify this works)
 ```
 2. Accept the license agreement (required only during the first start)
@@ -70,8 +70,9 @@ By default, the Splunk interface is at http://serverName:8000
 
 ### Enable Splunk to start at boot
 ```
-splunk enable boot-start
-splunk disable boot-start
+cd /opt/splunk/bin
+./splunk enable boot-start
+./splunk disable boot-start (to disable)
 ```
 ### Troubleshooting
 
