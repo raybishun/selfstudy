@@ -76,10 +76,6 @@ cd /opt/splunk/bin
 ```
 ### Troubleshooting
 
-### Disable Splunk to start at boot
-```
-splunk disable boot-start
-```
 #### Open TCP:8000 on CentOS8
 ```
 firewall-cmd --list-all
@@ -88,6 +84,10 @@ firewall-cmd --get-zones
 firewall-cmd --zone=public --permanent --add-port 8000/tcp
 firewall-cmd --reload
 firewall-cmd --list-all
+```
+#### Disable Splunk to start at boot
+```
+splunk disable boot-start
 ```
 #### Uninstalling Splunk
 ```
