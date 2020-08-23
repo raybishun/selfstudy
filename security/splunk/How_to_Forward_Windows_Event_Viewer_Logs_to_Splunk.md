@@ -4,7 +4,7 @@
 1. https://www.splunk.com/en_us/download/universal-forwarder.html#tabs/windows
 2. Find and download the 64-bit version of: 'Windows 10 Windows Server 2016, 2019'
 
-### Install and configure the Universal Forwarder on a Windows 10 client
+### Install and configure the Splunk Universal Forwarder on a Windows 10 client
 1. Accept the EULA
 2. Customize Options
 3. C:\Program Files\SplunkUniversalForwarder\
@@ -17,7 +17,7 @@
 10. Install
 11. Finish
 
-### Open TCP:8000 on CentOS8
+### Open the required TCP ports on the Splunk CentOS8 Server
 ```
 firewall-cmd --list-all
 firewall-cmd --get-services
@@ -33,7 +33,7 @@ firewall-cmd --list-all
 1. Log into the Splunk Portal
 2. Settings
 3. Distributed Environment\Forwarder management
-4. The client client should auto enroll in approximately 5 minutes
+4. The Windows 10 client should auto enroll in approximately 5 minutes
 
 #### Verify the Splunk Service is running
 1. Restart the 'SplunkForwarder' service
@@ -48,30 +48,31 @@ cd /opt/splunk/etc/deployment-apps/
 mkdir eventvwr
 cd eventvwr
 ```
-In the Splunk Portal, refresh the Settings\Distributed Environment\Forwarder management page
-eventvwr should automatically appear under the Apps(1) tabs
-Back in the SSH session, mkdir local (opt/splunk/etc/deployment-apps/eventvwr/local)
+2. In the Splunk Portal, refresh the Settings\Distributed Environment\Forwarder management page
+3. eventvwr should automatically appear under the Apps(1) tabs
+4. Back in the SSH session, mkdir local (opt/splunk/etc/deployment-apps/eventvwr/local)
 ```
 cd local
 ls -hal /opt/splunk/etc/system/local (to view the Server Class files)
 ```
-In the Splunk Portal, select the Server Classes tabs
-Create one
-New Server Class: win_servers
-Save
-Add Apps
-Select eventvwr 
-Save
-Add Clients
-For this lab environment, I entered an asteric in the Include (whitelist)
-Save
-Back to Forwarder Management, verify the Server Classes (1) now shows 1 client deployed
-Back in the SSH session, enter the below
+5. In the Splunk Portal, select the Server Classes tabs
+6. Create one
+7. New Server Class: win_servers
+8. Save
+9. Add Apps
+10. Select eventvwr 
+11. Save
+12. Add Clients
+13. For this lab environment, I entered an asterisk in the Include (whitelist)
+14. Save
+15. Back to Forwarder Management, verify the Server Classes (1) now shows 1 client deployed
+16. Back in the SSH session, enter the below
 ```
 cat /opt/splunk/etc/system/local/serverclass.conf
 ```
-On the Windows 10 client, verify the app.conf file was created under: C:\Program Files\SplunkUniversalForwarder\etc\apps\eventvwr\local
-Back in the SSH session, verify the app.conf file was created under: /opt/splunk/etc/deployment-apps/eventvwr/local
+### Verify the .conf files were created
+1. On the Windows 10 client, verify the app.conf file was created under: C:\Program Files\SplunkUniversalForwarder\etc\apps\eventvwr\local
+2. Back in the SSH session, verify the app.conf file was created under: /opt/splunk/etc/deployment-apps/eventvwr/local
 
 ### Create New Indexer
 1. Log into the Splunk Portal
@@ -143,14 +144,14 @@ server = <your-splunk-ip-address>:9997
 [tcpout-server://<your-splunk-ip-address>:9997]
 ```
 
-### Start...
+### Reload Splunk settings
+1. Enter the below
 ```
 cd /opt/splunk/bin
 ./splunk reload deploy-server
 (You may need to enter the Splunk Admin username and password)
 ```
-After about 2 minutes, C:\Program Files\SplunkUniversalForwarder\etc\apps\eventvwr\local now contains 3 files: app.conf, inputs.conf, and outputs.conf
-
+2. After about 2 minutes, C:\Program Files\SplunkUniversalForwarder\etc\apps\eventvwr\local now contains 3 files: app.conf, inputs.conf, and outputs.conf
 
 ### Review the Forwarded inputs
 Settings\Data inputs
@@ -162,6 +163,11 @@ Find Windows Performance Monitoring has 2 additional inputs: CPU and LogicalDisk
 Search & Reporting
 index="windows_logs"
 
+# Gotchas
+Settings\Forwarding and receiving
+Receive data\configure receiving
+New Receiving port
+Listen on this port: 9997
 
 # References
 1. https://www.youtube.com/watch?v=COVb0A9PFtI
