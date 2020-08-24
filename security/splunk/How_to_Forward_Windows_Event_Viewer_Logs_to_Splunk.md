@@ -105,7 +105,7 @@ cat /opt/splunk/etc/system/local/serverclass.conf
 4. Settings\Source types\New Source Type\Name: Windowslogs
 5. Save
 
-### Create the Inputs file
+### Create the inputs.conf file
 1. SSH to the Splunk server
 2. cd /opt/splunk/etc/deployment-apps/eventvwr/local
 3. vi inputs.conf
@@ -147,7 +147,7 @@ instances  = *
 object = LogicalDisk
 interval = 300
 ```
-### Create the Output file
+### Create the outputs.conf file
 1. SSH to the Splunk server
 2. cd /opt/splunk/etc/deployment-apps/eventvwr/local
 3. vi outputs.conf
@@ -206,6 +206,45 @@ cd /opt/splunk/bin
 
 # Notes
 1. C:\windows\Performance\WinSAT\winsat.log tracks errors during startup, as well as runtime errors
+
+# Addendum
+
+### Adding additional Windows Application and Service Logs (for Windows Defender and ATP)
+
+#### Modify the inputs.conf file
+1. SSH to the Splunk server
+2. cd /opt/splunk/etc/deployment-apps/eventvwr/local
+3. vi inputs.conf
+```
+[WinEventLog://Microsoft-Windows-Windows Defender/Operational]
+disabled = 0
+index = windows_logs
+sourcetype = Windowslogs
+checkpointInterval = 5
+current_only = 0
+evt_resolve_ad_obj = 0
+start_from = oldest
+
+[WinEventLog://Microsoft-Windows-SENSE/Operational]
+disabled = 0
+index = windows_logs
+sourcetype = Windowslogs
+checkpointInterval = 5
+current_only = 0
+evt_resolve_ad_obj = 0
+start_from = oldest
+blacklist = 54
+```
+#### Reload Splunk settings
+1. Enter the below
+```
+cd /opt/splunk/bin
+./splunk reload deploy-server
+(You may need to enter the Splunk Admin username and password)
+```
+#### Verify the conf files were updated
+1. I noticed all 3 .conf files were updated in about 5 minutes under: C:\Program Files\SplunkUniversalForwarder\etc\apps\eventvwr\local
+2. I didn't need to restart the Splunk service (client or server)
 
 # References
 1. https://www.youtube.com/watch?v=COVb0A9PFtI
