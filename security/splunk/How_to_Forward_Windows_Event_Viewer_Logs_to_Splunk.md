@@ -82,7 +82,7 @@ cat serverclass.conf (to view the current settings)
 11. Save
 12. Back to Forwarder Management link
 13. Verify the Server Classes (1) now shows 1 client deployed
-14. From the SSH session, now view the serverclass.conf file
+14. From the SSH session, review the serverclass.conf file
 ```
 cat /opt/splunk/etc/system/local/serverclass.conf
 
