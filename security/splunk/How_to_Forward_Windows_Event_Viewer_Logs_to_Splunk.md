@@ -189,7 +189,7 @@ cd /opt/splunk/bin
 
 # Troubleshooting
 
-### Found that I manually had to add the Receiving port
+### Found that I had to manually add the Receiving port
 1. From the Splunk Portal
 2. Settings\Forwarding and receiving
 3. Receive data\configure receiving
