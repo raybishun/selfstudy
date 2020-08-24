@@ -56,8 +56,8 @@ export SPLUNK_HOME=/opt/splunk
 ### Start Splunk
 1. Start Splunk
 ```
-sudo /opt/splunk/bin/splunk start (q/y/enter to accept the EULA)
-sudo /opt/splunk/bin/splunk start –accept-license (need to verify this works)
+sudo /opt/splunk/bin/splunk start (q/y/enter to accept the EULA, or use the next line instead)
+sudo /opt/splunk/bin/splunk start –accept-license
 ```
 2. Accept the license agreement (required only during the first start)
 3. Enter a username and password for the admin account
