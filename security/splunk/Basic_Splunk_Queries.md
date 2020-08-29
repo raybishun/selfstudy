@@ -4,6 +4,10 @@
 ```
 index=_audit action="login attempt" info=failed
 ```
+### Failed Splunk Portal Login Attempts (Visualization)
+```
+index=_audit action="login attempt" info=failed timechart count
+```
 ### Top Users
 ```
 * | top user
