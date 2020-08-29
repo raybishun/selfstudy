@@ -8,6 +8,10 @@ index=_audit action="login attempt" info=failed
 ```
 index=_audit action="login attempt" info=failed timechart count
 ```
+### Failed root Login Attempts (Visualization)
+```
+* source="/var/log/secure" failed "root" | timechart count
+```
 ### Top Users
 ```
 * | top user
