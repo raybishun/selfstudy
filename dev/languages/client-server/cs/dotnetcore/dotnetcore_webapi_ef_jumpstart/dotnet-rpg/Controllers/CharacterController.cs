@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using dotnet_rpg.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace dotnet_rpg.Controllers
 {
@@ -11,7 +12,7 @@ namespace dotnet_rpg.Controllers
         private static List<Character> characters = new List<Character>()
         {
           new Character(),
-          new Character {Name = "Sam"}
+          new Character { Id = 1, Name = "Sam" }
         };
 
         // [Route("GetAll")]
@@ -24,9 +25,12 @@ namespace dotnet_rpg.Controllers
             // Postman GET: http://localhost:5000/character
         }
 
-        public IActionResult GetSingle()
+        [HttpGet("{id}")]
+        public IActionResult GetSingle(int id)
         {
-            return Ok(characters[0]);
+            // return Ok(characters[0]);
+
+            return Ok(characters.FirstOrDefault(c => c.Id == id));
         }
     }
 }
