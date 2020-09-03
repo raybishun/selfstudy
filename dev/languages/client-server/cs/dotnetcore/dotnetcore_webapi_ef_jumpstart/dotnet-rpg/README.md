@@ -41,3 +41,11 @@
 5. Select the vertical ellipsis
 6. Commit\Commit All\Yes
 7. Select the vertical ellipsis\Pull, Push\Push
+
+# Notes
+
+### HTTP Request Methods
+- Create: POST
+- Read: GET
+- Update: PUT
+- Delete: DELETE
