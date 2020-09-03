@@ -26,7 +26,7 @@ namespace dotnet_rpg.Controllers
         [HttpGet("GetAll")]
         public IActionResult Get()
         {
-            return Ok(characters);
+            return Ok(_characterService.GetAllCharacters());
 
             // dotnet run
             // From Postman GET: http://localhost:5000/character
@@ -37,14 +37,16 @@ namespace dotnet_rpg.Controllers
         {
             // return Ok(characters[0]);
 
-            return Ok(characters.FirstOrDefault(c => c.Id == id));
+            // return Ok(characters.FirstOrDefault(c => c.Id == id));
+            
+            return Ok(_characterService.GetCharacterById(id));
         }
 
         [HttpPost]
         public IActionResult AddCharacter(Character newCharacter)
         {
-            characters.Add(newCharacter);
-            return Ok(characters);
+            _characterService.AddCharacter(newCharacter);
+            return Ok(_characterService.GetAllCharacters());
 
             // dotnet run
             // From Postman POST: http://localhost:5000/character
