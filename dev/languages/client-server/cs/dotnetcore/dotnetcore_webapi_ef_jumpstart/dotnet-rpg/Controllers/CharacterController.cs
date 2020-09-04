@@ -3,6 +3,7 @@ using dotnet_rpg.Models;
 using System.Collections.Generic;
 using System.Linq;
 using dotnet_rpg.Services.CharacterService;
+using System.Threading.Tasks;
 
 namespace dotnet_rpg.Controllers
 {
@@ -24,7 +25,7 @@ namespace dotnet_rpg.Controllers
 
         // [Route("GetAll")]
         [HttpGet("GetAll")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             return Ok(_characterService.GetAllCharacters());
 
@@ -33,7 +34,7 @@ namespace dotnet_rpg.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetSingle(int id)
+        public async Task<IActionResult> GetSingle(int id)
         {
             // return Ok(characters[0]);
 
@@ -43,10 +44,9 @@ namespace dotnet_rpg.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCharacter(Character newCharacter)
+        public async Task<IActionResult> AddCharacter(Character newCharacter)
         {
-            _characterService.AddCharacter(newCharacter);
-            return Ok(_characterService.GetAllCharacters());
+            return Ok(_characterService.AddCharacter(newCharacter));
 
             // dotnet run
             // From Postman POST: http://localhost:5000/character
