@@ -1,7 +1,11 @@
 # ASP.NET Core Web Application: API Foundation
 
+### Objective
+1. Create a REST API using ASP.NET Core
+2. Implement common REST API functionality
+
 ### What can you create with ASP.NET Core Web Applications
-- Includes project templates for creating ASP.NET Core web apps and web APIs for Windows, Linux and macOS using .NET Core or .NET Framework. Freate web apps with Raxor Pages, MVC, or Single Page Apps (SPA) using Anuglar, React, or React + Redux.
+- Includes project templates for creating ASP.NET Core web apps and web APIs for Windows, Linux and macOS using .NET Core or .NET Framework. Create web apps with Razor Pages, MVC, or Single Page Apps (SPA) using Angular, React, or React + Redux.
 
 #### Supported Platforms
 - Linux, macOS, Windows, Cloud, Service and Web
@@ -16,3 +20,18 @@
 ### API Client Used
 - Postman
 - https://www.postman.com/downloads/
+
+### Skills  Covered
+1. Web API creation
+2. HTTP status codes
+3. Content Negotiation
+4. Custom Methods
+5. Testing using Postman
+6. Validations in Web API
+7. Sorting
+8. Paging
+9. Searching
+10. Versioning
+11. Repository Pattern
+12. Azure Deployment
+13. API Documentation
