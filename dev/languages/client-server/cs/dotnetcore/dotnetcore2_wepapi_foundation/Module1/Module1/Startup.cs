@@ -24,10 +24,10 @@ namespace Module1
         public void ConfigureServices(IServiceCollection services)
         {
             // NOTE: Only returns data as JSON (the default)
-            // services.AddMvc();
+            services.AddMvc();
 
             // Return data as XML
-            services.AddMvc().AddXmlSerializerFormatters();
+            // services.AddMvc().AddXmlSerializerFormatters();
 
         }
 
