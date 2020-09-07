@@ -21,6 +21,12 @@
 - Postman
 - https://www.postman.com/downloads/
 
+### REST Methods vs Database Methods
+1. POST - CREATE
+2. GET - READ
+3. PUT - UPDATE
+4. DELETE - DELETE
+
 ### Skills  Covered
 1. Web API creation
 2. HTTP status codes
