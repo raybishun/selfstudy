@@ -30,7 +30,7 @@ namespace Module1.Controllers
             _products.Add(product);
 
 
-            /* To test this method, from Postman:
+            /* To test this POST method, from Postman:
             -------------------------------------------------------------------
             1. http://localhost:54454/api/Products
             2. Body
@@ -46,5 +46,28 @@ namespace Module1.Controllers
             -------------------------------------------------------------------
              */
         }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Product product)
+        {
+            _products[id] = product;
+
+            /* To test this PUT method, from Postman:
+            -------------------------------------------------------------------
+            1. http://localhost:54454/api/Products/1
+            2. Body
+            3. Raw
+            4. Text\JSON
+            5. Paste the below into the Body
+
+            {
+                "productId": 1,
+                "productName": "Samsung Mobile",
+                "productPrice": "300"
+            }
+            -------------------------------------------------------------------
+             */
+        }
     }
 }
+ 
