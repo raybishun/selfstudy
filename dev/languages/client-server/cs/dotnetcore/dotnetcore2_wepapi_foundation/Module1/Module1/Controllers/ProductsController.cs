@@ -8,7 +8,7 @@ using Module1.Models;
 
 namespace Module1.Controllers
 {
-    [Produces("application/json")]
+    // [Produces("application/json")]
     [Route("api/Products")]
     public class ProductsController : Controller
     {
