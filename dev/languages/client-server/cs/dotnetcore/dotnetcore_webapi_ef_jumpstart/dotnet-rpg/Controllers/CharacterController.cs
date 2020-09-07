@@ -25,28 +25,28 @@ namespace dotnet_rpg.Controllers
 
         // [Route("GetAll")]
         [HttpGet("GetAll")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok(_characterService.GetAllCharacters());
+            return Ok(await _characterService.GetAllCharacters());
 
             // dotnet run
             // From Postman GET: http://localhost:5000/character
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetSingle(int id)
+        public async Task<IActionResult> GetSingle(int id)
         {
             // return Ok(characters[0]);
 
             // return Ok(characters.FirstOrDefault(c => c.Id == id));
             
-            return Ok(_characterService.GetCharacterById(id));
+            return Ok(await _characterService.GetCharacterById(id));
         }
 
         [HttpPost]
-        public IActionResult AddCharacter(Character newCharacter)
+        public async Task<IActionResult> AddCharacter(Character newCharacter)
         {
-            return Ok(_characterService.AddCharacter(newCharacter));
+            return Ok(await _characterService.AddCharacter(newCharacter));
 
             // dotnet run
             // From Postman POST: http://localhost:5000/character
