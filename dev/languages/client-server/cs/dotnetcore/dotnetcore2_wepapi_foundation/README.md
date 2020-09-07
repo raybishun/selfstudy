@@ -27,17 +27,25 @@
 3. PUT - UPDATE
 4. DELETE - DELETE
 
-### Skills  Covered
+### Common HTTP Status Codes
+- 404 - Page not found
+
+### Skills Covered
 1. Web API creation
-2. HTTP status codes
-3. Content Negotiation
-4. Custom Methods
-5. Testing using Postman
-6. Validations in Web API
-7. Sorting
-8. Paging
-9. Searching
-10. Versioning
-11. Repository Pattern
-12. Azure Deployment
-13. API Documentation
+2. Common HTTP methods
+3. HTTP status codes
+4. Content Negotiation
+5. Custom Methods
+6. Testing using Postman
+7. Validations in Web API
+8. Sorting
+9. Paging
+10. Searching
+11. Versioning
+12. Repository Pattern
+13. Azure Deployment
+14. API Documentation
+
+# References
+1. HTTP Status Codes for Beginners: https://aloneonahill.com/blog/http-status-codes/
+2. https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html

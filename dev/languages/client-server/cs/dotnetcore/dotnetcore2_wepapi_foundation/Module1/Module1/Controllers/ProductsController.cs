@@ -68,6 +68,17 @@ namespace Module1.Controllers
             -------------------------------------------------------------------
              */
         }
+
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            _products.RemoveAt(id);
+
+            /* To test this DELETE method, from Postman:
+            -------------------------------------------------------------------
+            1. http://localhost:54454/api/Products/1
+             */
+        }
     }
 }
  
