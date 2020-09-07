@@ -28,7 +28,7 @@
 4. DELETE - DELETE
 
 ### Common HTTP Status Codes
-- 404 - Page not found
+- See references below
 
 ### Skills Covered
 1. Web API creation
@@ -38,9 +38,9 @@
 5. Custom Methods
 6. Testing using Postman
 7. Validations in Web API
-8. Sorting
-9. Paging
-10. Searching
+8. EntityFrameworkCore
+9. ASP.NET Core, Code First
+10. Sorting/Paging/Searching
 11. Versioning
 12. Repository Pattern
 13. Azure Deployment

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Module1.Models;
@@ -10,7 +7,7 @@ namespace Module1.Controllers
 {
     // [Produces("application/json")]
     [Route("api/Products")]
-    public class ProductsController : Controller
+    public class ProductsDemoController : Controller
     {
         static List<Product> _products = new List<Product>()
         {
