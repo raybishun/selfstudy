@@ -19,15 +19,37 @@ namespace Module1.Controllers
         };
 
         [HttpGet]
-        public IEnumerable<Product> Get()
+        //public IEnumerable<Product> Get()
+        //{
+        //    return _products;
+        //}
+
+        public IActionResult Get()
         {
-            return _products;
+            // IActionResult includes shortcuts for many HTTP status codes
+            // ----------------------------------------------------------------
+
+            // Return an HTTP 400 BadRequest status code
+            //return BadRequest();
+
+            // Return an HTTP 404 NotFound status code
+            // return NotFound();
+
+            // Return other HTTP status codes not included in IActionResult using the code
+            // return StatusCode(200);
+
+            // However, you can simply use the class
+            // return StatusCode(StatusCodes.Status201Created);
+
+            // Return an HTTP 200 OK response status code
+             return Ok(_products);
         }
 
         [HttpPost]
-        public void Post([FromBody]Product product)
+        public IActionResult Post([FromBody]Product product)
         {
             _products.Add(product);
+            return StatusCode(StatusCodes.Status201Created);
 
 
             /* To test this POST method, from Postman:
