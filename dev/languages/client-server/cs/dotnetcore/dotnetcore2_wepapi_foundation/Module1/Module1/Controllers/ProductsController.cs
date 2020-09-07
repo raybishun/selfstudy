@@ -19,11 +19,6 @@ namespace Module1.Controllers
         };
 
         [HttpGet]
-        //public IEnumerable<Product> Get()
-        //{
-        //    return _products;
-        //}
-
         public IActionResult Get()
         {
             // IActionResult includes shortcuts for many HTTP status codes
@@ -43,6 +38,15 @@ namespace Module1.Controllers
 
             // Return an HTTP 200 OK response status code
              return Ok(_products);
+        }
+
+        // Custom Method Example
+        [HttpGet("GetList")]
+        public IEnumerable<Product> GetMyCustomMethod()
+        {
+            return _products;
+
+            // To test, use: http://localhost:54454/api/Products/GetList
         }
 
         [HttpPost]
