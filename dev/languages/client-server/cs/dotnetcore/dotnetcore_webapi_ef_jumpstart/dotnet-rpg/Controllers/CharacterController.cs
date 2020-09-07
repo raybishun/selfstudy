@@ -25,7 +25,7 @@ namespace dotnet_rpg.Controllers
 
         // [Route("GetAll")]
         [HttpGet("GetAll")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             return Ok(_characterService.GetAllCharacters());
 
@@ -34,7 +34,7 @@ namespace dotnet_rpg.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetSingle(int id)
+        public IActionResult GetSingle(int id)
         {
             // return Ok(characters[0]);
 
@@ -44,7 +44,7 @@ namespace dotnet_rpg.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddCharacter(Character newCharacter)
+        public IActionResult AddCharacter(Character newCharacter)
         {
             return Ok(_characterService.AddCharacter(newCharacter));
 
