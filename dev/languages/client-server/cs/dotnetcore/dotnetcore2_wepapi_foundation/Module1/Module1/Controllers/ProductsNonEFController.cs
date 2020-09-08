@@ -6,8 +6,8 @@ using Module1.Models;
 namespace Module1.Controllers
 {
     // [Produces("application/json")]
-    [Route("api/Products")]
-    public class ProductsDemoController : Controller
+    [Route("api/ProductsNonEFController")]
+    public class ProductsNonEFController : Controller
     {
         static List<Product> _products = new List<Product>()
         {

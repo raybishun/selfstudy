@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Module1.Data;
+using Module1.Models;
 
 namespace Module1.Controllers
 {
@@ -11,11 +13,18 @@ namespace Module1.Controllers
     [Route("api/Products")]
     public class ProductsController : Controller
     {
+        ProductsDbContext productsDbContext;
+
+        public ProductsController(ProductsDbContext _productDbContext)
+        {
+            productsDbContext = _productDbContext;
+        }
+
         // GET: api/Products
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Product> Get()
         {
-            return new string[] { "value1", "value2" };
+            return productsDbContext.Products;
         }
 
         // GET: api/Products/5
