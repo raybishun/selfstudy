@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Module1.Data;
 using Module1.Models;
@@ -29,9 +26,15 @@ namespace Module1.Controllers
 
         // GET: api/Products/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            var product = productsDbContext.Products.SingleOrDefault(m => m.ProductId == id);
+            if (product == null)
+            {
+                return NotFound("Record not found...");
+            }
+
+            return Ok(product);
         }
         
         // POST: api/Products
