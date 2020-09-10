@@ -59,18 +59,51 @@ namespace Module1.Controllers
 
                 { 
                     "ProductName": "Product1",
-                    "Price": "500"
+                    "ProductPrice": "500"
                 }
             */
         }
 
         // PUT: api/Products/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody]Product product)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            if (id != product.ProductId)
+            {
+                return BadRequest();
+            }
+
+            try
+            {
+                productsDbContext.Products.Update(product);
+                productsDbContext.SaveChanges(true);
+ 
+                /* Postman test:
+
+                   Method: PUT
+                   URL: http://localhost:54454/api/Products/3
+                   Body: raw\text\JSON
+
+                   {
+                        "productId": 3,
+                        "productName": "Put test",
+                        "productPrice": "800"
+                    }
+               */
+            }
+            catch (System.Exception)
+            {
+                return NotFound($"{id} not found.");
+            }
+
+            return Ok("Product updated.");
         }
-        
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
