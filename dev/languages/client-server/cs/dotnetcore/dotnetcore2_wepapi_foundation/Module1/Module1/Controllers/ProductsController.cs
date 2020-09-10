@@ -29,10 +29,11 @@ namespace Module1.Controllers
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
-            var product = productsDbContext.Products.SingleOrDefault(m => m.ProductId == id);
+            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+
             if (product == null)
             {
-                return NotFound("Record not found...");
+                return NotFound($"{id} not found.");
             }
 
             return Ok(product);
@@ -101,13 +102,36 @@ namespace Module1.Controllers
                 return NotFound($"{id} not found.");
             }
 
-            return Ok("Product updated.");
+            return Ok($"{id} updated.");
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+            {
+                return NotFound($"{id} not found.");
+            }
+
+            productsDbContext.Products.Remove(product);
+            productsDbContext.SaveChanges(true);
+            return Ok($"{id} deleted.");
+
+            /* Postman test:
+
+                 Method: DELETE
+                 URL: http://localhost:54454/api/Products/3
+                 Body: raw\text\JSON
+
+                 {
+                      "productId": 3,
+                      "productName": "Put test",
+                      "productPrice": "800"
+                  }
+             */
         }
     }
 }
