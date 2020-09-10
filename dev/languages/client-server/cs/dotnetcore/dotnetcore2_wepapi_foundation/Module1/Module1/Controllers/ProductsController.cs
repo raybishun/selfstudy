@@ -20,9 +20,37 @@ namespace Module1.Controllers
 
         // GET: api/Products
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IEnumerable<Product> Get(string sort)
         {
-            return productsDbContext.Products;
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            // NOTE:
+            // IEnumerable will return 'all' results to the client
+            // IQueryable will return only the filtered results
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+            IQueryable<Product> products;
+
+            switch (sort)
+            {
+                case "desc":
+                    products = productsDbContext.Products.OrderByDescending(p => p.ProductPrice);
+                    break;
+                case "asc":
+                    products = productsDbContext.Products.OrderBy(p => p.ProductPrice);
+                    break;
+                default:
+                    products = productsDbContext.Products;
+                    break;
+            }
+
+            return products;
+
+            /* Postman test:
+
+                Method: GET
+                URL: http://localhost:54454/api/Products?sort=desc
+                URL: http://localhost:54454/api/Products?sort=asc
+            */
         }
 
         // GET: api/Products/5
