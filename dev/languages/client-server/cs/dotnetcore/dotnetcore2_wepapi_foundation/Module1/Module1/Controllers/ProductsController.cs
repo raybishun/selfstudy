@@ -53,6 +53,26 @@ namespace Module1.Controllers
             */
         }
 
+        [HttpGet("Paging")]
+        public IEnumerable<Product> Get_Using_Paging(int? pageNumber, int? pageSize)
+        {
+            var products = from p in productsDbContext.Products.OrderBy(a => a.ProductId) select p;
+
+            int currentPage = pageNumber ?? 1;
+            int currentPageSize = pageSize ?? 5;
+
+            var items = products.Skip((currentPage - 1) * currentPageSize).Take(currentPageSize).ToList();
+
+            return items;
+
+            /*  Browser tests
+             *  
+                URL: http://localhost:54454/api/Products/Paging?pageNumber=1&pageSize=3
+                
+                URL: http://localhost:54454/api/Products/Paging?pageNumber=&pageSize=
+             */
+        }
+
         // GET: api/Products/5
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
