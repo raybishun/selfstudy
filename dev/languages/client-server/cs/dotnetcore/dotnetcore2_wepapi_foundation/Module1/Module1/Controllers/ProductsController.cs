@@ -18,20 +18,38 @@ namespace Module1.Controllers
             productsDbContext = _productDbContext;
         }
 
+        // GET: api/Products
+        [HttpGet]
+        public IEnumerable<Product> Get()
+        {
+            var products = productsDbContext.Products;
+            return products;
+        }
+        
+        // GET: api/Products/5
+        [HttpGet("{id}", Name = "Get")]
+        public IActionResult Get(int id)
+        {
+            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+
+            if (product == null)
+            {
+                return NotFound($"{id} not found.");
+            }
+
+            return Ok(product);
+        }
+
+        // GET: api/Products/GetUsingSearch?value=Android
         [HttpGet("GetUsingSearch")]
         public IEnumerable<Product> Get_Using_Search(string value)
         {
             var products = productsDbContext.Products.Where(p => p.ProductName.StartsWith(value));
             return products;
-
-            /* Postman test:
-
-                Method: GET
-                http://localhost:54454/api/Products/GetUsingSearch?value=Android
-            */
         }
 
-        // GET: api/Products
+        // GET: api/Products/GetSortedProducts/?value=desc
+        // GET: api/Products/GetSortedProducts/?value=asc
         [HttpGet("GetSortedProducts")]
         public IEnumerable<Product> Get_Sorted_Products(string value)
         {
@@ -57,15 +75,10 @@ namespace Module1.Controllers
             }
 
             return products;
-
-            /* Postman test:
-
-                Method: GET
-                http://localhost:54454/api/Products/GetSortedProducts/?value=desc
-                http://localhost:54454/api/Products/GetSortedProducts/?value=asc
-            */
         }
 
+        // GET: api/Products/GetUsingPaging?pageNumber=1&pageSize=3
+        // GET: api/Products/GetUsingPaging?pageNumber=&pageSize=
         [HttpGet("GetUsingPaging")]
         public IEnumerable<Product> Get_Using_Paging(int? pageNumber, int? pageSize)
         {
@@ -77,30 +90,8 @@ namespace Module1.Controllers
             var items = products.Skip((currentPage - 1) * currentPageSize).Take(currentPageSize).ToList();
 
             return items;
-
-            /* Postman test:
-
-                Method: GET
-                http://localhost:54454/api/Products/GetUsingPaging?pageNumber=1&pageSize=3
-                http://localhost:54454/api/Products/GetUsingPaging?pageNumber=&pageSize=
-             */
         }
 
-        // GET: api/Products/5
-        [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(int id)
-        {
-            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
-
-            if (product == null)
-            {
-                return NotFound($"{id} not found.");
-            }
-
-            return Ok(product);
-        }
-        
-        // POST: api/Products
         [HttpPost]
         public IActionResult Post([FromBody]Product product)
         {
@@ -126,7 +117,6 @@ namespace Module1.Controllers
             */
         }
 
-        // PUT: api/Products/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody]Product product)
         {
@@ -166,7 +156,7 @@ namespace Module1.Controllers
             return Ok($"{id} updated.");
         }
 
-        // DELETE: api/ApiWithActions/5
+        // DELETE: api/Products/3
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
