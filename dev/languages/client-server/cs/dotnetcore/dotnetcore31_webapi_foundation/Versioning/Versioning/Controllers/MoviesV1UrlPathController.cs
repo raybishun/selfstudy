@@ -6,15 +6,15 @@ using Versioning.Models;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 // ============================================================================
-// Versioning using Query Strings, i.e.: api/movies?api-version=1.0
+// Versioning using URL Path Strings, i.e.: api/v1/movies
 // ============================================================================
 
 namespace Versioning.Controllers
 {
     [ApiVersion("1.0")]
-    [Route("api/movies")]
+    [Route("api/v{version:apiVersion}/movies")]
     [ApiController]
-    public class MoviesV1QryStrController : ControllerBase
+    public class MoviesV1UrlPathController : ControllerBase
     {
         static List<MoviesV1> _movies = new List<MoviesV1>()
         {
@@ -22,14 +22,14 @@ namespace Versioning.Controllers
             new MoviesV1() {Id = 1, MovieName = "JumanJi"}
         };
 
-        // GET: https://localhost:44300/api/movies?api-version=1.0
+        // GET: https://localhost:44300/api/v1/movies
         [HttpGet]
         public IEnumerable<MoviesV1> Get()
         {
             return _movies;
         }
 
-        // GET: https://localhost:44300/api/movies/1?api-version=1.0
+        // GET: https://localhost:44300/api/v1/movies/1
         [HttpGet("{id}")]
         public IEnumerable<MoviesV1> Get(int id)
         {

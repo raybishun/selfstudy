@@ -1,54 +1,53 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Versioning.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 // ============================================================================
-// Versioning using Query Strings, i.e.: api/movies?api-version=1.0
+// Versioning using URL Path Strings, i.e.: api/v2/movies
 // ============================================================================
 
 namespace Versioning.Controllers
 {
-    [ApiVersion("1.0")]
-    [Route("api/movies")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/movies")]
     [ApiController]
-    public class MoviesV1QryStrController : ControllerBase
+    public class MoviesV2UrlPathController : ControllerBase
     {
-        static List<MoviesV1> _movies = new List<MoviesV1>()
+        static List<MoviesV2> _movies = new List<MoviesV2>()
         {
-            new MoviesV1() {Id = 0, MovieName = "Mission Impossible"},
-            new MoviesV1() {Id = 1, MovieName = "JumanJi"}
+            new MoviesV2() {Id=0, MovieDescription="Non-stop, action packed...", MovieName="John Wick", MovieType="Action"},
+            new MoviesV2() {Id=0, MovieDescription="Another non-stop, action packed...", MovieName="John Wick2", MovieType="Action" }
         };
 
-        // GET: https://localhost:44300/api/movies?api-version=1.0
+        // GET: https://localhost:44300/api/v2/movies
         [HttpGet]
-        public IEnumerable<MoviesV1> Get()
+        public IEnumerable<MoviesV2> Get()
         {
             return _movies;
         }
 
-        // GET: https://localhost:44300/api/movies/1?api-version=1.0
+        // GET api/<MoviesV2Controller>/5
         [HttpGet("{id}")]
-        public IEnumerable<MoviesV1> Get(int id)
+        public string Get(int id)
         {
-            return _movies.Where(m => m.Id == id);
+            return "value";
         }
 
-        // POST api/<MoviesV1Controller>
+        // POST api/<MoviesV2Controller>
         [HttpPost]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/<MoviesV1Controller>/5
+        // PUT api/<MoviesV2Controller>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/<MoviesV1Controller>/5
+        // DELETE api/<MoviesV2Controller>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

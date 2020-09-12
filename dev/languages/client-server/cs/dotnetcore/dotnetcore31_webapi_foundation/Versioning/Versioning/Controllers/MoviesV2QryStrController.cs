@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Versioning.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 // ============================================================================
-// Versioning using Query Strings
+// Versioning using Query Strings, i.e.: api/movies?api-version=2.0
 // ============================================================================
 
 namespace Versioning.Controllers
