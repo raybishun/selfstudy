@@ -18,9 +18,22 @@ namespace Module1.Controllers
             productsDbContext = _productDbContext;
         }
 
+        [HttpGet("GetUsingSearch")]
+        public IEnumerable<Product> Get_Using_Search(string value)
+        {
+            var products = productsDbContext.Products.Where(p => p.ProductName.StartsWith(value));
+            return products;
+
+            /* Postman test:
+
+                Method: GET
+                http://localhost:54454/api/Products/GetUsingSearch?value=Android
+            */
+        }
+
         // GET: api/Products
-        [HttpGet]
-        public IEnumerable<Product> Get(string sort)
+        [HttpGet("GetSortedProducts")]
+        public IEnumerable<Product> Get_Sorted_Products(string value)
         {
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             // NOTE:
@@ -30,7 +43,7 @@ namespace Module1.Controllers
 
             IQueryable<Product> products;
 
-            switch (sort)
+            switch (value)
             {
                 case "desc":
                     products = productsDbContext.Products.OrderByDescending(p => p.ProductPrice);
@@ -48,12 +61,12 @@ namespace Module1.Controllers
             /* Postman test:
 
                 Method: GET
-                URL: http://localhost:54454/api/Products?sort=desc
-                URL: http://localhost:54454/api/Products?sort=asc
+                http://localhost:54454/api/Products/GetSortedProducts/?value=desc
+                http://localhost:54454/api/Products/GetSortedProducts/?value=asc
             */
         }
 
-        [HttpGet("Paging")]
+        [HttpGet("GetUsingPaging")]
         public IEnumerable<Product> Get_Using_Paging(int? pageNumber, int? pageSize)
         {
             var products = from p in productsDbContext.Products.OrderBy(a => a.ProductId) select p;
@@ -65,11 +78,11 @@ namespace Module1.Controllers
 
             return items;
 
-            /*  Browser tests
-             *  
-                URL: http://localhost:54454/api/Products/Paging?pageNumber=1&pageSize=3
-                
-                URL: http://localhost:54454/api/Products/Paging?pageNumber=&pageSize=
+            /* Postman test:
+
+                Method: GET
+                http://localhost:54454/api/Products/GetUsingPaging?pageNumber=1&pageSize=3
+                http://localhost:54454/api/Products/GetUsingPaging?pageNumber=&pageSize=
              */
         }
 
