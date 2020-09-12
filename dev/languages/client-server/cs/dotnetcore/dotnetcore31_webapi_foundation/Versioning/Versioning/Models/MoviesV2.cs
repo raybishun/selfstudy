@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace Versioning.Models
 {
-    public class MoviesV1
+    public class MoviesV2
     {
         public int Id { get; set; }
         public string MovieName { get; set; }
+        public string MovieDescription { get; set; }
+        public string MovieType { get; set; }
     }
 }
