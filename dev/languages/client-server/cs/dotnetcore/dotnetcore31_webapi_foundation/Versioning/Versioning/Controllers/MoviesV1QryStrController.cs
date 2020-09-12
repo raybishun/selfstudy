@@ -7,12 +7,16 @@ using Versioning.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+// ============================================================================
+// Versioning using Query Strings
+// ============================================================================
+
 namespace Versioning.Controllers
 {
     [ApiVersion("1.0")]
     [Route("api/movies")]
     [ApiController]
-    public class MoviesV1Controller : ControllerBase
+    public class MoviesV1QryStrController : ControllerBase
     {
         static List<MoviesV1> _movies = new List<MoviesV1>()
         {
