@@ -46,16 +46,6 @@
 13. Azure Deployment
 14. API Documentation
 
-### Versioning
-
-#### 3 Types of Versioning
-1. Query String
-2. URL Path
-3. Media Types
-
-#### Versioning NuGet Package
-1. Microsoft.AspNetCore.Mvc.Versioning
-
 # References
 1. HTTP Status Codes for Beginners: https://aloneonahill.com/blog/http-status-codes/
 2. https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
