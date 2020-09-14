@@ -2,10 +2,10 @@
 using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Module1.Data;
-using Module1.Models;
+using webapi_basics.Data;
+using webapi_basics.Models;
 
-namespace Module1.Controllers
+namespace webapi_basics.Controllers
 {
     [Produces("application/json")]
     [Route("api/Products")]

@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Module1.Data;
+using webapi_basics.Data;
 
-namespace Module1
+namespace webapi_basics
 {
     public class Startup
     {

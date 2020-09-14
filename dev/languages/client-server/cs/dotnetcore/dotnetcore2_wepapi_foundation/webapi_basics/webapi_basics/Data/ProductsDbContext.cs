@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Module1.Models;
+using webapi_basics.Models;
 
-namespace Module1.Data
+namespace webapi_basics.Data
 {
     public class ProductsDbContext : DbContext
     {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using Module1.Models;
+using webapi_basics.Models;
 
-namespace Module1.Controllers
+namespace webapi_basics.Controllers
 {
     [Produces("application/json")]
     [Route("api/Customers")]

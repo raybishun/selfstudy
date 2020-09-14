@@ -1,4 +1,4 @@
-﻿namespace Module1.Models
+﻿namespace webapi_basics.Models
 {
     public class Product
     {

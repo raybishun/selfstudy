@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module1", "Module1\Module1.csproj", "{1EA2EC6A-192E-47CB-A920-4882B04AEFC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webapi_basics", "webapi_basics\webapi_basics.csproj", "{1EA2EC6A-192E-47CB-A920-4882B04AEFC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
