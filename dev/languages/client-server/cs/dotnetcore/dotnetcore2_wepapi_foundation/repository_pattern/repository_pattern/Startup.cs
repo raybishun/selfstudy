@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using repository_pattern.Data;
 
 namespace repository_pattern
 {
@@ -23,11 +19,17 @@ namespace repository_pattern
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // RB Only returns data as JSON (the default)
             services.AddMvc();
+
+            // RB Return data as XML
+            // RB services.AddMvc().AddXmlSerializerFormatters();
+
+            services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ProductsDbContext productsDbContext)
         {
             if (env.IsDevelopment())
             {
@@ -35,6 +37,9 @@ namespace repository_pattern
             }
 
             app.UseMvc();
+
+            // RB: If not found, create the DB
+            productsDbContext.Database.EnsureCreated();
         }
     }
 }
