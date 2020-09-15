@@ -11,7 +11,7 @@ namespace webapi_basics.Controllers
     [Route("api/Products")]
     public class ProductsController : Controller
     {
-        ProductsDbContext productsDbContext;
+        private ProductsDbContext productsDbContext;
 
         public ProductsController(ProductsDbContext _productDbContext)
         {
