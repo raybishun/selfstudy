@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using repository_pattern.Data;
 using repository_pattern.Models;
+using repository_pattern.Services;
 
 namespace repository_pattern.Controllers
 {
@@ -11,11 +12,11 @@ namespace repository_pattern.Controllers
     [Route("api/Products")]
     public class ProductsController : Controller
     {
-        ProductsDbContext productsDbContext;
+        private IProduct productRepository;
 
-        public ProductsController(ProductsDbContext _productDbContext)
+        public ProductsController(IProduct _productRepository)
         {
-            productsDbContext = _productDbContext;
+            productRepository = _productRepository;
         }
 
         // GET: api/Products
