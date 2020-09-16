@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using repository_pattern.Data;
+using repository_pattern.Services;
 
 namespace repository_pattern
 {
@@ -25,7 +26,11 @@ namespace repository_pattern
             // RB Return data as XML
             // RB services.AddMvc().AddXmlSerializerFormatters();
 
+            // RB
             services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
+
+            // RB
+            services.AddScoped<IProduct, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using repository_pattern.Data;
 using repository_pattern.Models;
 
@@ -16,29 +14,40 @@ namespace repository_pattern.Services
             productsDbContext = _productsDbContext;
         }
 
-        public void AddProduct(Product product)
+        public IEnumerable<Product> GetProducts()
         {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteProduct(int id)
-        {
-            throw new NotImplementedException();
+            return productsDbContext.Products;
         }
 
         public Product GetProduct(int id)
         {
-            throw new NotImplementedException();
+            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+
+            return product;
         }
 
-        public IEnumerable<Product> GetProducts()
+        public void AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            productsDbContext.Products.Add(product);
+            productsDbContext.SaveChanges(true);
         }
 
         public void UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            productsDbContext.Products.Update(product);
+            productsDbContext.SaveChanges(true);
+        }
+        
+        public void DeleteProduct(int id)
+        {
+            //var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+            //if (product != null) productsDbContext.Products.Remove(product);
+            //productsDbContext.SaveChanges(true);
+
+            // NOTE: Using Find() below so now don't need the null check as required above
+            var product = productsDbContext.Products.Find(id);
+            productsDbContext.Products.Remove(product);
+            productsDbContext.SaveChanges(true);
         }
     }
 }

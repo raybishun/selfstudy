@@ -23,15 +23,14 @@ namespace repository_pattern.Controllers
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            var products = productsDbContext.Products;
-            return products;
+            return productRepository.GetProducts();
         }
         
         // GET: api/Products/5
         [HttpGet("{id}", Name = "Get")]
         public IActionResult Get(int id)
         {
-            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+            var product = productRepository.GetProduct(id);
 
             if (product == null)
             {
@@ -42,56 +41,56 @@ namespace repository_pattern.Controllers
         }
 
         // GET: api/Products/GetUsingSearch?value=Android
-        [HttpGet("GetUsingSearch")]
-        public IEnumerable<Product> Get_Using_Search(string value)
-        {
-            var products = productsDbContext.Products.Where(p => p.ProductName.StartsWith(value));
-            return products;
-        }
+        //[HttpGet("GetUsingSearch")]
+        //public IEnumerable<Product> Get_Using_Search(string value)
+        //{
+        //    var products = productsDbContext.Products.Where(p => p.ProductName.StartsWith(value));
+        //    return products;
+        //}
 
         // GET: api/Products/GetSortedProducts/?value=desc
         // GET: api/Products/GetSortedProducts/?value=asc
-        [HttpGet("GetSortedProducts")]
-        public IEnumerable<Product> Get_Sorted_Products(string value)
-        {
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            // NOTE:
-            // IEnumerable will return 'all' results to the client
-            // IQueryable will return only the filtered results
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // [HttpGet("GetSortedProducts")]
+        //public IEnumerable<Product> Get_Sorted_Products(string value)
+        //{
+        //    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //    // NOTE:
+        //    // IEnumerable will return 'all' results to the client
+        //    // IQueryable will return only the filtered results
+        //    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-            IQueryable<Product> products;
+        //    IQueryable<Product> products;
 
-            switch (value)
-            {
-                case "desc":
-                    products = productsDbContext.Products.OrderByDescending(p => p.ProductPrice);
-                    break;
-                case "asc":
-                    products = productsDbContext.Products.OrderBy(p => p.ProductPrice);
-                    break;
-                default:
-                    products = productsDbContext.Products;
-                    break;
-            }
+        //    switch (value)
+        //    {
+        //        case "desc":
+        //            products = productsDbContext.Products.OrderByDescending(p => p.ProductPrice);
+        //            break;
+        //        case "asc":
+        //            products = productsDbContext.Products.OrderBy(p => p.ProductPrice);
+        //            break;
+        //        default:
+        //            products = productsDbContext.Products;
+        //            break;
+        //    }
 
-            return products;
-        }
+        //    return products;
+        //}
 
         // GET: api/Products/GetUsingPaging?pageNumber=1&pageSize=3
         // GET: api/Products/GetUsingPaging?pageNumber=&pageSize=
-        [HttpGet("GetUsingPaging")]
-        public IEnumerable<Product> Get_Using_Paging(int? pageNumber, int? pageSize)
-        {
-            var products = from p in productsDbContext.Products.OrderBy(a => a.ProductId) select p;
+        //[HttpGet("GetUsingPaging")]
+        //public IEnumerable<Product> Get_Using_Paging(int? pageNumber, int? pageSize)
+        //{
+        //    var products = from p in productsDbContext.Products.OrderBy(a => a.ProductId) select p;
 
-            int currentPage = pageNumber ?? 1;
-            int currentPageSize = pageSize ?? 5;
+        //    int currentPage = pageNumber ?? 1;
+        //    int currentPageSize = pageSize ?? 5;
 
-            var items = products.Skip((currentPage - 1) * currentPageSize).Take(currentPageSize).ToList();
+        //    var items = products.Skip((currentPage - 1) * currentPageSize).Take(currentPageSize).ToList();
 
-            return items;
-        }
+        //    return items;
+        //}
 
         [HttpPost]
         public IActionResult Post([FromBody]Product product)
@@ -100,9 +99,9 @@ namespace repository_pattern.Controllers
             {
                 return BadRequest();
             }
-            
-            productsDbContext.Products.Add(product);
-            productsDbContext.SaveChanges(true);
+
+            productRepository.AddProduct(product);
+
             return StatusCode(StatusCodes.Status201Created);
 
             /* Postman test:
@@ -133,8 +132,7 @@ namespace repository_pattern.Controllers
 
             try
             {
-                productsDbContext.Products.Update(product);
-                productsDbContext.SaveChanges(true);
+                productRepository.UpdateProduct(product);
  
                 /* Postman test:
 
@@ -161,15 +159,8 @@ namespace repository_pattern.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var product = productsDbContext.Products.SingleOrDefault(p => p.ProductId == id);
+            productRepository.DeleteProduct(id);
 
-            if (product == null)
-            {
-                return NotFound($"{id} not found.");
-            }
-
-            productsDbContext.Products.Remove(product);
-            productsDbContext.SaveChanges(true);
             return Ok($"{id} deleted.");
 
             /* Postman test:
