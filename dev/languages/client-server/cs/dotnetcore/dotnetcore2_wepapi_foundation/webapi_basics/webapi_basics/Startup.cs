@@ -25,7 +25,12 @@ namespace webapi_basics
             // RB Return data as XML
             // RB services.AddMvc().AddXmlSerializerFormatters();
 
-            services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
+            // RB
+            //services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
+
+            // RB
+            services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductDbContext")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
