@@ -5,7 +5,7 @@ using System;
 namespace dotnetcore31_security_unittest
 {
     [TestClass]
-    public class BasicRestRequestUnitTest
+    public class RestUnitTests
     {
         [TestMethod]
         public void TestMethodRestRequest()
