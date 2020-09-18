@@ -23,6 +23,8 @@ namespace WebAPI.Controllers
             IRestRequest request = new RestRequest(resource, DataFormat.Json);
             IRestResponse response = client.Get(request);
 
+            // TODO: Create/serialize user object
+
             return new string[] { response.Content };
         }
     }
