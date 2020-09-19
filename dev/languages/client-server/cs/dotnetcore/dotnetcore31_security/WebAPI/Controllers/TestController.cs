@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
-using RestSharp.Deserializers;
-using RestSharp.Serialization.Json;
+using System.Collections.Generic;
 using WebAPI.Models;
 
 namespace WebAPI.Controllers
@@ -32,15 +26,15 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("Get1")]
-        public TestUser1 GetTestUser1()
+        public Data GetData()
         {
-            var testUser1 = JsonConvert.DeserializeObject<TestUser1>(response.Content);
+            var root = JsonConvert.DeserializeObject<Root>(response.Content);
 
-            return testUser1;
+            return root.Data;
         }
 
         [HttpGet("Get2")]
-        public TestUser2 GetTestUser2()
+        public User2 GetUser2()
         {
             // Using a hosted REST-API to respond to requests at: https://jsonplaceholder.typicode.com/
 
@@ -51,9 +45,9 @@ namespace WebAPI.Controllers
             IRestRequest request = new RestRequest(resource, DataFormat.Json);
             IRestResponse response = client.Get(request);
 
-            var testUser2 = JsonConvert.DeserializeObject<TestUser2>(response.Content);
+            var user2 = JsonConvert.DeserializeObject<User2>(response.Content);
 
-            return testUser2;
+            return user2;
         }
     }
 }

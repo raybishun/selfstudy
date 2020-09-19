@@ -1,6 +1,6 @@
 ﻿namespace WebAPI.Models
 {
-    public class TestUser2
+    public class User2
     {
         public int UserId { get; set; }
         public int Id { get; set; }
