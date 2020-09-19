@@ -9,7 +9,7 @@ namespace WebAPI.Models
     public class Root
     {
         [JsonPropertyName("data")]
-        public User User { get; set; }
+        public Customer User { get; set; }
 
         [JsonPropertyName("ad")]
         public Ad Ad { get; set; }
