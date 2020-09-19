@@ -32,20 +32,18 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("Get1")]
-        public Customer Get_User()
+        public TestUser1 GetTestUser1()
         {
-            //var d = new JsonDeserializer();
-            //var ouput = d.Deserialize<User>(response);
-            //return ouput;
+            var testUser1 = JsonConvert.DeserializeObject<TestUser1>(response.Content);
 
-            var result = JsonConvert.DeserializeObject<Customer>(response.Content);
-
-            return result;
+            return testUser1;
         }
 
         [HttpGet("Get2")]
         public TestUser2 GetTestUser2()
         {
+            // Using a hosted REST-API to respond to requests at: https://jsonplaceholder.typicode.com/
+
             string baseUrl = "https://jsonplaceholder.typicode.com/";
             string resource = "/todos/1";
 
