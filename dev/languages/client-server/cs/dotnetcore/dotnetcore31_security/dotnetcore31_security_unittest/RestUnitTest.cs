@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestSharp;
 using System;
+using System.Net;
 
 namespace dotnetcore31_security_unittest
 {
@@ -10,7 +11,9 @@ namespace dotnetcore31_security_unittest
         [TestMethod]
         public void TestMethodRestRequest()
         {
-            // Using a hosted REST-API to respond to requests at: https://reqres.in/
+            // Arrange
+            // ----------------------------------------------------------------
+            // Using a hosted REST-API that responds to requests at: https://reqres.in/
             string baseUrl = "https://reqres.in/";
             string resource = "/api/users/2";
 
@@ -18,7 +21,14 @@ namespace dotnetcore31_security_unittest
             IRestRequest request = new RestRequest(resource, DataFormat.Json);
             IRestResponse response = client.Get(request);
 
+            // Act
+            // ----------------------------------------------------------------
+            var result = response.StatusCode;
             Console.WriteLine(response.Content);
+
+            // Assert
+            // ----------------------------------------------------------------
+            Assert.AreEqual(HttpStatusCode.OK, result);
         }
     }
 }
