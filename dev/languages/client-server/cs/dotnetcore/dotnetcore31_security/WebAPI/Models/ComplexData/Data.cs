@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace WebAPI.Models
+namespace WebAPI.Models.ComplexData
 {
     public class Data
     {

@@ -3,7 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
-using WebAPI.Models;
+using WebAPI.Models.ComplexData;
+using WebAPI.Models.SingleObject;
 
 namespace WebAPI.Controllers
 {
@@ -26,7 +27,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet("Get1")]
-        public Data GetData()
+        public Data GetComplexData()
         {
             var root = JsonConvert.DeserializeObject<Root>(response.Content);
 
@@ -36,7 +37,7 @@ namespace WebAPI.Controllers
         [HttpGet("Get2")]
         public User2 GetUser2()
         {
-            // Using a hosted REST-API to respond to requests at: https://jsonplaceholder.typicode.com/
+            // Using a hosted REST-API that respond to requests at: https://jsonplaceholder.typicode.com/
 
             string baseUrl = "https://jsonplaceholder.typicode.com/";
             string resource = "/todos/1";
