@@ -49,20 +49,17 @@ namespace DefenderATPMVC.Controllers
         // GET: AtpController
         public async Task<string> Index()
         {
-            //return View();
-
             GetTenantInfo();
             GetTokenUsingADAL();
 
             var httpClient = new HttpClient();
 
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
             var request = new HttpRequestMessage(
                 HttpMethod.Get, "https://api.securitycenter.windows.com/api/alerts");
 
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
 
             var response = httpClient.SendAsync(request).GetAwaiter().GetResult();
 
