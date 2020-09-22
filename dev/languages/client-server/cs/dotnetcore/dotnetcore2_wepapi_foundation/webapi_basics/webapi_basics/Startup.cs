@@ -26,7 +26,7 @@ namespace webapi_basics
             // RB services.AddMvc().AddXmlSerializerFormatters();
 
             // RB
-            //services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
+            // services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
 
             // RB
             services.AddDbContext<ProductsDbContext>(option => 
