@@ -29,7 +29,8 @@ namespace webapi_basics
             //services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
 
             // RB
-            services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("ProductDbContext")));
+            services.AddDbContext<ProductsDbContext>(option => 
+                option.UseSqlServer(Configuration.GetConnectionString("ProductDbContext")));
 
         }
 
