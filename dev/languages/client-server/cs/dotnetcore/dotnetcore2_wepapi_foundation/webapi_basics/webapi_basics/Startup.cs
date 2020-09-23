@@ -26,12 +26,15 @@ namespace webapi_basics
             // RB services.AddMvc().AddXmlSerializerFormatters();
 
             // RB
-            // services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
+            services.AddDbContext<ProductsDbContext>(option => option.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ProductsDb"));
 
             // RB
-            services.AddDbContext<ProductsDbContext>(option => 
-                option.UseSqlServer(Configuration.GetConnectionString("ProductDbContext")));
+            //services.AddDbContext<ProductsDbContext>(option => 
+            //    option.UseSqlServer(Configuration.GetConnectionString("ProductDbContext")));
 
+            // RB
+            services.AddSwaggerGen(c => c.SwaggerDoc(
+                "v1", new Microsoft.OpenApi.Models.OpenApiInfo() { Title = "Products API", Version = "v1" }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +49,11 @@ namespace webapi_basics
 
             // RB: If not found, create the DB
             productsDbContext.Database.EnsureCreated();
+
+            // RB
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API for Projects"));
+
         }
     }
 }
