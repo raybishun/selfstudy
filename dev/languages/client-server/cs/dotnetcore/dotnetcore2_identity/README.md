@@ -9,3 +9,6 @@
 
 ### Storage
 - SQL Server can be used to store user related data
+
+# References
+1. https://dotnet.microsoft.com/download/dotnet-core/2.2
