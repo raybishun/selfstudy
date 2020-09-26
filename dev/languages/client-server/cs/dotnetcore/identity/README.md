@@ -50,6 +50,30 @@
 
 # Tips
 
+### You'll need a Email Sender Service
+- PM> Install-Package SendGrid
+- Register with: https://sendgrid.com/ to get an apiKey
+
+### Steps to register with SendGrid
+1. https://sendgrid.com/ 
+2. Start for Free button
+3. Complete the user registration form 
+4. Create Account
+5. Complete the Tell Us About Yourself form
+6. Get Started!
+7. Create a 'sender identity'
+8. Create a Single Sender
+9. https://app.sendgrid.com/guide/integrate
+10. Web API
+11. C#
+12. Create key
+13. Enter an API Key Name, i.e.: aspnetcore.demo.apikey
+14. Create Key
+
+### How to register with Google Sign-in
+1. https://developers.google.com/identity/sign-in/web/sign-in
+
+
 ### User Registration Error
 A database operation failed while processing the request.
 SqlException: Cannot open database "aspnet-ASP.NETCoreIdentityDemo..." requested by the login. The login failed. Login failed for user '<domain>\<userName>'.

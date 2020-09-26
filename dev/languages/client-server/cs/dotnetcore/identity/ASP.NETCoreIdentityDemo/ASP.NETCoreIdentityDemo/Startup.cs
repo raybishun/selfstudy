@@ -12,6 +12,8 @@ using ASP.NETCoreIdentityDemo.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using ASP.NETCoreIdentityDemo.Services;
 
 namespace ASP.NETCoreIdentityDemo
 {
@@ -34,6 +36,14 @@ namespace ASP.NETCoreIdentityDemo
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // RB
+            services.AddTransient<IEmailSender, EmailSenderService>(options =>
+            {
+                var userName = Configuration["SendGrid:UserName"];
+                var apiKey = Configuration["SendGrid:ApiKey"];
+                return new EmailSenderService(userName, apiKey);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
