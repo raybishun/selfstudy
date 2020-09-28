@@ -1,11 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using IdentityNetCore.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,6 +41,12 @@ namespace IdentityNetCore
                 // Lockout options
                 options.Lockout.MaxFailedAccessAttempts = 3;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+            });
+
+            // RB: Configure additional options for cookie auth
+            services.ConfigureApplicationCookie(option => {
+                option.LoginPath = "/Identity/SignIn";
+                option.AccessDeniedPath = "/Identity/AccessDenied";
             });
 
             services.AddControllersWithViews();
