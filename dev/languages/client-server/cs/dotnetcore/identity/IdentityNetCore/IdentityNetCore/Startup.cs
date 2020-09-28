@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
 
 namespace IdentityNetCore
 {
@@ -28,7 +29,24 @@ namespace IdentityNetCore
             // RB
             var conStr = Configuration["ConnectionStrings:Default"];
             services.AddDbContext<ApplicationDBContext>(o => o.UseSqlServer(conStr));
-            
+
+            // RB
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDBContext>();
+
+            // RB
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password complexity options
+                options.Password.RequiredLength = 3;
+                options.Password.RequireDigit = true;
+                options.Password.RequireNonAlphanumeric = true;
+                
+                // Lockout options
+                options.Lockout.MaxFailedAccessAttempts = 3;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -45,10 +63,15 @@ namespace IdentityNetCore
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            // RB: Add Authhentication middleware
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
