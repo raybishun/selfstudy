@@ -41,6 +41,10 @@ namespace IdentityNetCore
                 // Lockout options
                 options.Lockout.MaxFailedAccessAttempts = 3;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+
+                // Require e-mail confirmation before allowing the user to sign in
+                // This helps to deter robot account creations
+                options.SignIn.RequireConfirmedEmail = true;
             });
 
             // RB: Configure additional options for cookie auth
