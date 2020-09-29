@@ -17,7 +17,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.entityFrameworkCore.SqlServer
 dotnet tool install --global dotnet-ef
 ```
-### Create the Database Migrations and Create the DB Objects
+### Create the Migrations and Create the Database Objects
 1. Open a CMD prompt to the root of the app, i.e. c:\apps\IdentityNetCore
 ```
 dotnet ef migrations add Init

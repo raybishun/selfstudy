@@ -91,6 +91,9 @@ Alternatively, you can apply pending migrations from a command prompt at your pr
 ```
 dotnet ef database update
 ```
+### SMTP Email Providers
+1. https://sendgrid.com/
+2. https://mailjet.com
 
 # References
 1. https://dotnet.microsoft.com/download
