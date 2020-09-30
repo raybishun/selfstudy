@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
+using IdentityNetCore.Service;
 
 namespace IdentityNetCore
 {
@@ -52,6 +53,12 @@ namespace IdentityNetCore
                 option.LoginPath = "/Identity/SignIn";
                 option.AccessDeniedPath = "/Identity/AccessDenied";
             });
+
+            // RB
+            services.Configure<SmtpOptions>(Configuration.GetSection("SMTP"));
+
+            // RB
+            services.AddSingleton<IEmailSender, SmtpEmailSender>();
 
             services.AddControllersWithViews();
         }
