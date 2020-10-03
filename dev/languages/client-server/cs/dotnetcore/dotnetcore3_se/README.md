@@ -42,5 +42,13 @@
 12. Push
 13. Confirm the two files now appear in our repo under https://dev.azure.com/ | Repos | Files
 
+### Creating Feature Branches
+1. Team Explorer
+2. Home
+3. Branches
+4. New Branch, i.e.: FEA-UserRegistration (where the FEA prefix is optional, and signifies this is a feature branch)
+5. Create Branch
+
+
 # References
 1. Adopt a Git branching strategy: https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops
