@@ -49,6 +49,32 @@
 4. New Branch, i.e.: FEA-UserRegistration (where the FEA prefix is optional, and signifies this is a feature branch)
 5. Create Branch
 
+### Creating an Azure DevOps CI Pipeline
+1. Launch VS 2019
+2. From VS, log into Azure DevOps
+3. Team Explorer\Home\Builds
+4. New Build Definition
+5. Create Pipeline
+6. Use the classic editor to create a pipeline without YAML
+7. Select a source: Azure Repos Git
+8. Accept the defaults\Continue
+9. Under Other, select ASP.NET Core
+10. Apply
+11. Name: Learning ASP.NET Core 3.0-ASP.NET Core-CI-without YAML
+12. Agent pool: Azure Pipelines
+13. Agent Specifications: windows-2019
+14. Click the Triggers tab
+15. Check the Enable continuous integration
+16. Save and queue
+
+### Creating an Azure DevOps Release Pipeline
+1. Log into the Azure DevOps portal
+2. Pipelines
+3. Releases\New pipeline
+4. Empty job\Apply
+5. Add an artifact
+6. Add
+7. Save
 
 # References
 1. Adopt a Git branching strategy: https://docs.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops
