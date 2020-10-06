@@ -72,6 +72,7 @@
 7. Complete merge
 
 #### Setup a Release Pipeline (aka CD Pipeline)
+- First a 'test' version of the app is released
 1. Pipelines
 2. Releases
 3. New pipeline
@@ -88,6 +89,28 @@
 14. Enable - Continuous deployment trigger
 12. Save
 
+#### Adding a CD stage to deploy the production version of the app
+1. Select Test (1 job, 1 task)
+2. Clone
+3. Stage name: Production
+4. In the Production stage, click 1 job, 1 task
+5. App service name: select the production App Service
+6. Save
+7. OK
+
+#### Enable Pre-Deployment Conditions (for the production stage)
+1. Click the 'Pre-Deployment Conditions' lightening bolt
+2. Enable - Pre-deployment approvals
+3. Find and select an approver from the directory
+4. Save
+5. OK
+
+#### Test the CD Pipeline
+1. Team Explorer
+2. Sync
+3. Checkout the master branch
+4. Make a code change
+5. Commit All and Push
 
 # References
 1. Azure DevOps Docs: https://aka.ms/vst/azuredevopsdocs
