@@ -40,6 +40,17 @@
 1. Pipeline
 2. Run Pipeline (Get started and run the pipeline for the first time)
 3. Run
+4. Verify you received a Build succeeded e-mail 
+
+#### Test the CI Pipeline works
+- That is, auto builds when new code is checked into the Master branch
+1. Make a code change to the app
+2. Check in the code
+3. Commit and Push
+4. Verify you received a Build succeeded e-mail 
+
+
 
 # References
 1. Azure Pipelines - Build: https://www.youtube.com/watch?v=7pzBwuMjpP0
+2. Azure Pipelines - Releases: https://www.youtube.com/watch?v=UUmgg2xqFxU
