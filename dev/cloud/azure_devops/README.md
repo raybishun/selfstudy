@@ -75,6 +75,18 @@
 1. Pipelines
 2. Releases
 3. New pipeline
+4. Select a template: Azure App Service deployment
+5. Apply
+6. Stage name: Test
+7. In the Stages box, click '1 job, 1 task'
+8. Complete the form pointing to your Test App Service
+9. Save
+10. Click in the Artifacts box
+11. Select your CI build pipeline
+12. Add
+13. Click the CD Trigger lightening bolt icon
+14. Enable - Continuous deployment trigger
+12. Save
 
 
 # References
