@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using TicTacToe.Services;
 using TicTacToe.Extensions;
 using TicTacToe.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace TicTacToe
 {
@@ -49,16 +50,17 @@ namespace TicTacToe
             var routeBuilder = new RouteBuilder(app);
 
             // RB
-            //routeBuilder.MapGet("CreateUser", context =>
-            //{
-            //    var firstName = context.Request.Query["firstName"];
-            //    var lastName = context.Request.Query["lastName"];
-            //    var email = context.Request.Query["email"];
-            //    var password = context.Request.Query["password"];
-            //    var userService = context.RequestServices.GetService<IUserService>();
-            //    userService.RegisterUser(new UserModel { FirstName = firstName, LastName = lastName, Email = email, Password = password });
-            //    return context.Response.WriteAsync($"User {firstName} {lastName} has been successfully created.");
-            //});
+            // Usage Example: http://localhost:61097/CreateUser?firstName=Ray&lastName=Bishun&email=ray.bishun@mail.com&password=123
+            routeBuilder.MapGet("CreateUser", context =>
+            {
+                var firstName = context.Request.Query["firstName"];
+                var lastName = context.Request.Query["lastName"];
+                var email = context.Request.Query["email"];
+                var password = context.Request.Query["password"];
+                var userService = context.RequestServices.GetService<IUserService>();
+                userService.RegisterUser(new UserModel { FirstName = firstName, LastName = lastName, Email = email, Password = password });
+                return context.Response.WriteAsync($"User {firstName} {lastName} has been successfully created.");
+            });
 
             // RB
             var newUserRoutes = routeBuilder.Build();
