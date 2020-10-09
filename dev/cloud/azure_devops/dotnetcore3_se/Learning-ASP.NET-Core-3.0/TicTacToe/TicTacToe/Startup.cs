@@ -24,6 +24,9 @@ namespace TicTacToe
             
             // RB Added Routing Middleware
             services.AddRouting();
+
+            // RB Enable directory browsing
+            // services.AddDirectoryBrowser();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +75,9 @@ namespace TicTacToe
 
             // RB
             app.UseCommunicationMiddleware();
+
+            // RB Enable directory browsing
+            // app.UseDirectoryBrowser();
 
             //app.UseEndpoints(endpoints =>
             //{
