@@ -7,6 +7,7 @@ using TicTacToe.Services;
 using TicTacToe.Extensions;
 using TicTacToe.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace TicTacToe
 {
@@ -97,6 +98,11 @@ namespace TicTacToe
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+
+            // NOTE: Did not work...
+            //var options = new RewriteOptions().AddRewrite("NewUser", "/UserRegistration/Index", false);
+            //app.UseRewriter(options);
+
 
             // RB
             app.UseStatusCodePages("text/plain", "HTTP Error - Status Code: {0}");
