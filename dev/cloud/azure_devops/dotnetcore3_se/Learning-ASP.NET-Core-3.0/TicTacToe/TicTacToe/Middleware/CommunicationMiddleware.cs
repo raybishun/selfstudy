@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Threading.Tasks;
 using TicTacToe.Services;
 
@@ -15,9 +16,26 @@ namespace TicTacToe.Middleware
             _userService = userService;
         }
 
+        //public async Task Invoke(HttpContext context)
+        //{
+        //    await _next.Invoke(context);
+        //}
+
         public async Task Invoke(HttpContext context)
         {
-            await _next.Invoke(context);
+            if (context.Request.Path.Equals("/CheckEmailConfirmationStatus"))
+            {
+                await ProcessEmailConfirmation(context);
+            }
+            else 
+            {
+                await _next?.Invoke(context);
+            }
+        }
+
+        private Task ProcessEmailConfirmation(HttpContext context)
+        {
+            
         }
     }
 }
