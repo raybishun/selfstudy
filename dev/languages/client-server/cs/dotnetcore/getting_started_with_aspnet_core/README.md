@@ -10,6 +10,12 @@
 1. Blazor Server App
 2. Blazor WebAssembly App (aka Blazor Client)
 
+### Apps that run 100% on the Client
+1. Blazor Client (aka Blazor WebAssembly)
+2. Angular (created by Google)
+3. React (created by Facebook)
+4. Vue.js
+
 ### What we're going to build
 1. ASP.NET Core Razor Pages
 2. ASP.NET Core MVC
