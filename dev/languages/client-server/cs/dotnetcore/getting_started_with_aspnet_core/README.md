@@ -22,3 +22,8 @@
 3. ASP.NET Core API
 4. ASP.NET Core Blazor Server Side
 5. ASP.NET Core Blazor Web Assembly
+
+### NuGet Packages used in our .NET Core Class Library
+1. Dapper (high performance Micro-ORM created by the folks that run StackOverflow)
+2. Microsoft.data.sqlclient (allows you to connect to Microsoft SQL Server)
+3. Microsoft.extensions.configuration (used to access appsettings.json, i.e. to read the database connection string)
