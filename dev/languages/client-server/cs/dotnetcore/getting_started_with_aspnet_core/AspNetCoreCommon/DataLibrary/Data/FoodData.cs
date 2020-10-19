@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DataLibrary.Data
 {
-    public class FoodData
+    public class FoodData : IFoodData
     {
         private readonly IDataAccess _dataAccess;
         private readonly ConnectionStringData _connectionString;
@@ -18,7 +18,7 @@ namespace DataLibrary.Data
 
         public Task<List<FoodModel>> GetFood()
         {
-            return _dataAccess.LoadData<FoodModel, dynamic>("dbo.spFood_All", 
+            return _dataAccess.LoadData<FoodModel, dynamic>("dbo.spFood_All",
                                                             new { },
                                                             _connectionString.SqlConnectionName);
         }
