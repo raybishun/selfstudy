@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DataLibrary.Data;
+using DataLibrary.Db;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +21,24 @@ namespace RazorPagesDemoApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            // RB
+            services.AddSingleton(new ConnectionStringData
+            { 
+                // RB
+                // AddSingleton = regardless of the number of users, that 
+                // consume this app there will be only 1 connection string
+                SqlConnectionName = "Default"
+            });
+
+            // RB
+            services.AddSingleton<IDataAccess, SqlDb>();
+
+            // RB
+            services.AddSingleton<IFoodData, FoodData>();
+
+            // RB
+            services.AddSingleton<IOrderData, OrderData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
