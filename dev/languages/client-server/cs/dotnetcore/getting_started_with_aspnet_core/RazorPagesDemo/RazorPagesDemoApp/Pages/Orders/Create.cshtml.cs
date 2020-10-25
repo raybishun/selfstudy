@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using DataLibrary.Data;
 using DataLibrary.Models;
@@ -34,6 +35,20 @@ namespace RazorPagesDemoApp.Pages.Orders
             {
                 FoodItems.Add(new SelectListItem { Value = x.Id.ToString(), Text = x.Title });
             });
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid == false)
+            {
+                return Page();
+            }
+
+            // If ModelState is valid, post the data...
+            var food = await _foodData.GetFood();
+            Order.Total = Order.Quantity * food.Where(x => x.Id == Order.FoodId).First().Price;
+            int id = await _orderData.CreateOrder(Order);
+            return RedirectToPage("./Create");
         }
     }
 }
