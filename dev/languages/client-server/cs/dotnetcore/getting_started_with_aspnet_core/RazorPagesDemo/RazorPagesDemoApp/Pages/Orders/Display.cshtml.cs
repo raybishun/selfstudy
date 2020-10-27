@@ -27,8 +27,18 @@ namespace RazorPagesDemoApp.Pages.Orders
             _foodData = foodData;
         }
 
-        public void OnGet()
+        public async Task<IActionResult> OnGet()
         {
+            Order = await _orderData.GetOrderById(Id);
+
+            if (Order != null)
+            {
+                var food = await _foodData.GetFood();
+
+                ItemPurchased = food.Where(x => x.Id == Order.FoodId).FirstOrDefault()?.Title;
+            }
+
+            return Page();
         }
     }
 }

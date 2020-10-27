@@ -48,7 +48,9 @@ namespace RazorPagesDemoApp.Pages.Orders
             var food = await _foodData.GetFood();
             Order.Total = Order.Quantity * food.Where(x => x.Id == Order.FoodId).First().Price;
             int id = await _orderData.CreateOrder(Order);
-            return RedirectToPage("./Create");
+            
+            // return RedirectToPage("./Create");
+            return RedirectToPage("./Display", new { Id = id });
         }
     }
 }
