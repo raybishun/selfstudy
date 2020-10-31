@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorApp", "RazorApp\RazorA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RazorApp21", "RazorApp21\RazorApp21.csproj", "{65C6EE33-C190-42E0-8463-01FE408A9853}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCApp", "MVCApp\MVCApp.csproj", "{570ECC34-B2DD-4D3B-A266-64E7AC533A79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCApp", "MVCApp\MVCApp.csproj", "{570ECC34-B2DD-4D3B-A266-64E7AC533A79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{53B73BC1-31A7-4A9B-A137-52954AEA75EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoHtmlAndTagHelpersApp", "DemoHtmlAndTagHelpersApp\DemoHtmlAndTagHelpersApp.csproj", "{106917E4-4D0E-4CE4-8472-6CBAACC4BC5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{570ECC34-B2DD-4D3B-A266-64E7AC533A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{570ECC34-B2DD-4D3B-A266-64E7AC533A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{570ECC34-B2DD-4D3B-A266-64E7AC533A79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B73BC1-31A7-4A9B-A137-52954AEA75EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B73BC1-31A7-4A9B-A137-52954AEA75EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B73BC1-31A7-4A9B-A137-52954AEA75EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B73BC1-31A7-4A9B-A137-52954AEA75EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{106917E4-4D0E-4CE4-8472-6CBAACC4BC5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{106917E4-4D0E-4CE4-8472-6CBAACC4BC5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{106917E4-4D0E-4CE4-8472-6CBAACC4BC5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{106917E4-4D0E-4CE4-8472-6CBAACC4BC5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
