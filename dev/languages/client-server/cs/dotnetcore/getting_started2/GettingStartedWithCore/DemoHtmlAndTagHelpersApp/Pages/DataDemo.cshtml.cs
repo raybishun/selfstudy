@@ -14,6 +14,9 @@ namespace DemoHtmlAndTagHelpersApp.Pages
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; } = "";
 
+        [BindProperty]
+        public PersonModel NewPerson { get; set; }
+
         public async Task OnGetAsync()
         {
             List<PersonModel> output = new List<PersonModel>();
@@ -31,6 +34,20 @@ namespace DemoHtmlAndTagHelpersApp.Pages
                 // Return the full list
                 // People = output;
             }
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                // Return page in the same condition
+                return Page();
+            }
+
+            People.Add(NewPerson);
+
+            // Essentially refresh the page and call OnGetAsync()
+            return RedirectToPage();
         }
     }
 }
