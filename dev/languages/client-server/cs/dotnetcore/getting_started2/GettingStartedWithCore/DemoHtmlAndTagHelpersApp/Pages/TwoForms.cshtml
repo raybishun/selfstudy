@@ -1,0 +1,25 @@
+﻿@page
+@model DemoHtmlAndTagHelpersApp.Pages.TwoFormsModel
+@{
+    ViewData["Title"] = "TwoForms";
+}
+
+<h1>Two Forms</h1>
+
+<p>
+    <h2>Add a new Person</h2>
+    <form method="post">
+        <div>First Name: <input asp-for="NewPerson.FirstName" /> </div>
+        <div>First Name: <input asp-for="NewPerson.LastName" /> </div>
+        <input type="submit" value="Create Person" asp-page-handler="Person"/>
+    </form>
+</p>
+
+<p>
+    <h2>Add a new Address</h2>
+    <form method="post">
+        <div>City: <input asp-for="NewAddress.City" /> </div>
+        <div>Address: <input asp-for="NewAddress.Country" /> </div>
+        <input type="submit" value="Create Address" asp-page-handler="Address"/>
+    </form>
+</p>
