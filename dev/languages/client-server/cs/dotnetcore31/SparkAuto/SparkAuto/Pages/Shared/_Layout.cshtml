@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,14 +9,16 @@
 
 
     @*RB: If Dev, use full Bootstrap*@
-    <environment include="Developement">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    </environment>
+<environment include="Developement">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <script src="https://kit.fontawesome.com/0dad1b90fd.js" crossorigin="anonymous"></script>
+</environment>
 
     @*RB: Else if prod, load mini Bootstrap*@
-    <environment exclude="Developement">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    </environment>
+<environment exclude="Developement">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="https://kit.fontawesome.com/0dad1b90fd.js" crossorigin="anonymous"></script>
+</environment>
 
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -25,7 +26,7 @@
 </head>
 
 
-<body>
+<body class="search-background">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
@@ -41,7 +42,7 @@
                             <a class="nav-link" asp-area="" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-page="/ServiceTypes/Index">Service Types</a>
                         </li>
                     </ul>
                 </div>
