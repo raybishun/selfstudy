@@ -25,7 +25,7 @@ namespace SparkAuto.Pages.ServiceTypes
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(ServiceType serviceType)
         {
             if (!ModelState.IsValid)
             {
