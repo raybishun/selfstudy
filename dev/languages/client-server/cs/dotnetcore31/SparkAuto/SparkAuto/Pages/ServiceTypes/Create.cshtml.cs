@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,6 +15,7 @@ namespace SparkAuto.Pages.ServiceTypes
             _db = db;
         }
 
+        [BindProperty]
         public ServiceType  ServiceType { get; set; }
 
         public IActionResult OnGet()
@@ -25,12 +23,19 @@ namespace SparkAuto.Pages.ServiceTypes
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(ServiceType serviceType)
+        // NOTE: Don't need to pass ServiceType to the OnPostAsync method as the
+        // [BindProperty] attribute is used for the ServiceType property above
+
+        //public async Task<IActionResult> OnPostAsync(ServiceType serviceType)
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
+
+            _db.ServiceType.Add(ServiceType);
+            await _db.SaveChangesAsync();
 
             return RedirectToPage("Index");
         }
