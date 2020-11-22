@@ -44,7 +44,7 @@ namespace SparkAuto.Pages.ServiceTypes
                 return Page();
             }
 
-            // _db.Attach(ServiceType).State = EntityState.Modified;
+            //_db.Attach(ServiceType).State = EntityState.Modified;
 
             //try
             //{
@@ -69,7 +69,7 @@ namespace SparkAuto.Pages.ServiceTypes
             serviceFromDb.Price = serviceFromDb.Price;
             await _db.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("Index");
         }
 
         //private bool ServiceTypeExists(int id)
