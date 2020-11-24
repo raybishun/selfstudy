@@ -16,5 +16,10 @@ namespace SparkAuto.Data
         // In the PM Console, don't forget to run:
         //  1/2: Add-Migration AddServiceTypeToTheDB
         //  2/2: Update-Database
+
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        // In the PM Console, don't forget to run:
+        //  1/2: Add-Migration AddApplicationUserToTheDB
+        //  2/2: Update-Database
     }
 }
