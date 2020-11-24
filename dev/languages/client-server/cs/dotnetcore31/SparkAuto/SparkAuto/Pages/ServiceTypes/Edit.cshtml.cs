@@ -65,11 +65,11 @@ namespace SparkAuto.Pages.ServiceTypes
             // RB (Replacement for the above commented code)
             // This only updates the properties that were changed (not all properties in the model)
             var serviceFromDb = await _db.ServiceType.FirstOrDefaultAsync(s => s.Id == ServiceType.Id);
-            serviceFromDb.Name = serviceFromDb.Name;
-            serviceFromDb.Price = serviceFromDb.Price;
+            serviceFromDb.Name = ServiceType.Name;
+            serviceFromDb.Price = ServiceType.Price;
             await _db.SaveChangesAsync();
 
-            return RedirectToPage("Index");
+            return RedirectToPage("./Index");
         }
 
         //private bool ServiceTypeExists(int id)
