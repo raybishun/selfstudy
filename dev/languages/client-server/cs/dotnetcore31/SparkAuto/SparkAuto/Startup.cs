@@ -41,14 +41,19 @@ namespace SparkAuto
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            
+
             // RB
             //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // RB
             // Removed: options => options.SignIn.RequireConfirmedAccount = true 
-            services.AddDefaultIdentity<IdentityUser>()
+
+            //services.AddDefaultIdentity<IdentityUser>()
+            //    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
