@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -36,7 +33,8 @@ namespace SparkAuto.Areas.Identity.Pages.Account
             }
             else
             {
-                return RedirectToPage();
+                // return RedirectToPage();
+                return RedirectToPage("Logout");
             }
         }
     }
