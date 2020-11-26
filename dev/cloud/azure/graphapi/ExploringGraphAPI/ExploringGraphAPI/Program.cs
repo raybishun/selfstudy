@@ -2,27 +2,33 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Graph;
 
 namespace ExploringGraphAPI
 {
     class Program
     {
+        static string _accessToken = string.Empty;
 
         static void Main(string[] args)
         {
+            GetTokenViaGraphExplorer();
             GetUnFilteredMessages();
             GetFilteredMessages();
             SendMail();
         }
 
-        static string GetToken()
+        static void GetTokenViaGraphExplorer()
         {
-            // Use Graph Explorer to get your temporary token: https://developer.microsoft.com/en-us/graph/graph-explorer
-            return "";
+            // Graph Explorer: https://developer.microsoft.com/en-us/graph/graph-explorer
+
+            string path = @"C:\SecureStore\AzureTenant.txt";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            _accessToken = lines[0];
         }
 
-        static GraphServiceClient Client(string accessToken)
+        static GraphServiceClient GraphClient(string accessToken)
         {
             return new GraphServiceClient(new DelegateAuthenticationProvider(async request =>
             {
@@ -32,42 +38,57 @@ namespace ExploringGraphAPI
 
         static void GetUnFilteredMessages(int qty = 5)
         {
-            var graphServiceClient = Client(GetToken());
+            var graphServiceClient = GraphClient(_accessToken);
 
-            var messages = graphServiceClient.Me.Messages.Request().Top(qty).GetAsync().Result;
-
-            foreach (var message in messages)
+            try
             {
-                Console.WriteLine($"{message.SentDateTime} \t {message.Subject}");
+                var messages = graphServiceClient.Me.Messages.Request().Top(qty).GetAsync().Result;
+                
+                foreach (var message in messages)
+                {
+                    Console.WriteLine($"{message.SentDateTime} \t {message.Subject}");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
             }
         }
 
         static void GetFilteredMessages(int qty = 3)
         {
-            var graphServiceClient = Client(GetToken());
+            var graphServiceClient = GraphClient(_accessToken);
 
-            var messages = graphServiceClient.Me.Messages.Request()
+            try
+            {
+                var messages = graphServiceClient.Me.Messages.Request()
                 .Select(m => new { m.Subject, m.SentDateTime })
                 .Filter("hasAttachments eq true")
                 .Expand(m => m.Attachments)
                 .Top(qty)
                 .GetAsync().Result;
 
-            foreach (var message in messages)
+                foreach (var message in messages)
+                {
+                    Console.WriteLine($"{message.SentDateTime} \t {message.Subject}");
+                }
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine($"{message.SentDateTime} \t {message.Subject}");
+                Console.WriteLine(ex.Message);
             }
         }
 
         static void SendMail()
         {
-            var graphServiceClient = Client(GetToken());
+            var graphServiceClient = GraphClient(_accessToken);
 
             var myMessage = new Message()
             {
                 ToRecipients = new List<Recipient> { new Recipient()
                     {
-                        EmailAddress = new EmailAddress() { Address = "ray.bishun@bitsbytes.com" }
+                        EmailAddress = new EmailAddress() { Address = "john_smith@e-mail.com" }
                     }
                 },
                 Subject = "Hello from GraphAPI",
@@ -88,7 +109,8 @@ namespace ExploringGraphAPI
 }
 
 // References
-// 1. https://developer.microsoft.com/en-us/graph/graph-explorer
-// 2. https://docs.microsoft.com/en-us/graph/overview
-// 3. https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0
-// 3. https://www.youtube.com/watch?v=1ytDvWdOMpI&t=1s
+// 1. Graph Explorer: https://developer.microsoft.com/en-us/graph/graph-explorer
+// 2. Overview of Microsoft Graph: https://docs.microsoft.com/en-us/graph/overview
+// 3. Microsoft Graph REST API v1.0 reference: https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0
+// 4. Decode Token: https://jwt.ms/
+// 5. Exploring the Microsoft Graph SDK: https://www.youtube.com/watch?v=1ytDvWdOMpI&t=1s
