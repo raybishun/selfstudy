@@ -43,7 +43,7 @@
 20. Add a client secret: MSALConfidentialClientSecret
 21. Expires: In 1 year
 22. Add
-23. *** You must copy the value and ID - they are ONLY viewable during this one time
+23. *** You must copy the Value and ID - they are ONLY viewable during this one time
 
 ### Create the PoC Console App
 1. In VS, create a Console App (.NET Core)
