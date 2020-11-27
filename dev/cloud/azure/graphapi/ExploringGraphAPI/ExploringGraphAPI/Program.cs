@@ -113,4 +113,3 @@ namespace ExploringGraphAPI
 // 2. Overview of Microsoft Graph: https://docs.microsoft.com/en-us/graph/overview
 // 3. Microsoft Graph REST API v1.0 reference: https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0
 // 4. Decode Token: https://jwt.ms/
-// 5. Exploring the Microsoft Graph SDK: https://www.youtube.com/watch?v=1ytDvWdOMpI&t=1s
