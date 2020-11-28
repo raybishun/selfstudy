@@ -3,10 +3,6 @@ using System;
 
 namespace manageappsecretsconsoleapp
 {
-    // Packages
-    // 1. Microsoft.Extensions.Configuration.Abstractions
-    // 2. Microsoft.Extensions.Configuration.UserSecrets
-
     class Program
     {
         static void Main(string[] args)

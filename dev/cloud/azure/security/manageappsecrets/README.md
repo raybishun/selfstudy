@@ -1,4 +1,4 @@
-# Manage User Secrets Notes
+# Manage User Secrets
 
 ### User Secret Id Reference
 - your .csproj file
