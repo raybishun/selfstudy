@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using manageappsecrets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
@@ -12,21 +8,22 @@ namespace manageappsecrets.Controllers
     [ApiController]
     public class SecretsController : ControllerBase
     {
-        public IConfiguration Configuration { get; }
+        public IConfiguration Config { get; }
         public SecretsController(IConfiguration configuration)
         {
-            Configuration = configuration;
+            Config = configuration;
         }
         
         // GET api/values
         [HttpGet]
         public IActionResult Get()
         {
-            var conStr = Configuration["ConnectionString"];
-            return Ok($"{conStr}");
+            // var conStr = Configuration["ConnectionString"];
+            // return Ok($"{conStr}");
 
-
-            // return Ok("Ok");
+            // Read the secrets using a model
+            var facebook = Config.GetSection("Facebook").Get<Facebook>();
+            return Ok($"Facebook AppSecret: {facebook.AppSecret}, Facebook AppId: {facebook.AppId}");
         }
     }
 }

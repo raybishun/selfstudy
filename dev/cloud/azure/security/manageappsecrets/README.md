@@ -35,3 +35,10 @@ type "The-full-path\appsettings.json" | dotnet user-secrets set --project manage
 ```
 dotnet user-secrets list --project manageappsecrets
 ```
+
+### Add IConfiguration to a Console App
+1. Add the below packages
+
+#### Packages
+- Microsoft.Extensions.Configuration.Abstractions
+- Microsoft.Extensions.Configuration.UserSecrets
