@@ -1,6 +1,7 @@
 ﻿using manageappsecrets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
 
 namespace manageappsecrets.Controllers
 {
@@ -18,12 +19,23 @@ namespace manageappsecrets.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            // var conStr = Configuration["ConnectionString"];
+            // Get a connection string
+            // ----------------------------------------------------------------
+            // var conStr = Config["ConnectionString"];
             // return Ok($"{conStr}");
 
-            // Read the secrets using a model
-            var facebook = Config.GetSection("Facebook").Get<Facebook>();
-            return Ok($"Facebook AppSecret: {facebook.AppSecret}, Facebook AppId: {facebook.AppId}");
+
+            // Using a model with secrets
+            // ----------------------------------------------------------------
+            //var facebook = Config.GetSection("Facebook").Get<Facebook>();
+            //return Ok($"Facebook AppSecret: {facebook.AppSecret}, Facebook AppId: {facebook.AppId}");
+
+
+            // Get local SQL credentials
+            // ----------------------------------------------------------------
+            var sqlCon = new SqlConnectionStringBuilder("Server=.;Database=MyDb;User Id=reader1");
+            sqlCon.Password = Config["DBPassword"];
+            return Ok(sqlCon.ToString());
         }
     }
 }
