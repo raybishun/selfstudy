@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace ExploringGraphAPI
+namespace GraphServiceClientPrototype
 {
     class ManageUserSecrets
     {

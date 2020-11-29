@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Graph;
 
-namespace ExploringGraphAPI
+namespace GraphServiceClientPrototype
 {
     class Program
     {
