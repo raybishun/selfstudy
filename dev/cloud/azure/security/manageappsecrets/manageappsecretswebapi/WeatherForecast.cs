@@ -1,6 +1,6 @@
 using System;
 
-namespace manageappsecrets
+namespace manageappsecretswebapi
 {
     public class WeatherForecast
     {

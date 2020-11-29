@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace manageappsecrets.Controllers
+namespace manageappsecretswebapi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

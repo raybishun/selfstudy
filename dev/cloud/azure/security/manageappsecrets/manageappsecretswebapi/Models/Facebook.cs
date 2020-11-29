@@ -1,4 +1,4 @@
-﻿namespace manageappsecrets.Models
+﻿namespace manageappsecretswebapi.Models
 {
     public class Facebook
     {

@@ -1,9 +1,9 @@
-﻿using manageappsecrets.Models;
+﻿using manageappsecretswebapi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 
-namespace manageappsecrets.Controllers
+namespace manageappsecretswebapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -39,6 +39,5 @@ namespace manageappsecrets.Controllers
         }
     }
 }
-
 
 // https://localhost:5001/api/secrets
