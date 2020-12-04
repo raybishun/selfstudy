@@ -13,10 +13,10 @@
         public string MobilePhone { get; set; }
         public string OfficeLocation { get; set; }
         public string PreferredLanguage { get; set; }
-        
-        //public override string ToString()
-        //{
-        //    return $"{Id}\n{UserPrincipalName}\n{GivenName}\n{Surname}\n{DisplayName}\n{JobTitle}\n{Mail}\n{BusinessPhones}\n{MobilePhone}\n{OfficeLocation}\n{PreferredLanguage}";
-        //}
+
+        public override string ToString()
+        {
+            return $"{Id}\n{UserPrincipalName}\n{GivenName}\n{Surname}\n{DisplayName}\n{JobTitle}\n{Mail}\n{BusinessPhones}\n{MobilePhone}\n{OfficeLocation}\n{PreferredLanguage}";
+        }
     }
 }

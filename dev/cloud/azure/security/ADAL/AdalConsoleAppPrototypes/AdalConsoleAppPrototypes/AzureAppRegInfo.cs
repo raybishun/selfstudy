@@ -1,6 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+﻿using System.Net;
+using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Specialized;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Newtonsoft.Json;
 
 namespace AdalConsoleAppPrototypes
 {
@@ -28,12 +32,33 @@ namespace AdalConsoleAppPrototypes
             RequestUri      = $"{config["RequestUri"]}/{Login}";
         }
 
-        public async Task<string> GetToken()
+        public async Task<string> GetTokenUsingADAL()
         {
             AuthenticationContext authContext = new AuthenticationContext(Authority);
             ClientCredential clientCredential = new ClientCredential(ClientId, ClientSecret);
             AuthenticationResult authResult = await authContext.AcquireTokenAsync(Resource, clientCredential);
             return authResult.AccessToken;
+        }
+
+        public async Task<string> GetTokenUsingLegacyWebClient()
+        {
+            using (var webClient = new WebClient())
+            {
+                var data = new NameValueCollection
+                {
+                    { "resource", Resource },
+                    { "client_id", ClientId },
+                    { "grant_type", "client_credentials" },
+                    { "client_secret", ClientSecret }
+                };
+
+                string address = $"{Authority}/oauth2/token";
+                byte[] bytesResult = await webClient.UploadValuesTaskAsync(address, "POST", data);
+                string jsonResult = Encoding.UTF8.GetString(bytesResult);
+                Token token = JsonConvert.DeserializeObject<Token>(jsonResult);
+                return token.Access_Token;
+                // TODO: Check if token is cached
+            }
         }
     }
 }

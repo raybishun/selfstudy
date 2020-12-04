@@ -1,23 +1,29 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace AdalConsoleAppPrototypes
 {
     class Program
     {
+        #region Notes
+        // Token valid for 1 hour
+        // Decode the JSON Web Token at: https://jwt.ms/
+        #endregion
+
         static readonly AzureAppRegInfo azureAppRegInfo = new AzureAppRegInfo();
         static readonly HttpClient httpClient = new HttpClient();
 
         static async Task Main(string[] args)
         {
-            string uri = azureAppRegInfo.RequestUri;
-            string token = await azureAppRegInfo.GetToken();
-            
-            // Console.WriteLine(await GetHttpResponseMessage(uri, token));
-            Console.WriteLine(await GetUserInfo(token, uri));
+            string requestUri = azureAppRegInfo.RequestUri;
+            string token = await azureAppRegInfo.GetTokenUsingADAL();
+
+            //Console.WriteLine(await GetHttpResponseMessage(requestUri, token));
+            //Console.WriteLine(await GetUserInfo(token, requestUri));
+            Console.WriteLine(await azureAppRegInfo.GetTokenUsingLegacyWebClient());
         }
 
         static async Task<HttpResponseMessage> GetHttpResponseMessage(string requestUri, string token)
