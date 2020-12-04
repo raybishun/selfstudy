@@ -27,6 +27,7 @@ namespace AdalConsoleAppPrototypes
             Resource        = config["Resource"];
             RequestUri      = $"{config["RequestUri"]}/{Login}";
         }
+
         public async Task<string> GetToken()
         {
             AuthenticationContext authContext = new AuthenticationContext(Authority);
