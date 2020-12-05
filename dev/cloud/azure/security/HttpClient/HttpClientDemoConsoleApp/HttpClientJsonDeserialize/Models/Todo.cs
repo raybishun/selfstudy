@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HttpClientIntroConsoleApp.Models
+﻿namespace HttpClientJsonDeserialize.Models
 {
-    class ToDo
+    class Todo
     {
         public int UserId { get; set; }
         public int Id { get; set; }
