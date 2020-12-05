@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_DeserializeObjec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_GetAsync", "HttpClient_GetAsync\HttpClient_GetAsync.csproj", "{EE36A2B0-3602-449C-A920-604BF7028CE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_Header", "HttpClient_Head\HttpClient_Header.csproj", "{CB3436D0-16C1-4F58-9218-8267E2B25AAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3436D0-16C1-4F58-9218-8267E2B25AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3436D0-16C1-4F58-9218-8267E2B25AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3436D0-16C1-4F58-9218-8267E2B25AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3436D0-16C1-4F58-9218-8267E2B25AAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
