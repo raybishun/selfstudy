@@ -13,14 +13,9 @@ namespace HttpClientJsonDeserialize
 
         static readonly HttpClient client = new HttpClient();
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            
-        }
-
-        static async Task ShowToDoListDeserializedAsync()
-        {
-            List<Todo> todoList = await GetToDoListDeserializedAsync();
+            List<Todo> todoList = await GetToDoListAsync();
 
             foreach (var todo in todoList)
             {
@@ -28,11 +23,11 @@ namespace HttpClientJsonDeserialize
             }
         }
 
-        static async Task<List<Todo>> GetToDoListDeserializedAsync()
+        static async Task<List<Todo>> GetToDoListAsync()
         {
-            string results = await client.GetStringAsync(requestUri);
+            string jsonResult = await client.GetStringAsync(requestUri);
 
-            return JsonConvert.DeserializeObject<List<Todo>>(results);
+            return JsonConvert.DeserializeObject<List<Todo>>(jsonResult);
         }
     }
 }
