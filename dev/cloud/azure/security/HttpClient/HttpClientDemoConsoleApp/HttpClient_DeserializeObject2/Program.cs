@@ -22,8 +22,9 @@ namespace HttpClient_DeserializeObject2
             client.DefaultRequestHeaders.Add("User-Agent", "My .NET Core Console App");
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            string requestUri = "repos/symfony/symfony/contributors";
-            
+            // string requestUri = "repos/raybishun/selfstudy/contributors";
+            string requestUri = "repos/dotnet/core/contributors";
+
             HttpResponseMessage response = await client.GetAsync(requestUri);
             response.EnsureSuccessStatusCode();
             var strResult = await response.Content.ReadAsStringAsync();
