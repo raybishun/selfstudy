@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_GetStringAsync",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_DeserializeObject", "HttpClientJsonDeserialize\HttpClient_DeserializeObject.csproj", "{96D6DF76-EC4B-4F2B-9D17-B006719AE026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_GetAsync", "HttpClient_GetAsync\HttpClient_GetAsync.csproj", "{EE36A2B0-3602-449C-A920-604BF7028CE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_GetAsync", "HttpClient_GetAsync\HttpClient_GetAsync.csproj", "{EE36A2B0-3602-449C-A920-604BF7028CE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_Header", "HttpClient_Head\HttpClient_Header.csproj", "{CB3436D0-16C1-4F58-9218-8267E2B25AAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_Header", "HttpClient_Head\HttpClient_Header.csproj", "{CB3436D0-16C1-4F58-9218-8267E2B25AAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_PostAsync", "HttpClient_PostAsync\HttpClient_PostAsync.csproj", "{53485621-6CFD-4B32-9C9B-CCCF94704C63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_PostAsync", "HttpClient_PostAsync\HttpClient_PostAsync.csproj", "{53485621-6CFD-4B32-9C9B-CCCF94704C63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_DeserializeObject2", "HttpClient_DeserializeObject2\HttpClient_DeserializeObject2.csproj", "{AF9F2221-088B-479D-9696-44310B785B9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{53485621-6CFD-4B32-9C9B-CCCF94704C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53485621-6CFD-4B32-9C9B-CCCF94704C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53485621-6CFD-4B32-9C9B-CCCF94704C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF9F2221-088B-479D-9696-44310B785B9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF9F2221-088B-479D-9696-44310B785B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF9F2221-088B-479D-9696-44310B785B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF9F2221-088B-479D-9696-44310B785B9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
