@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_GetStringAsync",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClient_DeserializeObject", "HttpClientJsonDeserialize\HttpClient_DeserializeObject.csproj", "{96D6DF76-EC4B-4F2B-9D17-B006719AE026}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_GetAsync", "HttpClient_GetAsync\HttpClient_GetAsync.csproj", "{EE36A2B0-3602-449C-A920-604BF7028CE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{96D6DF76-EC4B-4F2B-9D17-B006719AE026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96D6DF76-EC4B-4F2B-9D17-B006719AE026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D6DF76-EC4B-4F2B-9D17-B006719AE026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE36A2B0-3602-449C-A920-604BF7028CE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
