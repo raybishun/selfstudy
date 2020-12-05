@@ -28,6 +28,7 @@ namespace HttpClient_PostAsync
         {
             string jsonResult = JsonConvert.SerializeObject(person);
 
+            // Note: "application/json" is the official Internet media type for JSON
             StringContent data = new StringContent(jsonResult, Encoding.UTF8, "application/json");
 
             HttpResponseMessage response = await client.PostAsync(requestUri, data);
