@@ -14,7 +14,7 @@
 5. Name: DotnetCoreOIDCMiddlewareWithOkta
 6. Base URIs: https://localhost:5001
 7. Login redirect URIs: https://localhost:5001/signin-oidc
-8. Logout redirect URIs: http://localhost:5001
+8. Logout redirect URIs: https://localhost:5001/signout-callback-oidc
 9. Group assignments: Everyone
 10. Grant type allowed: Authorization Code
 11. Leave all other settings at their defaults
