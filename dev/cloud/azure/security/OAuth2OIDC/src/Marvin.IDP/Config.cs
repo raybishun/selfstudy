@@ -12,7 +12,10 @@ namespace Marvin.IDP
         public static IEnumerable<IdentityResource> IdentityResources =>
             new IdentityResource[]
             { 
-                new IdentityResources.OpenId()
+                new IdentityResources.OpenId(),
+                
+                // RB
+                new IdentityResources.Profile() // I.e. our given_name and family_name in TestUsers.cs
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
