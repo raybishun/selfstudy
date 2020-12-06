@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotnetCoreOIDCMiddlewareWithOkta.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DotnetCoreOIDCMiddlewareWithOkta.Controllers
 {
@@ -24,6 +25,18 @@ namespace DotnetCoreOIDCMiddlewareWithOkta.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Everyone")]
+        public IActionResult EnterHere()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
         {
             return View();
         }
