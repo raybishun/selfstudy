@@ -1,6 +1,6 @@
 using System;
 
-namespace DotnetCoreOIDCMiddlewareWithOkta.Models
+namespace aspnetcoreokta.Models
 {
     public class ErrorViewModel
     {

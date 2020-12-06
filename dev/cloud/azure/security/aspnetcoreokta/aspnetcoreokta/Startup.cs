@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 #endregion
 
-namespace DotnetCoreOIDCMiddlewareWithOkta
+namespace aspnetcoreokta
 {
     public class Startup
     {

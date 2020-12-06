@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authentication.Cookies;
 #endregion
 
-namespace DotnetCoreOIDCMiddlewareWithOkta.Controllers
+namespace aspnetcoreokta.Controllers
 {
     public class AccountController : Controller
     {
