@@ -1,4 +1,4 @@
-﻿namespace AdalConsoleAppPrototypes
+﻿namespace AdalConsoleAppPrototypes.Models
 {
     class Token
     {
@@ -9,5 +9,10 @@
         public string Not_Before { get; set; }
         public string Resource { get; set; }
         public string Access_Token { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Access_Token}\n{Token_Type}\n{Expires_In}";
+        }
     }
 }

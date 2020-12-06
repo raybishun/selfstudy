@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_DownloadImage", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_BasicAuth", "HttpClient_BasicAuth\HttpClient_BasicAuth.csproj", "{5CD1D025-888D-4AAD-B360-BAD88EAB5893}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpClient_AcquireToken", "HttpClient_AcquireToken\HttpClient_AcquireToken.csproj", "{39578614-056F-49D7-A60A-DA82ED7BAF90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{5CD1D025-888D-4AAD-B360-BAD88EAB5893}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD1D025-888D-4AAD-B360-BAD88EAB5893}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD1D025-888D-4AAD-B360-BAD88EAB5893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39578614-056F-49D7-A60A-DA82ED7BAF90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39578614-056F-49D7-A60A-DA82ED7BAF90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39578614-056F-49D7-A60A-DA82ED7BAF90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39578614-056F-49D7-A60A-DA82ED7BAF90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

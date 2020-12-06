@@ -1,4 +1,4 @@
-﻿namespace AdalConsoleAppPrototypes
+﻿namespace AdalConsoleAppPrototypes.Models
 {
     class User
     {

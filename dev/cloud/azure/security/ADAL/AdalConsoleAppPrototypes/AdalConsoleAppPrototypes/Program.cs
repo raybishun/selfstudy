@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using AdalConsoleAppPrototypes.Models;
 using Newtonsoft.Json;
 
 namespace AdalConsoleAppPrototypes
@@ -21,9 +22,10 @@ namespace AdalConsoleAppPrototypes
             string requestUri = azureAppRegInfo.RequestUri;
             string token = await azureAppRegInfo.GetTokenUsingADAL();
 
-            //Console.WriteLine(await GetHttpResponseMessage(requestUri, token));
-            //Console.WriteLine(await GetUserInfo(token, requestUri));
+            // Console.WriteLine(await GetHttpResponseMessage(requestUri, token));
+            // Console.WriteLine(await GetUserInfo(token, requestUri));
             Console.WriteLine(await azureAppRegInfo.GetTokenUsingLegacyWebClient());
+            // Console.WriteLine(await azureAppRegInfo.GetTokenUsingHttpClient());
         }
 
         static async Task<HttpResponseMessage> GetHttpResponseMessage(string requestUri, string token)
