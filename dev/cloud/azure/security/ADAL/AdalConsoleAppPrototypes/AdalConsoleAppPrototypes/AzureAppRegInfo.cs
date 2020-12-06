@@ -1,10 +1,15 @@
-﻿using System.Net;
-using System.Text;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Net;
+using System.Text;
 using System.Collections.Specialized;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
+using System.Net.Http;
+using AdalConsoleAppPrototypes.Models;
+using System.Net.Http.Headers;
 
 namespace AdalConsoleAppPrototypes
 {
@@ -21,7 +26,9 @@ namespace AdalConsoleAppPrototypes
         public AzureAppRegInfo()
         {
             string path = @"C:\Users\raybi\AppData\Roaming\Microsoft\UserSecrets\544a3da6-1731-45f0-a62d-24ad835ac991\secrets.json";
-            IConfiguration config = new ConfigurationBuilder().AddJsonFile(path, true, true).Build();
+            IConfiguration config = new ConfigurationBuilder()
+                .AddJsonFile(path, true, true)
+                .Build();
 
             TenantId        = config["TenantId"];
             ClientId        = config["ClientId"];
@@ -40,7 +47,32 @@ namespace AdalConsoleAppPrototypes
             return authResult.AccessToken;
         }
 
-        public async Task<string> GetTokenUsingLegacyWebClient()
+        public async Task<Token> GetTokenUsingHttpClient()
+        {
+            string credentials = $"{ClientId}:{ClientSecret}";
+
+            using (HttpClient client = new HttpClient())
+            {
+                // Define Headers
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.UTF8.GetBytes(credentials)));
+
+                // Prepare Request Body
+                List<KeyValuePair<string, string>> data = new List<KeyValuePair<string, string>>();
+                data.Add(new KeyValuePair<string, string>("grant_type", "client_credentials"));
+                FormUrlEncodedContent requestBody = new FormUrlEncodedContent(data);
+
+                // Request Token
+                HttpResponseMessage response = await client.PostAsync($"{Authority}/oauth2/token", requestBody);
+                string jsonResult = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<Token>(jsonResult);
+
+                // TODO: Check if token is cached
+            }
+        }
+
+        public async Task<Token> GetTokenUsingLegacyWebClient()
         {
             using (var webClient = new WebClient())
             {
@@ -53,10 +85,13 @@ namespace AdalConsoleAppPrototypes
                 };
 
                 string address = $"{Authority}/oauth2/token";
+
                 byte[] bytesResult = await webClient.UploadValuesTaskAsync(address, "POST", data);
+
                 string jsonResult = Encoding.UTF8.GetString(bytesResult);
-                Token token = JsonConvert.DeserializeObject<Token>(jsonResult);
-                return token.Access_Token;
+
+                return JsonConvert.DeserializeObject<Token>(jsonResult);
+
                 // TODO: Check if token is cached
             }
         }
