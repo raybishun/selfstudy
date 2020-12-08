@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace TopsyTurvyCakes2
+namespace TopsyTurvyCakes
 {
     public class Startup
     {
@@ -26,11 +26,7 @@ namespace TopsyTurvyCakes2
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.Run(async (context) =>
-            //{
-            //    await context.Response.WriteAsync("Hello World!");
-            //});
-
+            app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
         }
     }
