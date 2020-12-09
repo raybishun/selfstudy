@@ -26,18 +26,27 @@
                             <a href="/Account/Login">Login</a> }
                         else
                         {
-                        <form method="post">
-                            <div class="input-group">
-                                <span>@User.Identity.IsAuthenticated</span>
-                                <button type="submit" class="btn btn-link">Logout</button>
-                            </div>
-                        </form>}
+                            <form method="post">
+                                <div class="input-group">
+                                    <span>@User.Identity.IsAuthenticated</span>
+                                    <button type="submit" class="btn btn-link">Logout</button>
+                                </div>
+                            </form>
+                        }
                     </li>
                 </ul>
             </nav>
         </div>
         <div class="row">
-            <h2 class="title">My Favorite Recipes</h2>
+            @*<h2 class="title">My Favorite Recipes</h2>*@
+            @if (IsSectionDefined("Title"))
+            {
+                @RenderSection("Title", required: false)
+            }
+            else 
+            { 
+                <h2 class="title">@ViewData["Title"]</h2>
+            }
         </div>
     </header>
 
