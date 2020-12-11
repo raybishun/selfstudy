@@ -1,10 +1,11 @@
 ﻿@page "{id}"
-@{
+@{ 
     var id = long.Parse((string)RouteData.Values["id"]);
     var recipe = await RecipesService.FindAsync(id);
 
     ViewData["Title"] = recipe.Name;
 }
+
 <div class="row recipe">
 
     <div class="col-md-8">
@@ -12,7 +13,7 @@
         <div class="col-md-12">
 
             <span class="description">
-                @recipe.Description;
+                @recipe.Description
             </span>
 
             <hr />

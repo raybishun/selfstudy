@@ -21,14 +21,12 @@
                 </ul>
                 <ul class="nav nav-pills">
                     <li>
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <a href="/Account/Login">Login</a> }
-                        else
-                        {
+                        @if(!User.Identity.IsAuthenticated) {
+                            <a href="/Account/Login">Login</a>
+                        } else {
                             <form method="post">
                                 <div class="input-group">
-                                    <span>@User.Identity.IsAuthenticated</span>
+                                    <span>@User.Identity.Name</span>
                                     <button type="submit" class="btn btn-link">Logout</button>
                                 </div>
                             </form>
@@ -38,13 +36,10 @@
             </nav>
         </div>
         <div class="row">
-            @*<h2 class="title">My Favorite Recipes</h2>*@
             @if (IsSectionDefined("Title"))
             {
                 @RenderSection("Title", required: false)
-            }
-            else 
-            { 
+            } else {
                 <h2 class="title">@ViewData["Title"]</h2>
             }
         </div>
@@ -52,8 +47,8 @@
 
     <div class="container">
 
-        @RenderBody()
-
+       @RenderBody()
+            
     </div>
 
     <footer>
